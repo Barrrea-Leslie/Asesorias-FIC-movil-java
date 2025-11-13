@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_asesoriasEnCurso"
+            android:title="@string/nombre_nav_asesorias_en_curso"
+            />
+        <item
+            android:id="@+id/nav_solicitudesPendientes"
+            android:title="@string/nombre_nav_solicitudes_pendientes"
+            />
+        <item
+            android:id="@+id/nav_reportes"
+            android:title="@string/nombre_nav_reportes"
+            />
+        <item
+            android:id="@+id/asesoresDiciplnares"
+            android:title="@string/nombre_nav_asesores_diciplinares"
+            />
+        <item
+            android:id="@+id/AsesoresPar"
+            android:title="@string/nombre_nav_asesores_par"
+            />
+        <item
+            android:id="@+id/Estudiantes"
+            android:title="@string/nombre_nav__estudiantes"
+            />
+        <item
+            android:id="@+id/cerrarSecion"
+            android:icon="@drawable/logout_icon"
+            android:title="@string/nombre_nav_cerrar_sesion"
+            />
+
+    </group>
+
+
+</menu>

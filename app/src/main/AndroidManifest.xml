@@ -12,7 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
-            android:name=".MainActivity"
+            android:name=".reportesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".solicitudesPendientesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".asesoriasEnCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DrawerBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InicioActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

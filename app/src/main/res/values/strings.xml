@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Asesorias FIC</string>
+    <string name="nombre_nav_asesorias_en_curso">Asesorias en curso</string>
+    <string name="nombre_nav_solicitudes_pendientes">Solicitudes pendientes</string>
+    <string name="nombre_nav_reportes">Reportes</string>
+    <string name="nombre_nav_asesores_diciplinares">Asesores diciplinares</string>
+    <string name="nombre_nav_asesores_par">Asesores par</string>
+    <string name="nombre_nav__estudiantes">Estudiantes</string>
+    <string name="nombre_nav_cerrar_sesion">Cerrar Sesion</string>
+
+    <string name="open_navigation_drower">Open</string>
+    <string name="close_navigation_drower">Close</string>
 </resources>
