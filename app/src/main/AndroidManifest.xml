@@ -24,6 +24,9 @@
             android:name=".acyivity_asesores_diciplinares"
             android:exported="false" />
         <activity
+            android:name=".ListaAsesoresActivity"
+            android:exported="false" />
+        <activity
             android:name=".reportesActivity"
             android:exported="false" />
         <activity
