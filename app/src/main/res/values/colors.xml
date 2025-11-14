@@ -8,6 +8,9 @@
     <color name="blue">#41a4ec</color>
 
     <color name="azulUAS">#08338f</color>
+    <color name="amarilloUAS">#c49e0d</color>
     <color name="gris">#f2f3f5</color>
     <color name="textoInputs">#b4b4b4</color>
+    <color name="botonAzulClaro">#41a4ec</color>
+    <color name="botonVerder">#47a757</color>
 </resources>

@@ -12,4 +12,8 @@
     <string name="close_navigation_drower">Close</string>
     <string name="textoInputCuenta">No. Cuenta</string>
     <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_crearAsesoria">Crear Asesoria</string>
+    <string name="texto_btn_infoAsesorias">Info</string>
+    <string name="texto_btn_completarAsesoria">Completada</string>
+    <string name="tecto_btn_material_adicional">Material Adicional</string>
 </resources>
