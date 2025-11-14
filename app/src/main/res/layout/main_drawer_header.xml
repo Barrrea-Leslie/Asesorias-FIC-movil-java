@@ -6,16 +6,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="176dp"
+        android:layout_height="180dp"
         android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:padding="16dp"
+        android:padding="25dp"
         android:background="@color/azulUAS"
+        android:gravity="center"
         >
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/logofacultad_icon"
             />
 

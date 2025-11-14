@@ -8,6 +8,7 @@
     tools:context=".DrawerBaseActivity"
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
+
     >
 
     <include layout="@layout/content_layout"
@@ -22,6 +23,9 @@
         android:id="@+id/nav_view"
         app:headerLayout="@layout/main_drawer_header"
         app:menu="@menu/main_drawer_menu"
+        android:background="@color/azulUAS"
+        app:itemTextColor="@color/white"
+
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>

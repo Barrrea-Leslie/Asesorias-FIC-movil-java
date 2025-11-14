@@ -11,7 +11,7 @@
         android:id="@+id/imgAsesores"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/logofic_icon"
+        android:src="@drawable/logofacultad_icon"
         android:layout_marginEnd="16dp"
         />
 

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
-            android:name=".loginActivity"
+            android:name=".InicioActivity"
             android:exported="false" />
         <activity
             android:name=".estudiantesActivity"
@@ -42,7 +42,7 @@
             android:name=".DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".InicioActivity"
+            android:name=".loginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

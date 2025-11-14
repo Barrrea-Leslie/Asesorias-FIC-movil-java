@@ -12,23 +12,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.adaptador.AsesorAdapter;
+import com.lesliefic.asesoriasfic.databinding.ActivityListaAsesoresBinding;
 import com.lesliefic.asesoriasfic.modelo.Asesor;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ListaAsesoresActivity extends AppCompatActivity {
+public class ListaAsesoresActivity extends DrawerBaseActivity {
+
+    ActivityListaAsesoresBinding activityListaAsesoresBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_lista_asesores);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        activityListaAsesoresBinding = activityListaAsesoresBinding.inflate(getLayoutInflater());
+        setContentView(activityListaAsesoresBinding.getRoot());
+
+
         RecyclerView rv = findViewById(R.id.rvAsesores);
         rv.setLayoutManager(new LinearLayoutManager(this));
         List<Asesor> asesores = Arrays.asList(

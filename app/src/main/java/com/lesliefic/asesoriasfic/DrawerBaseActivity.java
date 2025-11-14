@@ -57,7 +57,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             iniciarNuevaActividad(asesoresDiciplinaresActivity.class);
         }
         else if (itemid == R.id.AsesoresPar) {
-            iniciarNuevaActividad(asesoresParActivity.class);
+            iniciarNuevaActividad(ListaAsesoresActivity.class);
         }
         else if (itemid == R.id.Estudiantes){
             iniciarNuevaActividad(estudiantesActivity.class);
