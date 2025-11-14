@@ -5,17 +5,174 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".estudiantesActivity">
+    android:padding="30dp"
+    tools:context=".asesoresDiciplinaresActivity">
 
     <TextView
+        android:id="@+id/tvTextPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Estudiantes"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tvBuscar"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:hint="Buscar"
+        android:background="@drawable/bg_buscador"
+        android:padding="15dp"
+        android:layout_marginTop="75dp"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        app:layout_constraintEnd_toEndOf="@id/tvTextPrincipal"
+        app:layout_constraintStart_toStartOf="@id/tvTextPrincipal"
+        app:layout_constraintTop_toTopOf="@id/tvTextPrincipal"/>
+
+
+    <LinearLayout
+        android:id="@+id/etTarjeta1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
+        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/tvBuscar"
+        android:background="@drawable/style_tarjeta_diciplinares"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_foto"
+            android:layout_marginEnd="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenifer Guadalupe Tizoc Lopez"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/etTarjeta2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
+        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/etTarjeta1"
+        android:background="@drawable/style_tarjeta_diciplinares"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_foto"
+            android:layout_marginEnd="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jose Angel Astorga Mejia"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/etTarjeta3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
+        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/etTarjeta2"
+        android:background="@drawable/style_tarjeta_diciplinares"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_foto"
+            android:layout_marginEnd="30dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenifer Guadalupe Tizoc Lopez"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/etTarjeta2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:gravity="center"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:text="Alfredo"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        android:background="#08338f"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/etTarjeta1"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/etTarjeta1"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/etTarjeta1"-->
+    <!--        android:drawableStart="@drawable/user"/>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/edTarjeta3"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:background="#08338f"-->
+    <!--        android:drawableStart="@drawable/user"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="alfredo"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/etTarjeta2"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/etTarjeta2"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/etTarjeta2" />-->
+
+    <Button
+        android:id="@+id/btn_Guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="estudiantes"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="400dp"
+        android:text="@string/crear_asesor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:backgroundTint="#12A828"
+        android:textColor="@color/white"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
