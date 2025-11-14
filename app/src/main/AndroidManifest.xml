@@ -12,13 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
+            android:name=".estudiantesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".asesoresDiciplinaresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".asesoresParActivity"
+            android:exported="false" />
+        <activity
+            android:name=".acyivity_asesores_diciplinares"
+            android:exported="false" />
+        <activity
             android:name=".reportesActivity"
             android:exported="false" />
         <activity
             android:name=".solicitudesPendientesActivity"
             android:exported="false" />
         <activity
-            android:name=".asesoriasEnCursoActivity"
+            android:name=".asesoriasCursoActivity"
             android:exported="false" />
         <activity
             android:name=".DrawerBaseActivity"

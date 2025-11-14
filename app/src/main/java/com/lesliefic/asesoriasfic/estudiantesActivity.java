@@ -8,16 +8,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.lesliefic.asesoriasfic.databinding.ActivityAsesoriasEnCursoBinding;
+import com.lesliefic.asesoriasfic.databinding.ActivityEstudiantesBinding;
 import com.lesliefic.asesoriasfic.databinding.ActivityInicioBinding;
 
-public class asesoriasEnCursoActivity extends DrawerBaseActivity {
+public class estudiantesActivity extends DrawerBaseActivity {
 
-    ActivityAsesoriasEnCursoBinding activityAsesoriasEnCursoBinding;
+    ActivityEstudiantesBinding activityEstudiantesBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityAsesoriasEnCursoBinding = activityAsesoriasEnCursoBinding.inflate(getLayoutInflater());
-        setContentView(activityAsesoriasEnCursoBinding.getRoot());
+        activityEstudiantesBinding = activityEstudiantesBinding.inflate(getLayoutInflater());
+        setContentView(activityEstudiantesBinding.getRoot());
+
+
     }
 }
