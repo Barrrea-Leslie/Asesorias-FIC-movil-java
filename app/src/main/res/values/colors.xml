@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="azulUAS">#08338f</color>
+    <color name="gris">#f2f3f5</color>
+    <color name="textoInputs">#b4b4b4</color>
 </resources>

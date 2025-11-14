@@ -10,4 +10,6 @@
 
     <string name="open_navigation_drower">Open</string>
     <string name="close_navigation_drower">Close</string>
+    <string name="textoInputCuenta">No. Cuenta</string>
+    <string name="btn_ingresar">Ingresar</string>
 </resources>
