@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class loginActivity extends AppCompatActivity {
 
-    String prueba;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +43,17 @@ public class loginActivity extends AppCompatActivity {
                 Intent ingresarPaginaPrincipal = new Intent(loginActivity.this, InicioActivity.class);
                 startActivity(ingresarPaginaPrincipal);
             }
+            else{
+                toastNotificacion("Credenciales incorrectas, intente de nuevo");
+            }
 
 
         });
 
+    }
+
+    public void toastNotificacion(String message){
+        Toast.makeText(loginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

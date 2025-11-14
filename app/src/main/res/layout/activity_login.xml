@@ -33,31 +33,28 @@
             android:id="@+id/input_cuenta"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/style_input_cuenta_login"
             android:drawableStart="@drawable/usuario_icon"
             android:drawablePadding="10dp"
+            android:hint="@string/textoInputCuenta"
             android:inputType="number"
-            android:text="@string/textoInputCuenta"
-            android:textColor="@color/textoInputs"
-            android:background="@drawable/style_input_cuenta_login"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:layout_margin="0dp"
-            />
+            android:textColor="@color/textoInputs" />
 
         <EditText
             android:id="@+id/input_nip"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/style_input_nip_login"
             android:drawableStart="@drawable/nip_icon"
             android:drawablePadding="10dp"
             android:inputType="textPassword"
-            android:text="@string/textoInputCuenta"
-            android:textColor="@color/textoInputs"
-            android:background="@drawable/style_input_nip_login"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:layout_margin="0dp"
-            />
+            android:textColor="@color/textoInputs" />
 
         <Button
             android:id="@+id/btn_ingresar"
