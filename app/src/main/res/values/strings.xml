@@ -17,4 +17,12 @@
 
     <string name="textoInputCuenta">No. Cuenta</string>
     <string name="btn_ingresar">Ingresar</string>
+
+
+    <string name="id_Text1">Asesores Disiplinares</string>
+    <string name="id_tvbuscar">Buscar</string>
+    <string name="crear_asesor">Crear Asesor</string>
+    <string name="text2">Magali</string>
+    <string name="text3">Alfredo</string>
+    <string name="text4">alfredo</string>
 </resources>
