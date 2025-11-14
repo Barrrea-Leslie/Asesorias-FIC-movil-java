@@ -29,7 +29,7 @@
             />
         <item
             android:id="@+id/cerrarSecion"
-            android:icon="@drawable/logout_icon"
+            android:icon="@drawable/icon_logout"
             android:title="@string/nombre_nav_cerrar_sesion"
             />
 

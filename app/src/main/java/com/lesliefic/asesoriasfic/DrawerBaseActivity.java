@@ -62,6 +62,9 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         else if (itemid == R.id.Estudiantes){
             iniciarNuevaActividad(estudiantesActivity.class);
         }
+        else if (itemid == R.id.cerrarSecion){
+            iniciarNuevaActividad(loginActivity.class);
+        }
 
     }
 

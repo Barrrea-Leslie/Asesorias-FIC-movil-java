@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
+            android:name=".loginActivity"
+            android:exported="false" />
+        <activity
             android:name=".estudiantesActivity"
             android:exported="false" />
         <activity

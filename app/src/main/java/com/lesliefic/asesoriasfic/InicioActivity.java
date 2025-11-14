@@ -12,6 +12,8 @@ import com.lesliefic.asesoriasfic.databinding.ActivityInicioBinding;
 
 public class InicioActivity extends DrawerBaseActivity {
 
+
+
     ActivityInicioBinding activityInicioBinding;
 
     @Override
