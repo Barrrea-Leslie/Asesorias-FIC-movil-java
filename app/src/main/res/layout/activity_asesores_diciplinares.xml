@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/id_Text1"
+        android:text="jennyyy"
         android:textSize="20dp"
         android:textStyle="bold"
         android:gravity="center"
