@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class loginActivity extends AppCompatActivity {
 
+    String prueba;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,4 +47,5 @@ public class loginActivity extends AppCompatActivity {
         });
 
     }
+
 }
