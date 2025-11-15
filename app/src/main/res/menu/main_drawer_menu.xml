@@ -5,32 +5,39 @@
 
         <item
             android:id="@+id/nav_asesoriasEnCurso"
+            android:icon="@drawable/icon_curso"
             android:title="@string/nombre_nav_asesorias_en_curso"
             />
         <item
+            android:icon="@drawable/icon_pendientes"
             android:id="@+id/nav_solicitudesPendientes"
             android:title="@string/nombre_nav_solicitudes_pendientes"
             />
         <item
             android:id="@+id/nav_reportes"
+            android:icon="@drawable/icon_reporte"
             android:title="@string/nombre_nav_reportes"
             />
         <item
+            android:icon="@drawable/icon_asesores"
             android:id="@+id/asesoresDiciplnares"
             android:title="@string/nombre_nav_asesores_diciplinares"
             />
         <item
             android:id="@+id/AsesoresPar"
+            android:icon="@drawable/icon_asesores"
             android:title="@string/nombre_nav_asesores_par"
             />
         <item
             android:id="@+id/Estudiantes"
+            android:icon="@drawable/icon_estudiante"
             android:title="@string/nombre_nav__estudiantes"
             />
         <item
             android:id="@+id/cerrarSecion"
             android:icon="@drawable/icon_logout"
             android:title="@string/nombre_nav_cerrar_sesion"
+
             />
 
     </group>

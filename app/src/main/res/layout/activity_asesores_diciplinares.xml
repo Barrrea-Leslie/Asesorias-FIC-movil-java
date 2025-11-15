@@ -8,17 +8,18 @@
     android:padding="30dp"
     tools:context=".asesoresDiciplinaresActivity">
 
+
+
     <TextView
         android:id="@+id/tvTextPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="jennyjj"
-        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Aesores Diciplinares"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="12dp"
-        android:layout_marginBottom="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
@@ -166,12 +167,13 @@
         android:id="@+id/btn_Guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+
         android:text="@string/crear_asesor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        android:backgroundTint="#12A828"
+        app:backgroundTint="@null"
+        android:background="@drawable/style_btn_crear"
         android:textColor="@color/white"
         />
 

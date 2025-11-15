@@ -25,7 +25,9 @@
         app:menu="@menu/main_drawer_menu"
         android:background="@color/azulUAS"
         app:itemTextColor="@color/white"
-
+        app:itemIconTint="@color/white"
+        app:itemMaxLines="@integer/material_motion_duration_long_1"
+        
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>
