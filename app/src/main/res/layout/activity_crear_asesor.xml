@@ -1,0 +1,135 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="Regresar"
+            android:padding="4dp"
+            android:layout_gravity="start"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:text="Crear Asesor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Nombre -->
+        <TextView
+            android:text="Nombre Completo"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:hint="Escribe el nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Teléfono -->
+        <TextView
+            android:text="Numero telefónico"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:inputType="phone"
+            android:hint="Teléfono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Correo -->
+        <TextView
+            android:text="Correo institucional"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:inputType="textEmailAddress"
+            android:hint="correo@ejemplo.com"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Materias -->
+        <TextView
+            android:text="Materias que asesora"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAñadirMateria"
+            android:text="+ Añadir"
+            android:backgroundTint="#51A351"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutMaterias"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <!-- Horarios -->
+        <TextView
+            android:text="Horarios de asesoría"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAñadirHorario"
+            android:text="+ Añadir"
+            android:backgroundTint="#51A351"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutHorarios"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btnGuardar"
+            android:text="Guardar"
+            android:backgroundTint="#002D72"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>
