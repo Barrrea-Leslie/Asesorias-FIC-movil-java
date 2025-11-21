@@ -11,39 +11,33 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.lesliefic.asesoriasfic.databinding.ActivityAsesoresDiciplinaresBinding;
+public class crearAsesoresDisiplinares extends AppCompatActivity {
 
-
-public class asesoresDiciplinaresActivity extends DrawerBaseActivity {
-
-    Button btn_Guardar;
-    ActivityAsesoresDiciplinaresBinding activityAsesoresDiciplinaresBinding;
-
+    Button btn_crearAsesorDisiplinar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityAsesoresDiciplinaresBinding = activityAsesoresDiciplinaresBinding.inflate(getLayoutInflater());
-        setContentView(activityAsesoresDiciplinaresBinding.getRoot());
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_crear_asesores_disiplinares);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
 
         });
+        //iteraccion del boton
+        btn_crearAsesorDisiplinar = findViewById(R.id.btn_crearAsesorDisiplinar);
 
-        btn_Guardar = findViewById(R.id.btn_Guardar);
-
-        btn_Guardar.setOnClickListener(new View.OnClickListener() {
+        btn_crearAsesorDisiplinar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(asesoresDiciplinaresActivity.this, crearAsesoresDisiplinares.class);
+                Intent intent = new Intent(crearAsesoresDisiplinares.this, asesoresDiciplinaresActivity.class);
                 startActivity(intent);
             }
         });
 
 
+
+
     }
-
-
-
 }
