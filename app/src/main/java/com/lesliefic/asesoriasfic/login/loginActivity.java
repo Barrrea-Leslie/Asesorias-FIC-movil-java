@@ -1,4 +1,4 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.lesliefic.asesoriasfic.R;
+import com.lesliefic.asesoriasfic.rol_administrador.InicioActivity;
 
 public class loginActivity extends AppCompatActivity {
 

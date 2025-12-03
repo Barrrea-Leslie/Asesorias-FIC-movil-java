@@ -1,4 +1,4 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.content.Intent;
 import android.view.MenuItem;
@@ -14,6 +14,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.lesliefic.asesoriasfic.R;
+import com.lesliefic.asesoriasfic.login.loginActivity;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,7 +56,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             iniciarNuevaActividad(reportesActivity.class);
         }
         else if(itemid == R.id.asesoresDiciplnares){
-            iniciarNuevaActividad(asesoresDiciplinaresActivity.class);
+            iniciarNuevaActividad(asesoresDisciplinaresActivity.class);
         }
         else if (itemid == R.id.AsesoresPar) {
             iniciarNuevaActividad(ListaAsesoresActivity.class);
