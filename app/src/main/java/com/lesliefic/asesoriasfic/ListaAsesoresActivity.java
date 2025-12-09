@@ -1,6 +1,8 @@
 package com.lesliefic.asesoriasfic;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -40,5 +42,13 @@ public class ListaAsesoresActivity extends DrawerBaseActivity {
         AsesorAdapter adapter = new AsesorAdapter(asesores, asesor ->
                 Toast.makeText(this, "click" + asesor.getNombre(), Toast.LENGTH_SHORT).show());
         rv.setAdapter(adapter);
+
+        Button btnCrearAsesorPar;
+
+        btnCrearAsesorPar = findViewById(R.id.btnCrearAsesor);
+
+        btnCrearAsesorPar.setOnClickListener(v -> {
+            startActivity(new Intent(ListaAsesoresActivity.this, ));
+        });
     }
 }
