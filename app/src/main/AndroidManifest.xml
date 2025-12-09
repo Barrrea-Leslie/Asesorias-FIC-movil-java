@@ -12,40 +12,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
-            android:name=".crearAsesoresDisiplinares"
+            android:name=".rol_administrador.crearAsesoresDisiplinares"
             android:exported="false" />
         <activity
-            android:name=".InicioActivity"
+            android:name=".rol_administrador.InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".estudiantesActivity"
+            android:name=".rol_administrador.estudiantesActivity"
             android:exported="false" />
         <activity
-            android:name=".asesoresDiciplinaresActivity"
+            android:name=".rol_administrador.asesoresDiciplinaresActivity"
             android:exported="false" />
         <activity
-            android:name=".asesoresParActivity"
+            android:name=".rol_administrador.asesoresParActivity"
             android:exported="false" />
         <activity
             android:name=".acyivity_asesores_diciplinares"
             android:exported="false" />
         <activity
-            android:name=".ListaAsesoresActivity"
+            android:name=".rol_administrador.ListaAsesoresActivity"
             android:exported="false" />
         <activity
-            android:name=".reportesActivity"
+            android:name=".rol_administrador.reportesActivity"
             android:exported="false" />
         <activity
-            android:name=".solicitudesPendientesActivity"
+            android:name=".rol_administrador.solicitudesPendientesActivity"
             android:exported="false" />
         <activity
             android:name=".asesoriasCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".DrawerBaseActivity"
+            android:name=".rol_administrador.DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
+            android:name=".login.loginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
