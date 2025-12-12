@@ -1,6 +1,8 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,5 +39,13 @@ public class ListaAsesoresActivity extends DrawerBaseActivity {
         AsesorParAdapter adapter = new AsesorParAdapter(asesores, asesorPar ->
                 Toast.makeText(this, "click" + asesorPar.getNombre(), Toast.LENGTH_SHORT).show());
         rv.setAdapter(adapter);
+
+        Button btnCrearAsesorPar;
+
+        btnCrearAsesorPar = findViewById(R.id.btnCrearAsesor);
+
+        btnCrearAsesorPar.setOnClickListener(v -> {
+            startActivity(new Intent(ListaAsesoresActivity.this, ));
+        });
     }
 }
