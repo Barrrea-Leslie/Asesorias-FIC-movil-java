@@ -1,180 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
-    tools:context=".rol_administrador.asesoresDiciplinaresActivity">
-
+    tools:context=".rol_administrador.asesoresDisciplinaresActivity">
 
 
     <TextView
-        android:id="@+id/tvTextPrincipal"
-        android:layout_width="match_parent"
+        android:id="@+id/txtAsesores"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_centerHorizontal="true"
+
         android:layout_marginTop="10dp"
-        android:text="Aesores Diciplinares"
+        android:text="Asesores Diciplinares"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/tvBuscar"
-        android:layout_height="48dp"
-        android:layout_width="match_parent"
-        android:hint="Buscar"
-        android:background="@drawable/bg_buscador"
-        android:padding="15dp"
-        android:layout_marginTop="75dp"
-        android:drawableStart="@android:drawable/ic_menu_search"
-        app:layout_constraintEnd_toEndOf="@id/tvTextPrincipal"
-        app:layout_constraintStart_toStartOf="@id/tvTextPrincipal"
-        app:layout_constraintTop_toTopOf="@id/tvTextPrincipal"/>
-
-
-    <LinearLayout
-        android:id="@+id/etTarjeta1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
-        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
-        app:layout_constraintTop_toBottomOf="@+id/tvBuscar"
-        android:background="@drawable/style_tarjeta_diciplinares"
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        >
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/icon_foto"
-            android:layout_marginEnd="50dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alfredo Rojo Medina"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/etTarjeta2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
-        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
-        app:layout_constraintTop_toBottomOf="@+id/etTarjeta1"
-        android:background="@drawable/style_tarjeta_diciplinares"
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        >
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/icon_foto"
-            android:layout_marginEnd="50dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Magali chavez hernandez"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/etTarjeta3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/tvBuscar"
-        app:layout_constraintStart_toStartOf="@+id/tvBuscar"
-        app:layout_constraintTop_toBottomOf="@+id/etTarjeta2"
-        android:background="@drawable/style_tarjeta_diciplinares"
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        >
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/icon_foto"
-            android:layout_marginEnd="50dp"
-
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Oscar Mejia "
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            />
-
-    </LinearLayout>
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/etTarjeta2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:text="Alfredo"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:background="#08338f"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/etTarjeta1"-->
-<!--        app:layout_constraintStart_toStartOf="@id/etTarjeta1"-->
-<!--        app:layout_constraintTop_toTopOf="@id/etTarjeta1"-->
-<!--        android:drawableStart="@drawable/user"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/edTarjeta3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:background="#08338f"-->
-<!--        android:drawableStart="@drawable/user"-->
-<!--        android:gravity="center"-->
-<!--        android:text="alfredo"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/etTarjeta2"-->
-<!--        app:layout_constraintStart_toStartOf="@id/etTarjeta2"-->
-<!--        app:layout_constraintTop_toTopOf="@id/etTarjeta2" />-->
-
-    <Button
-        android:id="@+id/btn_Guardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/crear_asesor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:backgroundTint="@null"
-        android:background="@drawable/style_btn_crear"
-        android:textColor="@color/white"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/etBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txtAsesores"
+        android:layout_marginTop="25dp"
+        android:hint="Buscar"
+        android:background="@drawable/bg_buscador"
+        android:padding="12dp"
+        android:drawableStart="@android:drawable/ic_menu_search"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAsesores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/etBuscar"
+        android:layout_above="@+id/btnCrearAsesor"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnCrearAsesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Asesor"
+        app:backgroundTint="@null"
+        android:background="@drawable/style_btn_crear"
+        android:paddingHorizontal="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

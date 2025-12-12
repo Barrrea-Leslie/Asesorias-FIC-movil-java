@@ -9,17 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.modelo.Asesor;
+import com.lesliefic.asesoriasfic.modelo.AsesorPar;
 
 import java.util.List;
 
-public class AsesorAdapter extends RecyclerView.Adapter<AsesorAdapter.AsesorViewHolder>{
-    private List<Asesor> lista;
+public class AsesorParAdapter extends RecyclerView.Adapter<AsesorParAdapter.AsesorViewHolder>{
+    private List<AsesorPar> lista;
     private OnAsesorClickListener listener;
     public interface OnAsesorClickListener {
-        void onClick(Asesor asesor);
+        void onClick(AsesorPar asesorPar);
     }
-    public AsesorAdapter (List<Asesor> lista,OnAsesorClickListener listener){
+    public AsesorParAdapter(List<AsesorPar> lista, OnAsesorClickListener listener){
         this.lista=lista;
         this.listener=listener;
     }
@@ -29,9 +29,9 @@ public class AsesorAdapter extends RecyclerView.Adapter<AsesorAdapter.AsesorView
             super(itemView);
             txtNombre = itemView.findViewById(R.id.txtNombreAsesor);
         }
-        public void bind(final Asesor asesor) {
-            txtNombre.setText(asesor.getNombre());
-            itemView.setOnClickListener(v -> listener.onClick(asesor));
+        public void bind(final AsesorPar asesorPar) {
+            txtNombre.setText(asesorPar.getNombre());
+            itemView.setOnClickListener(v -> listener.onClick(asesorPar));
         }
     }
 

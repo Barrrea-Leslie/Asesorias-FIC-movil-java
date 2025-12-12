@@ -1,8 +1,8 @@
 package com.lesliefic.asesoriasfic.modelo;
 
-public class Asesor {
+public class AsesorPar {
     private String nombre;
-    public Asesor (String nombre){
+    public AsesorPar(String nombre){
         this.nombre=nombre;
     }
 
