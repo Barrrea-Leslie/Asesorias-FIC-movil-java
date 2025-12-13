@@ -50,6 +50,7 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
     @Override
     public void onBindViewHolder(@NonNull AlumnoViewHolder holder, int position) {
         holder.bind(lista.get(position));
+
     }
 
     @Override

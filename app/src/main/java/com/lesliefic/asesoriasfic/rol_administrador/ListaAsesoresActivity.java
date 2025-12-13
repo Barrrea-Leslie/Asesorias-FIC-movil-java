@@ -44,8 +44,6 @@ public class ListaAsesoresActivity extends DrawerBaseActivity {
 
         btnCrearAsesorPar = findViewById(R.id.btnCrearAsesor);
 
-        btnCrearAsesorPar.setOnClickListener(v -> {
-            startActivity(new Intent(ListaAsesoresActivity.this, ));
-        });
+
     }
 }
