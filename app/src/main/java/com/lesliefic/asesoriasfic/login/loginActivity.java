@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.rol_administrador.InicioActivity;
+import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoActivity;
 
 public class loginActivity extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class loginActivity extends AppCompatActivity {
             String nip = inputNip.getText().toString();
 
             if (cuenta.equals("12345") && nip.equals("1234")) {
-                Intent ingresarPaginaPrincipal = new Intent(loginActivity.this, InicioActivity.class);
+                Intent ingresarPaginaPrincipal = new Intent(loginActivity.this, AsesoriasEnCursoActivity.class);
                 startActivity(ingresarPaginaPrincipal);
             }
             else{

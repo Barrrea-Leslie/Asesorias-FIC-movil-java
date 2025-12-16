@@ -15,7 +15,7 @@
             android:name=".rol_administrador.crearAsesoresDisiplinares"
             android:exported="false" />
         <activity
-            android:name=".rol_administrador.InicioActivity"
+            android:name=".rol_administrador.AsesoriasEnCursoActivity"
             android:exported="false" />
         <activity
             android:name=".rol_administrador.estudiantesActivity"

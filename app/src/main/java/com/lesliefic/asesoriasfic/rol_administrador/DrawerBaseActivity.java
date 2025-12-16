@@ -47,7 +47,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
     private void manejaraccionnavegacion (int itemid){
         if (itemid == R.id.nav_asesoriasEnCurso){
-            iniciarNuevaActividad(InicioActivity.class);
+            iniciarNuevaActividad(AsesoriasEnCursoActivity.class);
         }
         else if (itemid == R.id.nav_solicitudesPendientes){
             iniciarNuevaActividad(solicitudesPendientesActivity.class);
