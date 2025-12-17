@@ -1,4 +1,4 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoAdminActivity;
+import com.lesliefic.asesoriasfic.R;
 
 import java.util.Calendar;
 
@@ -30,7 +30,7 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(v -> {
-            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoAdminActivity.class));
+            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoActivity.class));
         });
 
         Spinner spGrupo = findViewById(R.id.spGrupo);

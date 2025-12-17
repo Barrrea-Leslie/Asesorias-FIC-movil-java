@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lesliefic.asesoriasfic.InformacionAsesoriaActivity;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesoriaAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoriasEnCursoBinding;

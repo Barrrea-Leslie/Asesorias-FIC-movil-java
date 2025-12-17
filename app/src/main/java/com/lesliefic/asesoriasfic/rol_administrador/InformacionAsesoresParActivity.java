@@ -1,4 +1,4 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.lesliefic.asesoriasfic.rol_administrador.ListaAsesoresActivity;
+import com.lesliefic.asesoriasfic.R;
 
 public class InformacionAsesoresParActivity extends AppCompatActivity {
 
