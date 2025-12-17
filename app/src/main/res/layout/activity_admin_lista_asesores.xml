@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="10dp"
-        android:text="Aesores Par"
+        android:text="Asesores Par"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"

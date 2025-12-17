@@ -8,36 +8,33 @@
     tools:context=".rol_administrador.InformacionAsesoriaActivity"
     android:padding="30dp"
     android:orientation="vertical"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
 
+    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btnRegresar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar"
-            />
+            android:background="@drawable/style_btn_flecha_regresar" />
 
         <TextView
             android:id="@+id/textoPagina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informacion Asesoria"
+            android:text="Información Asesoría"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
-            />
-
+            android:layout_marginStart="30dp" />
     </LinearLayout>
 
+    <!-- ESTUDIANTE -->
     <TextView
         android:id="@+id/txEstudiante"
         android:layout_width="wrap_content"
@@ -45,9 +42,8 @@
         android:text="Estudiante"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
+
     <EditText
         android:id="@+id/campoEstudiante"
         android:layout_width="match_parent"
@@ -55,9 +51,9 @@
         android:background="@drawable/style_inputs"
         android:layout_marginTop="12dp"
         android:paddingStart="20dp"
-        android:text="Luis Fernando Velazquez Araujo"
-        />
+        android:text="Luis Fernando Velazquez Araujo" />
 
+    <!-- LICENCIATURA -->
     <TextView
         android:id="@+id/txLicenciatura"
         android:layout_width="wrap_content"
@@ -65,9 +61,8 @@
         android:text="Licenciatura"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
+
     <EditText
         android:id="@+id/campoLicenciatura"
         android:layout_width="match_parent"
@@ -75,10 +70,25 @@
         android:background="@drawable/style_inputs"
         android:layout_marginTop="12dp"
         android:paddingStart="20dp"
-        android:text="Infromatica"
-        />
+        android:text="Informática" />
 
+    <!-- GRUPO -->
+    <TextView
+        android:id="@+id/txGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupo"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="30dp" />
 
+    <Spinner
+        android:id="@+id/spGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp" />
+
+    <!-- MATERIA -->
     <TextView
         android:id="@+id/txMateria"
         android:layout_width="wrap_content"
@@ -86,16 +96,15 @@
         android:text="Materia"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
+
     <Spinner
         android:id="@+id/spMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
+        android:layout_marginTop="25dp" />
 
+    <!-- HORARIO -->
     <TextView
         android:id="@+id/txHorario"
         android:layout_width="wrap_content"
@@ -103,16 +112,15 @@
         android:text="Horario"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
+
     <Spinner
         android:id="@+id/spHorario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
+        android:layout_marginTop="25dp" />
 
+    <!-- FECHA INICIO -->
     <TextView
         android:id="@+id/fechaInicio"
         android:layout_width="wrap_content"
@@ -120,65 +128,61 @@
         android:text="Fecha Inicio"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <EditText
             android:id="@+id/txFechaInicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:focusable="false"
-            android:hint="Selecciona una fecha"
-            />
+            android:hint="Selecciona una fecha" />
+
         <ImageButton
             android:id="@+id/btnMCFechaInicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/calendario_icon"
             android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp"
-            />
+            android:layout_marginStart="20dp" />
     </LinearLayout>
 
+    <!-- FECHA FINAL -->
     <TextView
         android:id="@+id/fechaFinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha final"
+        android:text="Fecha Final"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <EditText
             android:id="@+id/txFechaFinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:focusable="false"
-            android:hint="Selecciona una fecha"
-            />
+            android:hint="Selecciona una fecha" />
+
         <ImageButton
             android:id="@+id/btnMCFechaFinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/calendario_icon"
             android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp"
-            />
+            android:layout_marginStart="20dp" />
     </LinearLayout>
 
+    <!-- BOTÓN -->
     <Button
         android:id="@+id/btnFiltro"
         android:layout_width="wrap_content"
@@ -187,8 +191,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
         app:backgroundTint="@null"
-        android:background="@drawable/style_btn_filtros"
-        />
-
+        android:background="@drawable/style_btn_filtros" />
 
 </LinearLayout>

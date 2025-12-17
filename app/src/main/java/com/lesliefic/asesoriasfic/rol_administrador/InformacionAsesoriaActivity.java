@@ -30,7 +30,7 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(v -> {
-            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoActivity.class));
+            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoAdminActivity.class));
         });
 
         Spinner spGrupo = findViewById(R.id.spGrupo);
