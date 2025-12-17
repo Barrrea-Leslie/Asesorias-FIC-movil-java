@@ -42,7 +42,7 @@
         android:layout_height="0dp"
         android:layout_below="@+id/etBuscar"
         android:layout_above="@+id/btnCrearAsesor"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/btnCrearAsesor"
@@ -53,6 +53,8 @@
         android:background="@drawable/style_btn_crear"
         android:paddingHorizontal="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        />
 
 </RelativeLayout>

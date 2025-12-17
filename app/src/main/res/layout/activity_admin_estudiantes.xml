@@ -37,10 +37,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEstudiantes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@+id/etBuscar"
         android:layout_above="@+id/btnCrearAlumno"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/btnCrearAlumno"
@@ -50,8 +50,9 @@
         app:backgroundTint="@null"
         android:background="@drawable/style_btn_crear"
         android:paddingHorizontal="20dp"
-        android:layout_marginTop="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        />
 
 </RelativeLayout>
