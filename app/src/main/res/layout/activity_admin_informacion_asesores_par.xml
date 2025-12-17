@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InformacionAsesoriaActivity"
-    android:padding="30dp"
-    android:orientation="vertical"
+    tools:context=".InformacionAsesoresParActivity"
     android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="30dp"
     >
 
     <LinearLayout
@@ -39,7 +39,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txEstudiante"
+        android:id="@+id/txAsesorPar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Estudiante"
@@ -49,13 +49,33 @@
         android:layout_marginTop="30dp"
         />
     <EditText
-        android:id="@+id/campoEstudiante"
+        android:id="@+id/campoAsesorPar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/style_inputs"
         android:layout_marginTop="12dp"
         android:paddingStart="20dp"
-        android:text="Luis Fernando Velazquez Araujo"
+        android:text="Jenifer Guadalupe Tizoc Lopez"
+        />
+
+    <TextView
+        android:id="@+id/txNumeroCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estudiante"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/campoNumeroCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        android:text="19519958"
         />
 
     <TextView
@@ -79,121 +99,64 @@
         />
 
     <TextView
-        android:id="@+id/txGrupo"
+        android:id="@+id/txCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grado y grupo"
+        android:text="Correo Institucional"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"
         />
-    <Spinner
-        android:id="@+id/spGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
-
-    <TextView
-        android:id="@+id/txMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Materia"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <Spinner
-        android:id="@+id/spMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
-
-    <TextView
-        android:id="@+id/txHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horario"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <Spinner
-        android:id="@+id/spHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
-
-    <TextView
-        android:id="@+id/fechaInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fecha Inicio"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/campoCorreo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <EditText
-            android:id="@+id/txFechaInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:hint="Selecciona una fecha"
-            />
-        <ImageButton
-            android:id="@+id/btnMCFechaInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendario_icon"
-            android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp"
-            />
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        android:text="jg.tizoc22@info.uas.edu.mx"
+        />
 
     <TextView
-        android:id="@+id/fechaFinal"
+        android:id="@+id/txNumeroTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha final"
+        android:text="Correo Institucional"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"
         />
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/campoNumeroTelefono"
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        android:text="6672136911"
+        />
+
+    <TextView
+        android:id="@+id/txPromedio"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <EditText
-            android:id="@+id/txFechaFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:hint="Selecciona una fecha"
-            />
-        <ImageButton
-            android:id="@+id/btnMCFechaFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendario_icon"
-            android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp"
-            />
-    </LinearLayout>
+        android:text="Promedio"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/campoPromedio"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        android:text="9.8"
+        />
 
     <Button
         android:id="@+id/btnFiltro"

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
+            android:name=".InformacionAsesoresParActivity"
+            android:exported="false" />
+        <activity
             android:name=".InformacionAsesoriaActivity"
             android:exported="false" />
         <activity
