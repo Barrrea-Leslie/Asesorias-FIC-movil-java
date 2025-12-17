@@ -1,8 +1,7 @@
 package com.lesliefic.asesoriasfic.modelo;
 
-import java.util.List;
+public class Estudiante {
 
-public class AsesorPar {
     private int id;
     private String nombre;
     private String numeroCuenta;
@@ -11,10 +10,8 @@ public class AsesorPar {
     private String correoInstitucional;
     private String numeroTelefono;
     private String promedio;
-    private List<String> materiasAsesora;
-    private List<String> horariosAsesora;
 
-    public AsesorPar(String nombre) {
+    public Estudiante(String nombre) {
         this.nombre = nombre;
     }
 
@@ -48,13 +45,5 @@ public class AsesorPar {
 
     public String getPromedio() {
         return promedio;
-    }
-
-    public List<String> getMateriasAsesora() {
-        return materiasAsesora;
-    }
-
-    public List<String> getHorariosAsesora() {
-        return horariosAsesora;
     }
 }

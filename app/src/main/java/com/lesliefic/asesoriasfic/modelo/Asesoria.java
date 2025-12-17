@@ -2,22 +2,21 @@ package com.lesliefic.asesoriasfic.modelo;
 
 public class Asesoria {
 
-    public Alumno alumno;
+    public int id;
+    public int estudianteId;
     private String materia;
     private String fecha;
     private String horario;
     private String modalidad;
 
-    public Asesoria(Alumno alumno, String materia, String fecha, String horario, String modalidad) {
-        this.alumno = alumno;
-        this.materia = materia;
-        this.fecha = fecha;
-        this.horario = horario;
-        this.modalidad = modalidad;
+    private Estudiante estudiante;
+
+    public int getId() {
+        return id;
     }
 
-    public Alumno getAlumno() {
-        return alumno;
+    public int getEstudianteId() {
+        return estudianteId;
     }
 
     public String getMateria() {
@@ -34,5 +33,13 @@ public class Asesoria {
 
     public String getModalidad() {
         return modalidad;
+    }
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 }

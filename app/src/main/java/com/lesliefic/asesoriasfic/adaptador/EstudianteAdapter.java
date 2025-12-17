@@ -9,20 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.modelo.Alumno;
-import com.lesliefic.asesoriasfic.modelo.AsesorPar;
+import com.lesliefic.asesoriasfic.modelo.Estudiante;
 
 import java.util.List;
 
-public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoViewHolder>{
+public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.AlumnoViewHolder>{
 
-    private List<Alumno> lista;
+    private List<Estudiante> lista;
 
-    private AlumnoAdapter.OnAsesorClickListener listener;
+    private EstudianteAdapter.OnAsesorClickListener listener;
     public interface OnAsesorClickListener {
-        void onClick(Alumno alumno);
+        void onClick(Estudiante estudiante);
     }
-    public AlumnoAdapter(List<Alumno> lista, AlumnoAdapter.OnAsesorClickListener listener){
+    public EstudianteAdapter(List<Estudiante> lista, EstudianteAdapter.OnAsesorClickListener listener){
         this.lista=lista;
         this.listener=listener;
     }
@@ -33,18 +32,18 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
             super(itemView);
             txtNombre = itemView.findViewById(R.id.txtNombreAsesor);
         }
-        public void bind(final Alumno alumno) {
-            txtNombre.setText(alumno.getNombre());
-            itemView.setOnClickListener(v -> listener.onClick(alumno));
+        public void bind(final Estudiante estudiante) {
+            txtNombre.setText(estudiante.getNombre());
+            itemView.setOnClickListener(v -> listener.onClick(estudiante));
         }
     }
 
     @NonNull
     @Override
-    public AlumnoAdapter.AlumnoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public EstudianteAdapter.AlumnoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View vista= LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_asesor,parent,false);
-        return new AlumnoAdapter.AlumnoViewHolder(vista);
+        return new EstudianteAdapter.AlumnoViewHolder(vista);
     }
 
     @Override

@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.SolicitudAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminSolicitudesPendientesBinding;
-import com.lesliefic.asesoriasfic.modelo.Alumno;
+import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Solicitud;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class solicitudesPendientesActivity extends DrawerBaseActivity {
@@ -36,8 +35,8 @@ public class solicitudesPendientesActivity extends DrawerBaseActivity {
 
     private List<Solicitud> generarSolicitudes() {
 
-        Alumno luis = new Alumno("Luis Fernando Velazquez Araujo");
-        Alumno jenifer = new Alumno("Jenifer Guadalupe Tizoc Lopez");
+        Estudiante luis = new Estudiante("Luis Fernando Velazquez Araujo");
+        Estudiante jenifer = new Estudiante("Jenifer Guadalupe Tizoc Lopez");
 
         List<Solicitud> lista = new ArrayList<>();
 

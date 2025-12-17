@@ -14,6 +14,7 @@ import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesorDiciplinarAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoresDisciplinaresBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinar;
+import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinarRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +32,7 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
 
         RecyclerView rv = findViewById(R.id.rvAsesores);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        List<AsesorDiciplinar> asesoresDiciplinares = Arrays.asList(
-                new AsesorDiciplinar("Leslie Mayram Barrera"),
-                new AsesorDiciplinar("Jenifer Tizoc Lopez")
-        );
+        List<AsesorDiciplinar> asesoresDiciplinares = AsesorDiciplinarRepository.getListaAsesoresDiciplinar(this);
         AsesorDiciplinarAdapter adapter = new AsesorDiciplinarAdapter(asesoresDiciplinares, asesorDiciplinar ->
                 Toast.makeText(this, "click" + asesorDiciplinar.getNombre(), Toast.LENGTH_SHORT).show());
         rv.setAdapter(adapter);

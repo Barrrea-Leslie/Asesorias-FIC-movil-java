@@ -12,6 +12,7 @@ import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesorParAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminListaAsesoresBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesorPar;
+import com.lesliefic.asesoriasfic.modelo.AsesoresParRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,12 +31,7 @@ public class ListaAsesoresActivity extends DrawerBaseActivity {
 
         RecyclerView rv = findViewById(R.id.rvAsesores);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        List<AsesorPar> asesores = Arrays.asList(
-                new AsesorPar("Jose Angel Astorga Mejía"),
-                new AsesorPar("Leslie Mayram Barrera"),
-                new AsesorPar("Luis Fernando Velazquez Araujo"),
-                new AsesorPar("Jenifer Tizoc Lopez")
-        );
+        List<AsesorPar> asesores = AsesoresParRepository.getListaAsesoresPar(this);
         AsesorParAdapter adapter = new AsesorParAdapter(asesores, asesorPar ->
                 Toast.makeText(this, "click" + asesorPar.getNombre(), Toast.LENGTH_SHORT).show());
         rv.setAdapter(adapter);
