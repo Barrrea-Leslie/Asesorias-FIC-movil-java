@@ -1,6 +1,7 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -16,6 +17,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.login.loginActivity;
+import com.lesliefic.asesoriasfic.rol_asesor.asesoriasCursoActivity;
+import com.lesliefic.asesoriasfic.rol_asesor.historialAsesoriasActivity;
+import com.lesliefic.asesoriasfic.rol_asesor.inicioAsesorActivity;
+import com.lesliefic.asesoriasfic.rol_estudiante.asesoriasCursoEstudianteActivity;
+import com.lesliefic.asesoriasfic.rol_estudiante.historialAsesoriasEstudianteActivity;
+import com.lesliefic.asesoriasfic.rol_estudiante.inicioEstudianteActivity;
+import com.lesliefic.asesoriasfic.rol_estudiante.solicitudesRevisionActivity;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,7 +31,19 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public void setContentView(View view) {
-        drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base, null);
+
+        int rol = obtenerRol();
+
+        if(rol == 1){
+            drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base, null);
+        }
+        else if (rol == 2) {
+            drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_asesor_drawer_base, null);
+        }
+        else if (rol == 3) {
+            drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_estudiante_drawer_base, null);
+        }
+
         FrameLayout container = drawerLayout.findViewById(R.id.activityContainer);
         container.addView(view);
         super.setContentView(drawerLayout);
@@ -47,7 +67,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
     private void manejaraccionnavegacion (int itemid){
         if (itemid == R.id.nav_asesoriasEnCurso){
-            iniciarNuevaActividad(AsesoriasEnCursoActivity.class);
+            iniciarNuevaActividad(AsesoriasEnCursoAdminActivity.class);
         }
         else if (itemid == R.id.nav_solicitudesPendientes){
             iniciarNuevaActividad(solicitudesPendientesActivity.class);
@@ -67,11 +87,43 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         else if (itemid == R.id.cerrarSecion){
             iniciarNuevaActividad(loginActivity.class);
         }
+        else if(itemid == R.id.nav_solicitudesPendientesAsesor){
+            iniciarNuevaActividad(inicioAsesorActivity.class);
+        }
+        else if (itemid == R.id.nav_asesoriasEnCursoAsesor){
+            iniciarNuevaActividad(asesoriasCursoActivity.class);
+        }
+        else if (itemid == R.id.nav_historialAsesor){
+            iniciarNuevaActividad(historialAsesoriasActivity.class);
+        }
+        else if (itemid == R.id.cerrarSecion){
+            iniciarNuevaActividad(loginActivity.class);
+        }
+        else if (itemid == R.id.nav_solicitarAsesoriasEstudiante){
+            iniciarNuevaActividad(inicioEstudianteActivity.class);
+        }
+        else if (itemid == R.id.nav_asesoriasEnCursoEstudiante){
+            iniciarNuevaActividad(asesoriasCursoEstudianteActivity.class);
+        }
+        else if (itemid == R.id.nav_solicitudesRevisionEstudiante){
+            iniciarNuevaActividad(solicitudesRevisionActivity.class);
+        }
+        else if (itemid == R.id.nav_historialAsesoriasEstudiante){
+            iniciarNuevaActividad(historialAsesoriasEstudianteActivity.class);
+        }
+
+
+
 
     }
 
     private void iniciarNuevaActividad(Class<?> destinoactividad){
         startActivity(new Intent(this, destinoactividad));
         overridePendingTransition(0, 0);
+    }
+
+    private int obtenerRol(){
+        SharedPreferences prefs = getSharedPreferences("sesion", MODE_PRIVATE);
+        return prefs.getInt("ROL", 1);
     }
 }

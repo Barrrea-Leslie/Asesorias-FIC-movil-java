@@ -7,6 +7,9 @@
     <string name="nombre_nav_asesores_par">Asesores par</string>
     <string name="nombre_nav__estudiantes">Estudiantes</string>
     <string name="nombre_nav_cerrar_sesion">Cerrar Sesion</string>
+    <string name="nombre_nav_historial_asesorias">Historial de asesorias</string>
+    <string name="nombre_nav_solicitar_asesoria">Solicitar asesoria</string>
+    <string name="nombre_nav_solicitudes_revision">Solicitudes en revision</string>
 
     <string name="open_navigation_drower">Open</string>
     <string name="close_navigation_drower">Close</string>

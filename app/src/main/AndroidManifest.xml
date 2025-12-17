@@ -24,7 +24,7 @@
             android:name=".rol_administrador.crearAsesoresDisiplinares"
             android:exported="false" />
         <activity
-            android:name=".rol_administrador.AsesoriasEnCursoActivity"
+            android:name=".rol_administrador.AsesoriasEnCursoAdminActivity"
             android:exported="false" />
         <activity
             android:name=".rol_administrador.estudiantesActivity"
@@ -62,6 +62,53 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+        <activity
+            android:name=".rol_asesor.inicioAsesorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_asesor.asesoriasCursoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_asesor.historialAsesoriasActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_asesor.perfilAsesorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_estudiante.inicioEstudianteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_estudiante.asesoriasCursoEstudianteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_estudiante.historialAsesoriasEstudianteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_estudiante.perfilEstudianteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".rol_estudiante.solicitudesRevisionActivity"
+            android:exported="false" />
+
+
+
+
+
+
+
+
+
     </application>
 
 </manifest>

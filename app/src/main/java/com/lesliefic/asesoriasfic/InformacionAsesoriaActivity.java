@@ -6,19 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoActivity;
-import com.lesliefic.asesoriasfic.rol_administrador.FiltrosAsesoriasEnCursoActivity;
+import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoAdminActivity;
 
 import java.util.Calendar;
 
@@ -36,7 +30,7 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(v -> {
-            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoActivity.class));
+            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoAdminActivity.class));
         });
 
         Spinner spGrupo = findViewById(R.id.spGrupo);

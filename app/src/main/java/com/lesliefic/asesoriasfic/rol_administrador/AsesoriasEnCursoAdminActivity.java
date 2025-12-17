@@ -12,13 +12,11 @@ import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesoriaAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoriasEnCursoBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesoriaRepository;
-import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Asesoria;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AsesoriasEnCursoActivity extends DrawerBaseActivity {
+public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
 
     ActivityAdminAsesoriasEnCursoBinding activityAdminAsesoriasEnCursoBinding;
@@ -34,7 +32,7 @@ public class AsesoriasEnCursoActivity extends DrawerBaseActivity {
         List<Asesoria> asesorias = AsesoriaRepository.getListaAsesorias(this);
 
         AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, asesoria -> {
-            Intent intent = new Intent(AsesoriasEnCursoActivity.this, InformacionAsesoriaActivity.class);
+            Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
             startActivity(intent);
         });
         rv.setAdapter(adapter);
@@ -42,7 +40,7 @@ public class AsesoriasEnCursoActivity extends DrawerBaseActivity {
         TextView opFiltros = findViewById(R.id.opFiltros);
 
         opFiltros.setOnClickListener(v -> {
-            startActivity(new Intent(AsesoriasEnCursoActivity.this, FiltrosAsesoriasEnCursoActivity.class));
+            startActivity(new Intent(AsesoriasEnCursoAdminActivity.this, FiltrosAsesoriasEnCursoActivity.class));
         });
 
 

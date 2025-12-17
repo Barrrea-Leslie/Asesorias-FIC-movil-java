@@ -8,11 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.lesliefic.asesoriasfic.R;
 
@@ -26,7 +22,7 @@ public class FiltrosAsesoriasEnCursoActivity extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(v -> {
-            startActivity(new Intent(FiltrosAsesoriasEnCursoActivity.this, AsesoriasEnCursoActivity.class));
+            startActivity(new Intent(FiltrosAsesoriasEnCursoActivity.this, AsesoriasEnCursoAdminActivity.class));
         });
 
 

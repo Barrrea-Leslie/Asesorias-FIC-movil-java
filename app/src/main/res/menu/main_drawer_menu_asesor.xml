@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_solicitudesPendientesAsesor"
+            android:icon="@drawable/icon_pendientes"
+            android:title="@string/nombre_nav_solicitudes_pendientes"
+            />
+        <item
+            android:icon="@drawable/icon_curso"
+            android:id="@+id/nav_asesoriasEnCursoAsesor"
+            android:title="@string/nombre_nav_asesorias_en_curso"
+            />
+        <item
+            android:id="@+id/nav_historialAsesor"
+            android:icon="@drawable/icon_reporte"
+            android:title="@string/nombre_nav_historial_asesorias"
+            />
+
+        <item
+            android:id="@+id/cerrarSecion"
+            android:icon="@drawable/icon_logout"
+            android:title="@string/nombre_nav_cerrar_sesion"
+
+            />
+
+    </group>
+
+
+</menu>
