@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".rol_administrador.FiltrosAsesoriasEnCursoActivity"
+    android:padding="30dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flecha_regresar_icon"
+            android:background="@drawable/style_btn_flecha_regresar"
+            />
+
+        <TextView
+            android:id="@+id/textoPagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filtros"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txAsesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asesor"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/campoAsesor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txEstudiante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estudiante"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="25dp"
+        />
+    <EditText
+        android:id="@+id/campoEstudiante"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Materia"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="25dp"
+
+        />
+    <EditText
+        android:id="@+id/campoMateria"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@drawable/style_inputs"
+        android:layout_marginTop="12dp"
+        android:paddingStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupo"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="25dp"
+        />
+
+    <Spinner
+        android:id="@+id/spGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/txRazon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Razon"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="25dp"
+        />
+
+    <Spinner
+        android:id="@+id/spRazon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/txModalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modalidad"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="25dp"
+        />
+
+    <Spinner
+        android:id="@+id/spModalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        />
+
+    <Button
+        android:id="@+id/btnFiltro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar filtro"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/style_btn_filtros"
+        />
+
+</LinearLayout>

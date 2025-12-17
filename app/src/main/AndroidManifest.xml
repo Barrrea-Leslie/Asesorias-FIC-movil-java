@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
+            android:name=".rol_administrador.FiltrosAsesoriasEnCursoActivity"
+            android:exported="false" />
+        <activity
             android:name=".rol_administrador.crearAsesoresDisiplinares"
             android:exported="false" />
         <activity
