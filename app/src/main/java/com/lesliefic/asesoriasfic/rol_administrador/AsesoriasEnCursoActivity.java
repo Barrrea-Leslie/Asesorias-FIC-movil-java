@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lesliefic.asesoriasfic.InformacionAsesoriaActivity;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesoriaAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoriasEnCursoBinding;
@@ -32,7 +33,10 @@ public class AsesoriasEnCursoActivity extends DrawerBaseActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         List<Asesoria> asesorias = AsesoriaRepository.getListaAsesorias(this);
 
-        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias);
+        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, asesoria -> {
+            Intent intent = new Intent(AsesoriasEnCursoActivity.this, InformacionAsesoriaActivity.class);
+            startActivity(intent);
+        });
         rv.setAdapter(adapter);
 
         TextView opFiltros = findViewById(R.id.opFiltros);
@@ -40,6 +44,8 @@ public class AsesoriasEnCursoActivity extends DrawerBaseActivity {
         opFiltros.setOnClickListener(v -> {
             startActivity(new Intent(AsesoriasEnCursoActivity.this, FiltrosAsesoriasEnCursoActivity.class));
         });
+
+
 
     }
 }

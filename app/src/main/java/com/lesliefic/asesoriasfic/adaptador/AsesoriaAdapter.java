@@ -3,6 +3,7 @@ package com.lesliefic.asesoriasfic.adaptador;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,15 @@ import java.util.List;
 public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.AsesoriaViewHolder> {
 
     private List<Asesoria> lista;
+    private OnItemButtonClickListener listener;
 
-    public AsesoriaAdapter(List<Asesoria> lista) {
+    public interface OnItemButtonClickListener {
+        void onButtonClick(Asesoria asesoria);
+    }
+
+    public AsesoriaAdapter(List<Asesoria> lista, OnItemButtonClickListener listener) {
         this.lista = lista;
+        this.listener = listener;
     }
 
     public class AsesoriaViewHolder extends RecyclerView.ViewHolder{
@@ -30,6 +37,7 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
         TextView horario;
         TextView modalidad;
 
+        Button btn_infoAsesorias;
         public AsesoriaViewHolder (@NonNull View itemView) {
 
             super(itemView);
@@ -40,6 +48,8 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             horario = itemView.findViewById(R.id.horario);
             modalidad = itemView.findViewById(R.id.modalidad);
 
+            btn_infoAsesorias = itemView.findViewById(R.id.btn_infoAsesorias);
+
         }
 
         public void bind(final Asesoria asesoria) {
@@ -49,6 +59,12 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             fecha.setText(asesoria.getFecha());
             horario.setText(asesoria.getHorario());
             modalidad.setText(asesoria.getModalidad());
+
+            btn_infoAsesorias.setOnClickListener(v -> {
+                if (listener != null){
+                    listener.onButtonClick(asesoria);
+                }
+            });
 
         }
 
