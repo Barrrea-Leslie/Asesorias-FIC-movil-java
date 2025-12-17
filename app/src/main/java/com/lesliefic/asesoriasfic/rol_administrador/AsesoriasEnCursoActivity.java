@@ -7,15 +7,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lesliefic.asesoriasfic.InformacionAsesoriaActivity;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesoriaAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoriasEnCursoBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesoriaRepository;
-import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Asesoria;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AsesoriasEnCursoActivity extends DrawerBaseActivity {

@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsesoriasFIC">
         <activity
-            android:name=".InformacionAsesoresParActivity"
+            android:name=".rol_administrador.InformacionEstudiantesActivity"
             android:exported="false" />
         <activity
-            android:name=".InformacionAsesoriaActivity"
+            android:name=".rol_administrador.InformacionAsesoresParActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rol_administrador.InformacionAsesoriaActivity"
             android:exported="false" />
         <activity
             android:name=".rol_administrador.FiltrosAsesoriasEnCursoActivity"

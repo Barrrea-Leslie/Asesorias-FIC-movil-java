@@ -1,4 +1,4 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -6,19 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoActivity;
-import com.lesliefic.asesoriasfic.rol_administrador.FiltrosAsesoriasEnCursoActivity;
+import com.lesliefic.asesoriasfic.R;
 
 import java.util.Calendar;
 

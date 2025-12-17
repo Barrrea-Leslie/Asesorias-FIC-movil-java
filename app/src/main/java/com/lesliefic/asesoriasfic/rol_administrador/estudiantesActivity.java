@@ -1,5 +1,6 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,8 +31,10 @@ public class estudiantesActivity extends DrawerBaseActivity {
         RecyclerView rv = findViewById(R.id.rvEstudiantes);
         rv.setLayoutManager(new LinearLayoutManager(this));
         List<Estudiante> estudiantes = EstudianteRepository.getEstudiantes(this);
-        EstudianteAdapter adapter = new EstudianteAdapter(estudiantes, alumno ->
-                Toast.makeText(this, "click" + alumno.getNombre(), Toast.LENGTH_SHORT).show());
+        EstudianteAdapter adapter = new EstudianteAdapter(estudiantes, alumno -> {
+            Intent intent = new Intent(estudiantesActivity.this, InformacionEstudiantesActivity.class);
+            startActivity(intent);
+        });
         rv.setAdapter(adapter);
 
 
