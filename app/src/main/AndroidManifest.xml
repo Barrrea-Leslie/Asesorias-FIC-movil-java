@@ -56,6 +56,11 @@
         <activity
             android:name=".rol_administrador.DrawerBaseActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".rol_administrador.crearAsesoresPar"
+            android:exported="false" />
+
         <activity
             android:name=".login.loginActivity"
             android:exported="true">

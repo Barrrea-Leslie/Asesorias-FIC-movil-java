@@ -1,117 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dip"
-    tools:context=".rol_administrador.crearAsesoresDisiplinares">
+    android:id="@+id/main"
+    android:padding="20dp">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear "
-        android:gravity="center"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvNameCreate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Nombre Completo"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="80dp"
-        />
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flecha_regresar_icon"
+            android:background="@drawable/style_btn_flecha_regresar" />
 
-    <EditText
-        android:id="@+id/etNameCreate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:hint="Ingresa tu nombre completo"
-        app:layout_constraintEnd_toEndOf="@id/tvNameCreate"
-        app:layout_constraintStart_toStartOf="@id/tvNameCreate"
-        app:layout_constraintTop_toTopOf="@+id/tvNameCreate"
-        android:layout_marginTop="45dp"
-        />
+        <TextView
+            android:text="Crear Asesor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvNumTel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Numero Telefonico"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/etNameCreate"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/etNameCreate"
-        app:layout_constraintTop_toTopOf="@id/etNameCreate"
-        android:layout_marginTop="45dp"
-        />
+        <!-- Nombre -->
+        <TextView
+            android:text="Nombre Completo"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/etNumTel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingresa tu numero de telefono"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="@id/tvNumTel"
-        app:layout_constraintStart_toStartOf="@id/tvNumTel"
-        app:layout_constraintTop_toTopOf="@id/tvNumTel"
-        android:layout_marginTop="45dp"
-        />
+        <EditText
+            android:id="@+id/etNombre"
+            android:hint="Escribe el nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvCorreoInstitucional"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Correo Institucional"
-        app:layout_constraintEnd_toEndOf="@id/etNumTel"
-        app:layout_constraintStart_toStartOf="@id/etNumTel"
-        app:layout_constraintTop_toTopOf="@id/etNumTel"
-        android:layout_marginTop="45dp"
-        />
+        <!-- Teléfono -->
+        <TextView
+            android:text="Numero telefónico"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/etCorreoInstitucional"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:hint="Ingresa tu correo"
-        app:layout_constraintEnd_toEndOf="@+id/tvCorreoInstitucional"
-        app:layout_constraintStart_toStartOf="@+id/tvCorreoInstitucional"
-        app:layout_constraintTop_toTopOf="@+id/tvCorreoInstitucional"
-        android:layout_marginTop="45dp"
-        />
+        <EditText
+            android:id="@+id/etTelefono"
+            android:inputType="phone"
+            android:hint="Teléfono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_crearAsesorDisiplinar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:padding="16dp"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/etCorreoInstitucional"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="45dp"
-        />
+        <!-- Correo -->
+        <TextView
+            android:text="Correo institucional"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:inputType="textEmailAddress"
+            android:hint="correo@ejemplo.com"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Materias -->
+        <TextView
+            android:text="Materias que asesora"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAñadirMateria"
+            android:text="+ Añadir"
+            android:backgroundTint="#51A351"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutMaterias"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Horarios -->
+        <TextView
+            android:text="Horarios de asesoría"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAñadirHorario"
+            android:text="+ Añadir"
+            android:backgroundTint="#51A351"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutHorarios"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btnGuardar"
+            android:text="Guardar"
+            android:backgroundTint="#002D72"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

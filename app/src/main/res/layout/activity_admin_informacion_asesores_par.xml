@@ -165,15 +165,15 @@
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"
         />
+
     <EditText
         android:id="@+id/campoPromedio"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
         android:layout_marginTop="12dp"
+        android:background="@drawable/style_inputs"
         android:paddingStart="20dp"
-        android:text="9.8"
-        />
+        android:text="9.8" />
 
     <Button
         android:id="@+id/btnFiltro"
@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:text="Aplicar Cambios"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         app:backgroundTint="@null"
         android:background="@drawable/style_btn_filtros"
         />
