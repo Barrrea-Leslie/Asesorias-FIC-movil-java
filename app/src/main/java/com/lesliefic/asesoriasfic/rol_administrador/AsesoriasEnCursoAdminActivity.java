@@ -1,9 +1,12 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,10 +33,47 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         List<Asesoria> asesorias = AsesoriaRepository.getListaAsesorias(this);
 
-        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, asesoria -> {
-            Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
-            startActivity(intent);
+
+
+        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, new AsesoriaAdapter.OnItemButtonClickListener() {
+            @Override
+            public void onInfoClick(Asesoria asesoria) {
+                Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCompletarAsesoria(Asesoria asesoria) {
+
+                mostrarDialogoConfirmacion(asesoria);
+
+            }
+
+            private void mostrarDialogoConfirmacion(Asesoria asesoria){
+
+                new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                        .setTitle("Completar asesoria")
+                        .setMessage("¿Estás seguro de marcar esta asesoría como completada?")
+                        .setCancelable(false)
+
+                        .setPositiveButton("Aceptar", (dialog, which) -> {
+                            Toast.makeText(getApplicationContext(), "Se completo la asesoria", Toast.LENGTH_SHORT).show();
+                        })
+
+                        .setNegativeButton("Cancelar", (dialog, which) -> {
+                            dialog.dismiss();
+                        })
+
+                        .show();
+
+            }
+
+            @Override
+            public void onMaterialClick(Asesoria asesoria) {
+                Toast.makeText(getApplicationContext(), "Material", Toast.LENGTH_SHORT).show();
+            }
         });
+
         rv.setAdapter(adapter);
 
         TextView opFiltros = findViewById(R.id.opFiltros);
@@ -46,4 +86,6 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
     }
 }
+
+
 

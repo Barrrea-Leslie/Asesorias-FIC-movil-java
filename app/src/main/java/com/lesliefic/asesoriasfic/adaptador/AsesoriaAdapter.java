@@ -21,7 +21,10 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
     private OnItemButtonClickListener listener;
 
     public interface OnItemButtonClickListener {
-        void onButtonClick(Asesoria asesoria);
+        void onInfoClick(Asesoria asesoria);
+        void onCompletarAsesoria(Asesoria asesoria);
+
+        void onMaterialClick(Asesoria asesoria);
     }
 
     public AsesoriaAdapter(List<Asesoria> lista, OnItemButtonClickListener listener) {
@@ -38,6 +41,8 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
         TextView modalidad;
 
         Button btn_infoAsesorias;
+        Button btn_completarAsesoria;
+        Button btn_materialAdicional;
         public AsesoriaViewHolder (@NonNull View itemView) {
 
             super(itemView);
@@ -49,7 +54,8 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             modalidad = itemView.findViewById(R.id.modalidad);
 
             btn_infoAsesorias = itemView.findViewById(R.id.btn_infoAsesorias);
-
+            btn_completarAsesoria = itemView.findViewById(R.id.btn_completarAsesoria);
+            btn_materialAdicional = itemView.findViewById(R.id.btn_materialAdicional);
         }
 
         public void bind(final Asesoria asesoria) {
@@ -62,7 +68,19 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
 
             btn_infoAsesorias.setOnClickListener(v -> {
                 if (listener != null){
-                    listener.onButtonClick(asesoria);
+                    listener.onInfoClick(asesoria);
+                }
+            });
+
+            btn_completarAsesoria.setOnClickListener(v -> {
+                if (listener != null){
+                    listener.onCompletarAsesoria(asesoria);
+                }
+            });
+
+            btn_materialAdicional.setOnClickListener(v -> {
+                if (listener != null){
+                    listener.onMaterialClick(asesoria);
                 }
             });
 

@@ -181,7 +181,7 @@
         android:layout_height="wrap_content"
         android:text="Aplicar Cambios"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         app:backgroundTint="@null"
         android:background="@drawable/style_btn_filtros"
         />

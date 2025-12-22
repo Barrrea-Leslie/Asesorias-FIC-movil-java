@@ -30,10 +30,10 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(v -> {
-            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoActivity.class));
+            startActivity(new Intent(InformacionAsesoriaActivity.this, AsesoriasEnCursoAdminActivity.class));
         });
 
-        Spinner spGrupo = findViewById(R.id.spGrupo);
+        /*Spinner spGrupo = findViewById(R.id.spGrupo);
 
         String[] grupos = {"4-1", "4-3"};
         ArrayAdapter<String> adapterGrupos = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, grupos);
@@ -49,7 +49,7 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
+        });*/
 
         Spinner spMateria = findViewById(R.id.spMateria);
 
@@ -95,21 +95,39 @@ public class InformacionAsesoriaActivity extends AppCompatActivity {
         txtFechaFinal = findViewById(R.id.txFechaFinal);
         txtFechaFinal.setText("10/10/2025");
 
-        ImageButton btnMCFechaInicio = findViewById(R.id.btnMCFechaInicio);
-        ImageButton btnMCFechaFinal = findViewById(R.id.btnMCFechaFinal);
 
-        btnMCFechaInicio.setOnClickListener(new View.OnClickListener(){
+
+        txFechaInicio.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 mostrarSeleccionCalendarioInicio();
             }
         });
 
-        btnMCFechaFinal.setOnClickListener(new View.OnClickListener(){
+        txtFechaFinal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 mostrarSeleccionCalendarioFinal();
             }
+        });
+
+        //Spiner razon
+        Spinner spRazon = findViewById(R.id.spRazon);
+        String[] razones = {"Bajo promedio", "Materia reprobada", "Dudas en la  materia"};
+
+        ArrayAdapter<String> adapterRazones = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, razones);
+
+        adapterRazones.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spRazon.setAdapter(adapterRazones);
+
+        spRazon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String razon = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
     }
