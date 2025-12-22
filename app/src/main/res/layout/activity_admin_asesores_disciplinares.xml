@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="10dp"
-        android:text="Asesores Diciplinares"
+        android:text="Asesores Disciplinares"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"

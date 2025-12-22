@@ -8,16 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_media_previous"
-            android:contentDescription="Regresar"
-            android:padding="4dp"
-            android:layout_gravity="start"
-            android:clickable="true"
-            android:focusable="true"/>
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flecha_regresar_icon"
+            android:background="@drawable/style_btn_flecha_regresar" />
 
         <TextView
             android:text="Crear Asesor"

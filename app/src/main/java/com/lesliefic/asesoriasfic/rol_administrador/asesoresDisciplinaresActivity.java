@@ -3,6 +3,10 @@ package com.lesliefic.asesoriasfic.rol_administrador;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,6 +19,7 @@ import com.lesliefic.asesoriasfic.adaptador.AsesorDiciplinarAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoresDisciplinaresBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinar;
 import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinarRepository;
+import com.lesliefic.asesoriasfic.rol_administrador.crearAsesoresDisiplinares;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +27,8 @@ import java.util.List;
 public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
 
     private ActivityAdminAsesoresDisciplinaresBinding activityAdminAsesoresDisciplinaresBinding;
+
+    Button btn_crear_asesor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,13 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        btn_crear_asesor = findViewById(R.id.btnCrearAsesor);
+
+        btn_crear_asesor.setOnClickListener(v -> {
+            Intent intent = new Intent(asesoresDisciplinaresActivity.this, crearAsesoresDisiplinares.class);
+            startActivity(intent);
         });
 
         /*binding.btnGuardar.setOnClickListener(v -> {
