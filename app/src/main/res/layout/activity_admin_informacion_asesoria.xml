@@ -7,28 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".rol_administrador.InformacionAsesoriaActivity"
     android:padding="30dp"
-<<<<<<< HEAD
     android:background="@color/white"
     >
-=======
-    android:orientation="vertical"
-    android:background="@color/white">
->>>>>>> 5acb67f143dcbc568c20e0f7b10d5d64a5b8381e
 
-    <!-- HEADER -->
     <LinearLayout
         android:id="@+id/contenedorTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
         >
-=======
-        android:orientation="horizontal">
->>>>>>> 5acb67f143dcbc568c20e0f7b10d5d64a5b8381e
 
         <ImageButton
             android:id="@+id/btnRegresar"
@@ -36,7 +26,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/flecha_regresar_icon"
             android:background="@drawable/style_btn_flecha_regresar" />
-
 
         <TextView
             android:id="@+id/textoPagina"
@@ -46,19 +35,17 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_gravity="center_vertical"
-<<<<<<< HEAD
             android:layout_marginStart="30dp"
             />
 
-
     </LinearLayout>
+
 
     <ScrollView
         android:id="@+id/contenedorFormulario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/contenedorTitulo"
-        app:layout_constraintBottom_toTopOf="@+id/contenedorBoton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="50dp"
@@ -80,69 +67,18 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="30dp"
                 />
+
             <EditText
                 android:id="@+id/campoEstudiante"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:inputType="text"
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
                 android:text="Luis Fernando Velazquez Araujo"
                 />
-=======
-            android:layout_marginStart="30dp" />
-    </LinearLayout>
 
-    <!-- ESTUDIANTE -->
-    <TextView
-        android:id="@+id/txEstudiante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estudiante"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-    <EditText
-        android:id="@+id/campoEstudiante"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Luis Fernando Velazquez Araujo" />
-
-    <!-- LICENCIATURA -->
-    <TextView
-        android:id="@+id/txLicenciatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Licenciatura"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-    <EditText
-        android:id="@+id/campoLicenciatura"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Informática" />
->>>>>>> 5acb67f143dcbc568c20e0f7b10d5d64a5b8381e
-
-    <!-- GRUPO -->
-    <TextView
-        android:id="@+id/txGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grupo"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-<<<<<<< HEAD
             <TextView
                 android:id="@+id/txLicenciatura"
                 android:layout_width="wrap_content"
@@ -150,9 +86,9 @@
                 android:text="Licenciatura"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="30dp"
-                />
+                android:layout_marginTop="30dp" />
+
+
             <EditText
                 android:id="@+id/campoLicenciatura"
                 android:layout_width="match_parent"
@@ -160,9 +96,24 @@
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
-                android:text="Infromatica"
-                />
+                android:text="Informática" />
 
+            <TextView
+                android:id="@+id/txGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="Grupo"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp" />
+
+            <Spinner
+                android:id="@+id/spGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                />
 
             <TextView
                 android:id="@+id/txMateria"
@@ -181,6 +132,22 @@
                 android:layout_marginTop="25dp"
                 />
 
+            <TextView
+                android:id="@+id/txModalidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modalidad"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                />
+            <Spinner
+                android:id="@+id/spModalidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                />
 
             <TextView
                 android:id="@+id/txHorario"
@@ -199,7 +166,6 @@
                 android:layout_marginTop="25dp"
                 />
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,11 +173,13 @@
                 android:gravity="center"
                 >
 
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     >
+
 
                     <TextView
                         android:id="@+id/fechaInicio"
@@ -224,12 +192,14 @@
                         android:layout_marginTop="30dp"
                         />
 
+
                     <EditText
                         android:id="@+id/txFechaInicio"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:focusable="false"
                         android:hint="FECHA"
+                        android:textSize="15sp"
                         android:layout_marginTop="20dp"
                         android:drawableStart="@drawable/calendario_icon"
                         android:background="@drawable/style_input_calendario"
@@ -237,7 +207,9 @@
                         android:paddingHorizontal="20dp"
                         />
 
+
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -245,6 +217,7 @@
                     android:orientation="vertical"
                     android:layout_marginStart="15dp"
                     >
+
 
                     <TextView
                         android:id="@+id/fechaFinal"
@@ -257,12 +230,14 @@
                         android:layout_marginTop="30dp"
                         />
 
+
                     <EditText
                         android:id="@+id/txFechaFinal"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:focusable="false"
                         android:hint="FECHA"
+                        android:textSize="15sp"
                         android:layout_marginTop="20dp"
                         android:drawableStart="@drawable/calendario_icon"
                         android:background="@drawable/style_input_calendario"
@@ -270,10 +245,11 @@
                         android:paddingHorizontal="20dp"
                         />
 
+
                 </LinearLayout>
 
-            </LinearLayout>
 
+            </LinearLayout>
 
 
             <TextView
@@ -287,12 +263,14 @@
                 android:layout_marginTop="25dp"
                 />
 
+
             <Spinner
                 android:id="@+id/spRazon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 />
+
 
             <TextView
                 android:id="@+id/txNoAsesorias"
@@ -308,17 +286,18 @@
                 android:id="@+id/campoNoAsesorias"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
+                android:inputType="number"
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
                 android:text="3"
                 />
 
+
             <TextView
                 android:id="@+id/txObservaciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:text="Observaciones"
                 android:textStyle="bold"
                 android:textSize="18sp"
@@ -328,16 +307,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundMode="outline">
+                app:boxBackgroundMode="outline"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:gravity="top"
-                    android:scrollbars="vertical"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:scrollbars="vertical"/>
 
             <TextView
                 android:id="@+id/txEvidencias"
@@ -350,6 +328,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="30dp"
                 />
+
 
             <TextView
                 android:id="@+id/btnSubirEvidencias"
@@ -365,74 +344,26 @@
                 android:layout_marginBottom="50dp"
                 />
 
+
         </LinearLayout>
 
 
+
     </ScrollView>
-=======
-    <Spinner
-        android:id="@+id/spGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp" />
-
-    <!-- MATERIA -->
-    <TextView
-        android:id="@+id/txMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Materia"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-    <Spinner
-        android:id="@+id/spMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp" />
-
-    <!-- HORARIO -->
-    <TextView
-        android:id="@+id/txHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horario"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-    <Spinner
-        android:id="@+id/spHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp" />
-
-    <!-- FECHA INICIO -->
-    <TextView
-        android:id="@+id/fechaInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fecha Inicio"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
->>>>>>> 5acb67f143dcbc568c20e0f7b10d5d64a5b8381e
 
     <LinearLayout
-        android:id="@+id/contenedorBoton"
+        android:id="@+id/contnedorBoton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="vertical"
-
         >
 
         <Button
-            android:id="@+id/btnFiltro"
+            android:id="@+id/btnCambios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aplicar Cambios"
@@ -445,66 +376,5 @@
     </LinearLayout>
 
 
-=======
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/txFechaInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:hint="Selecciona una fecha" />
-
-        <ImageButton
-            android:id="@+id/btnMCFechaInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendario_icon"
-            android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp" />
-    </LinearLayout>
-
-    <!-- FECHA FINAL -->
-    <TextView
-        android:id="@+id/fechaFinal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fecha Final"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/txFechaFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:hint="Selecciona una fecha" />
-
-        <ImageButton
-            android:id="@+id/btnMCFechaFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendario_icon"
-            android:background="@drawable/style_btn_calendar"
-            android:layout_marginStart="20dp" />
-    </LinearLayout>
-
-    <!-- BOTÓN -->
-    <Button
-        android:id="@+id/btnFiltro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aplicar Cambios"
-        android:layout_gravity="center"
-        android:layout_marginTop="35dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/style_btn_filtros" />
->>>>>>> 5acb67f143dcbc568c20e0f7b10d5d64a5b8381e
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+

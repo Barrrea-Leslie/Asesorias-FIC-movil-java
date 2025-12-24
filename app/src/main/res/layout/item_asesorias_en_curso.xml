@@ -71,7 +71,9 @@
         <Button
             android:id="@+id/btn_infoAsesorias"
             android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
+            android:textSize="13sp"
+            android:padding="0dp"
             android:text="@string/texto_btn_infoAsesorias"
             app:backgroundTint="@color/botonAzulClaro"
             android:background="@drawable/style_botones_assurso"
@@ -81,7 +83,9 @@
         <Button
             android:id="@+id/btn_completarAsesoria"
             android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
+            android:textSize="13sp"
+            android:padding="0dp"
             android:text="@string/texto_btn_completarAsesoria"
             app:backgroundTint="@color/botonVerder"
             android:background="@drawable/style_botones_assurso"
@@ -92,7 +96,9 @@
     <Button
         android:id="@+id/btn_materialAdicional"
         android:layout_width="170dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
+        android:textSize="13sp"
+        android:padding="0dp"
         android:layout_marginTop="10dp"
         android:text="@string/tecto_btn_material_adicional"
         app:backgroundTint="@color/amarilloUAS"

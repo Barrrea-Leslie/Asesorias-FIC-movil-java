@@ -62,7 +62,7 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
 
             nombreAlumno.setText(asesoria.getEstudiante().getNombre());
             materia.setText(asesoria.getMateria());
-            fecha.setText(asesoria.getFecha());
+            fecha.setText(asesoria.getFechaInicio());
             horario.setText(asesoria.getHorario());
             modalidad.setText(asesoria.getModalidad());
 

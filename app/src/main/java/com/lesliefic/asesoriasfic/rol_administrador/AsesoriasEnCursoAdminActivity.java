@@ -39,6 +39,8 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
             @Override
             public void onInfoClick(Asesoria asesoria) {
                 Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
+                //Para mandar el id por el intent
+                intent.putExtra("ASESORIA_ID", asesoria.getId());
                 startActivity(intent);
             }
 
@@ -70,7 +72,7 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
             @Override
             public void onMaterialClick(Asesoria asesoria) {
-                Toast.makeText(getApplicationContext(), "Material", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AsesoriasEnCursoAdminActivity.this, MaterialAdicional.class));
             }
         });
 

@@ -5,11 +5,15 @@ public class Asesoria {
     public int id;
     public int estudianteId;
     private String materia;
-    private String fecha;
+    private String fechaInicio;
+    private String fechaFin;
     private String horario;
     private String modalidad;
+    private String razon;
+    private int es_asesor;
 
     private Estudiante estudiante;
+
 
     public int getId() {
         return id;
@@ -23,8 +27,11 @@ public class Asesoria {
         return materia;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+    public String getFechaFin() {
+        return fechaFin;
     }
 
     public String getHorario() {
@@ -33,6 +40,14 @@ public class Asesoria {
 
     public String getModalidad() {
         return modalidad;
+    }
+
+    public String getRazon() {
+        return razon;
+    }
+
+    public int getEs_asesor() {
+        return es_asesor;
     }
 
     public Estudiante getEstudiante() {
