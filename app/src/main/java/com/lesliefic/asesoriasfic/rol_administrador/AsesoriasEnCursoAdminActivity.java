@@ -3,6 +3,8 @@ package com.lesliefic.asesoriasfic.rol_administrador;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +55,9 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
             private void mostrarDialogoConfirmacion(Asesoria asesoria){
 
-                new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                View dialogView = getLayoutInflater().inflate(R.layout.admi_ventana_confirmacion_completar_asesoria, null);
+
+                /*new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
                         .setTitle("Completar asesoria")
                         .setMessage("¿Estás seguro de marcar esta asesoría como completada?")
                         .setCancelable(false)
@@ -66,8 +70,30 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
                             dialog.dismiss();
                         })
 
-                        .show();
+                        .show();*/
 
+                AlertDialog dialog = new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                        .setView(dialogView)
+                        .setCancelable(false)
+                        .create();
+
+                dialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
+                Button btnCancelar = dialogView.findViewById(R.id.btnCancelar);
+                Button btnAceptar = dialogView.findViewById(R.id.btnAceptar);
+
+                btnCancelar.setOnClickListener(v -> {
+                    dialog.dismiss();
+                });
+
+                btnAceptar.setOnClickListener(v -> {
+                    Toast.makeText(getApplicationContext(), "Se completo la asesoria", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
             }
 
             @Override
