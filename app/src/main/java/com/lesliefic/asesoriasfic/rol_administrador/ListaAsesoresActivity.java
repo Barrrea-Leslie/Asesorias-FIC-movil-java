@@ -50,7 +50,6 @@ public class ListaAsesoresActivity extends DrawerBaseActivity {
             startActivity(intent);
         });
 
-
     }
 
     public void toastNotificacion(String message){

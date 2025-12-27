@@ -57,21 +57,6 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
                 View dialogView = getLayoutInflater().inflate(R.layout.admi_ventana_confirmacion_completar_asesoria, null);
 
-                /*new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
-                        .setTitle("Completar asesoria")
-                        .setMessage("¿Estás seguro de marcar esta asesoría como completada?")
-                        .setCancelable(false)
-
-                        .setPositiveButton("Aceptar", (dialog, which) -> {
-                            Toast.makeText(getApplicationContext(), "Se completo la asesoria", Toast.LENGTH_SHORT).show();
-                        })
-
-                        .setNegativeButton("Cancelar", (dialog, which) -> {
-                            dialog.dismiss();
-                        })
-
-                        .show();*/
-
                 AlertDialog dialog = new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
                         .setView(dialogView)
                         .setCancelable(false)
@@ -99,6 +84,36 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
             @Override
             public void onMaterialClick(Asesoria asesoria) {
                 startActivity(new Intent(AsesoriasEnCursoAdminActivity.this, MaterialAdicional.class));
+            }
+
+            @Override
+            public void onEliminaAsesoria(Asesoria asesoria) {
+
+                View dialogViewEliminar = getLayoutInflater().inflate(R.layout.admi_ventana_confirmacion_eliminar_asesoria, null);
+
+                AlertDialog dialog = new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                        .setView(dialogViewEliminar)
+                        .setCancelable(false)
+                        .create();
+
+                dialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
+                Button btnCancelar = dialogViewEliminar.findViewById(R.id.btnCancelar);
+                Button btnAceptar = dialogViewEliminar.findViewById(R.id.btnAceptar);
+
+                btnCancelar.setOnClickListener(v -> {
+                    dialog.dismiss();
+                });
+
+                btnAceptar.setOnClickListener(v -> {
+                    Toast.makeText(getApplicationContext(), "Se elimino la asesoria", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
+
             }
         });
 

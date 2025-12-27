@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
         void onCompletarAsesoria(Asesoria asesoria);
 
         void onMaterialClick(Asesoria asesoria);
+
+        void onEliminaAsesoria(Asesoria asesoria);
     }
 
     public AsesoriaAdapter(List<Asesoria> lista, OnItemButtonClickListener listener) {
@@ -43,6 +46,7 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
         Button btn_infoAsesorias;
         Button btn_completarAsesoria;
         Button btn_materialAdicional;
+        ImageButton btn_eliminar;
         public AsesoriaViewHolder (@NonNull View itemView) {
 
             super(itemView);
@@ -56,6 +60,7 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             btn_infoAsesorias = itemView.findViewById(R.id.btn_infoAsesorias);
             btn_completarAsesoria = itemView.findViewById(R.id.btn_completarAsesoria);
             btn_materialAdicional = itemView.findViewById(R.id.btn_materialAdicional);
+            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
         }
 
         public void bind(final Asesoria asesoria) {
@@ -81,6 +86,12 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             btn_materialAdicional.setOnClickListener(v -> {
                 if (listener != null){
                     listener.onMaterialClick(asesoria);
+                }
+            });
+
+            btn_eliminar.setOnClickListener(v -> {
+                if (listener != null){
+                    listener.onEliminaAsesoria(asesoria);
                 }
             });
 
