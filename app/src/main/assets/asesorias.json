@@ -2,27 +2,36 @@
   {
     "id": 1,
     "materia": "Programacion",
-    "fecha": "25/SEP/2025",
+    "fechaInicio": "25/SEP/2025",
+    "fechaFin": "25/OCT/2025",
     "horario": "18:00 - 19:00",
     "modalidad": "Virtual",
+    "razon": "Materia reprobada",
+    "es_asesor": 1,
     "estudianteId": 1
   },
 
   {
     "id": 2,
     "materia": "Base de datos",
-    "fecha": "10/SEP/2025",
+    "fechaInicio": "25/SEP/2025",
+    "fechaFin": "25/OCT/2025",
     "horario": "19:00 - 20:00",
     "modalidad": "Presencial",
+    "razon": "Dudas en la  materia",
+    "es_asesor": 2,
     "estudianteId": 2
   },
 
   {
     "id": 3,
     "materia": "Matematicas discretas",
-    "fecha": "30/AGO/2025",
+    "fechaInicio": "25/SEP/2025",
+    "fechaFin": "25/OCT/2025",
     "horario": "18:00 - 19:00",
     "modalidad": "Presencial",
+    "razon": "Bajo promedio",
+    "es_asesor": 1,
     "estudianteId": 3
   }
 ]

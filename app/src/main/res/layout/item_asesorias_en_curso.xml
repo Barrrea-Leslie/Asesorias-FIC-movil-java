@@ -1,103 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center"
     android:layout_marginBottom="16dp"
-    android:background="@drawable/style_tarjeta_diciplinares">
+
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        >
-
-        <TextView
-            android:id="@+id/nombreAlumno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alumno: Jose Angel Asstorga Mejia"
-            android:textColor="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/materia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Materia: Programación"
-            android:textColor="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/fecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de Inicio: 25/SEP/2025"
-            android:textColor="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/horario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Horario: 18:00-19:00"
-            android:textColor="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/modalidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modalidad: Virtual"
-            android:textColor="@color/white"
-            />
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:padding="20dp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/style_tarjeta_diciplinares"
 
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <Button
-            android:id="@+id/btn_infoAsesorias"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:text="@string/texto_btn_infoAsesorias"
-            app:backgroundTint="@color/botonAzulClaro"
-            android:background="@drawable/style_botones_assurso"
-            android:layout_marginEnd="20dp"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/nombreAlumno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alumno: Jose Angel Asstorga Mejia"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/materia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Materia: Programación"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Inicio: 25/SEP/2025"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/horario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horario: 18:00-19:00"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/modalidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modalidad: Virtual"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <Button
+                android:id="@+id/btn_infoAsesorias"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:textSize="13sp"
+                android:padding="0dp"
+                android:text="@string/texto_btn_infoAsesorias"
+                app:backgroundTint="@color/botonAzulClaro"
+                android:background="@drawable/style_botones_assurso"
+                android:layout_marginEnd="20dp"
+                />
+
+            <Button
+                android:id="@+id/btn_completarAsesoria"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:textSize="13sp"
+                android:padding="0dp"
+                android:text="@string/texto_btn_completarAsesoria"
+                app:backgroundTint="@color/botonVerder"
+                android:background="@drawable/style_botones_assurso"
+                />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btn_completarAsesoria"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:text="@string/texto_btn_completarAsesoria"
-            app:backgroundTint="@color/botonVerder"
+            android:id="@+id/btn_materialAdicional"
+            android:layout_width="170dp"
+            android:layout_height="35dp"
+            android:textSize="13sp"
+            android:padding="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/tecto_btn_material_adicional"
+            app:backgroundTint="@color/amarilloUAS"
             android:background="@drawable/style_botones_assurso"
+
             />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_materialAdicional"
-        android:layout_width="170dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/tecto_btn_material_adicional"
-        app:backgroundTint="@color/amarilloUAS"
-        android:background="@drawable/style_botones_assurso"
-
+    <ImageButton
+        android:id="@+id/btn_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eliminar_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
+        android:backgroundTint="#00FFFFFF"
+        android:background="@drawable/style_btn_eliminar"
         />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

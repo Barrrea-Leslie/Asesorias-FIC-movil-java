@@ -47,11 +47,6 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
         /*binding = ActivityAdminAsesoresDisciplinaresBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());*/
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         btn_crear_asesor = findViewById(R.id.btnCrearAsesor);
 

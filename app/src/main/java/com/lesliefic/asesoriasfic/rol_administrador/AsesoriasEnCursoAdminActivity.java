@@ -1,9 +1,14 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,10 +35,88 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         List<Asesoria> asesorias = AsesoriaRepository.getListaAsesorias(this);
 
-        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, asesoria -> {
-            Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
-            startActivity(intent);
+
+
+        AsesoriaAdapter adapter = new AsesoriaAdapter(asesorias, new AsesoriaAdapter.OnItemButtonClickListener() {
+            @Override
+            public void onInfoClick(Asesoria asesoria) {
+                Intent intent = new Intent(AsesoriasEnCursoAdminActivity.this, InformacionAsesoriaActivity.class);
+                //Para mandar el id por el intent
+                intent.putExtra("ASESORIA_ID", asesoria.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCompletarAsesoria(Asesoria asesoria) {
+
+                mostrarDialogoConfirmacion(asesoria);
+
+            }
+
+            private void mostrarDialogoConfirmacion(Asesoria asesoria){
+
+                View dialogView = getLayoutInflater().inflate(R.layout.admi_ventana_confirmacion_completar_asesoria, null);
+
+                AlertDialog dialog = new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                        .setView(dialogView)
+                        .setCancelable(false)
+                        .create();
+
+                dialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
+                Button btnCancelar = dialogView.findViewById(R.id.btnCancelar);
+                Button btnAceptar = dialogView.findViewById(R.id.btnAceptar);
+
+                btnCancelar.setOnClickListener(v -> {
+                    dialog.dismiss();
+                });
+
+                btnAceptar.setOnClickListener(v -> {
+                    Toast.makeText(getApplicationContext(), "Se completo la asesoria", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
+            }
+
+            @Override
+            public void onMaterialClick(Asesoria asesoria) {
+                startActivity(new Intent(AsesoriasEnCursoAdminActivity.this, MaterialAdicional.class));
+            }
+
+            @Override
+            public void onEliminaAsesoria(Asesoria asesoria) {
+
+                View dialogViewEliminar = getLayoutInflater().inflate(R.layout.admi_ventana_confirmacion_eliminar_asesoria, null);
+
+                AlertDialog dialog = new AlertDialog.Builder(AsesoriasEnCursoAdminActivity.this)
+                        .setView(dialogViewEliminar)
+                        .setCancelable(false)
+                        .create();
+
+                dialog.getWindow().setBackgroundDrawableResource(
+                        android.R.color.transparent
+                );
+
+                Button btnCancelar = dialogViewEliminar.findViewById(R.id.btnCancelar);
+                Button btnAceptar = dialogViewEliminar.findViewById(R.id.btnAceptar);
+
+                btnCancelar.setOnClickListener(v -> {
+                    dialog.dismiss();
+                });
+
+                btnAceptar.setOnClickListener(v -> {
+                    Toast.makeText(getApplicationContext(), "Se elimino la asesoria", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+
+                dialog.show();
+
+            }
         });
+
         rv.setAdapter(adapter);
 
         TextView opFiltros = findViewById(R.id.opFiltros);
@@ -46,4 +129,6 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
     }
 }
+
+
 
