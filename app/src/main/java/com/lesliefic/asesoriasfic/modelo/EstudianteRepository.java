@@ -40,7 +40,7 @@ public class EstudianteRepository {
 
     public static Estudiante getById(Context context, int id){
         for (Estudiante e : getEstudiantes(context)){
-            if (e.getId() == id) return e;
+            if (e.getIdPersona() == id) return e;
         }
         return null;
     }

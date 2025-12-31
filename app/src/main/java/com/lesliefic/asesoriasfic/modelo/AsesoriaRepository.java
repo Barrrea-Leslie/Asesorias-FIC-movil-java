@@ -33,7 +33,7 @@ public class AsesoriaRepository {
             List<Estudiante> estudiantes = EstudianteRepository.getEstudiantes(context);
             for(Asesoria a : listaAsesorias){
                 for (Estudiante e : estudiantes){
-                    if (a.getEstudianteId() == e.getId()){
+                    if (a.getEstudianteId() == e.getIdPersona()){
                         a.setEstudiante(e);
                         break;
                     }

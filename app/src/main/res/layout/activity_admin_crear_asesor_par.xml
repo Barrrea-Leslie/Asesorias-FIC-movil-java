@@ -1,131 +1,193 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- Boton abajo -->
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:backgroundTint="#002D72"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageButton
-            android:id="@+id/btnRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar" />
 
-        <TextView
-            android:text="Crear Asesor"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:paddingBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <!-- Nombre -->
-        <TextView
-            android:text="Nombre Completo"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etNombre"
-            android:hint="Escribe el nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Teléfono -->
-        <TextView
-            android:text="Numero telefónico"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etTelefono"
-            android:inputType="phone"
-            android:hint="Teléfono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Correo -->
-        <TextView
-            android:text="Correo institucional"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etCorreo"
-            android:inputType="textEmailAddress"
-            android:hint="correo@ejemplo.com"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Materias -->
-        <TextView
-            android:text="Materias que asesora"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnAñadirMateria"
-            android:text="+ Añadir"
-            android:backgroundTint="#51A351"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <ScrollView
+        android:id="@+id/scrollContenido"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnGuardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/layoutMaterias"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/btnRegresar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flecha_regresar_icon"
+                android:background="@drawable/style_btn_flecha_regresar" />
 
-        <!-- Horarios -->
-        <TextView
-            android:text="Horarios de asesoría"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Crear Asesor Par"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnAñadirHorario"
-            android:text="+ Añadir"
-            android:backgroundTint="#51A351"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Buscar estudiante"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"/>
 
-        <LinearLayout
-            android:id="@+id/layoutHorarios"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/etBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_buscador"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:hint="Buscar"
+                android:padding="12dp" />
 
-        <!-- Botón Guardar -->
-        <Button
-            android:id="@+id/btnGuardar"
-            android:text="Guardar"
-            android:backgroundTint="#002D72"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layoutBuscarEstudiante"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-</ScrollView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resultados"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="6dp"
+                        android:background="#DDDDDD"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvResultadosEstudiantes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:text="Estudiante seleccionado"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="15sp"/>
+
+            <EditText
+                android:id="@+id/etEstudianteElegido"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_buscador"
+                android:focusable="false"
+                android:clickable="false"
+                android:padding="12dp" />
+
+            <!-- ENCABEZADO MATERIAS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Materias que asesora"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <Button
+                    android:id="@+id/btnAgregarMateria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Añadir"
+                    android:backgroundTint="#51A351"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- LISTA MATERIAS -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMateriasAsesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- ENCABEZADO HORARIOS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Horarios que asesora"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <Button
+                    android:id="@+id/btnAgregarHorario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Añadir"
+                    android:backgroundTint="#51A351"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!--HORARIOS -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHorariosAsesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- espacio -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

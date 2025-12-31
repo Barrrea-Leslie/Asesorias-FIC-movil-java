@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Añadir Horario"
+        android:text="Añadir Materia"
         android:textSize="22sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -15,22 +15,39 @@
         android:layout_height="wrap_content"
         android:paddingBottom="15dp"/>
 
-
-
-
-
-    <!-- Texto horarios -->
     <TextView
-        android:text="Horarios disponibles:"
+        android:text="Buscar Materias"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        />
+
+    <EditText
+        android:id="@+id/etBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_below="@+id/txtMaterias"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_buscador"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:hint="Buscar"
+        android:padding="12dp"
+        android:layout_marginBottom="15dp"
+        />
+
+    <!-- Texto materias -->
+    <TextView
+        android:text="Materias disponibles:"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <!-- recycler de horarios -->
+    <!-- recycler de materias -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHorarios"
+        android:id="@+id/rvMaterias"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -35,8 +35,8 @@ public class solicitudesPendientesActivity extends DrawerBaseActivity {
 
     private List<Solicitud> generarSolicitudes() {
 
-        Estudiante luis = new Estudiante("Luis Fernando Velazquez Araujo");
-        Estudiante jenifer = new Estudiante("Jenifer Guadalupe Tizoc Lopez");
+        Estudiante luis = new Estudiante(1, "luis");
+        Estudiante jenifer = new Estudiante(2, "jenifer");
 
         List<Solicitud> lista = new ArrayList<>();
 

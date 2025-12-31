@@ -1,60 +1,106 @@
 package com.lesliefic.asesoriasfic.modelo;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class AsesorPar {
-    private int id;
+
+    @SerializedName("id_asesor")
+    private int id_asesor;
+
+    @SerializedName("nombre")
     private String nombre;
+
+    @SerializedName("apellido_paterno")
+    private String apellidoPaterno;
+
+    @SerializedName("apellido_materno")
+    private String apellidoMaterno;
+
+    @SerializedName("nombre_completo")
+    private String nombre_completo;
+    @SerializedName("numero_cuenta")
     private String numeroCuenta;
-    private String licenciatura;
-    private String grupo;
-    private String correoInstitucional;
+
+    @SerializedName("contrasena")
+    private String contrasena;
+
+    @SerializedName("id_licenciatura")
+    private int idLicenciatura;
+
+    @SerializedName("id_grupo")
+    private int idGrupo;
+
+    @SerializedName("correo")
+    private String correo;
+
+    @SerializedName("num_cel")
     private String numeroTelefono;
-    private String promedio;
-    private List<String> materiasAsesora;
-    private List<String> horariosAsesora;
 
-    public AsesorPar(String nombre) {
-        this.nombre = nombre;
-    }
+    @SerializedName("promedio")
+    private double promedio;
 
-    public int getId() {
-        return id;
+
+    @SerializedName("materiasAsesor")
+    private List<Materia> materiasAsesor;
+
+    @SerializedName("horariosAsesor")
+    private List<Horario> horariosAsesor;
+
+
+    public int getIdAsesor() {
+        return id_asesor;
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public String getNombre_completo(){
+        return nombre_completo;
+    }
+
     public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
-    public String getLicenciatura() {
-        return licenciatura;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public String getGrupo() {
-        return grupo;
+    public int getIdLicenciatura() {
+        return idLicenciatura;
     }
 
-    public String getCorreoInstitucional() {
-        return correoInstitucional;
+    public int getIdGrupo() {
+        return idGrupo;
+    }
+
+    public String getCorreo() {
+        return correo;
     }
 
     public String getNumeroTelefono() {
         return numeroTelefono;
     }
 
-    public String getPromedio() {
+    public double getPromedio() {
         return promedio;
     }
 
-    public List<String> getMateriasAsesora() {
-        return materiasAsesora;
+    public List<Materia> getMateriasAsesor() {
+        return materiasAsesor;
     }
 
-    public List<String> getHorariosAsesora() {
-        return horariosAsesora;
+    public List<Horario> getHorariosAsesor() {
+        return horariosAsesor;
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="licenciaturas">
+        <item>Selecciona una licenciatura</item>
+        <item>Licenciatura en informatica</item>
+        <item>Licenciatura en informatica virtual</item>
+        <item>Licenciatura en ingenieria en ciencias de datos</item>
+        <item>Licenciatura en ITSE</item>
+    </string-array>
+
+</resources>

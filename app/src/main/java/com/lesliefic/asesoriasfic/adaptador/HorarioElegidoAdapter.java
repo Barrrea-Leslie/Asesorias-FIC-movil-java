@@ -1,0 +1,71 @@
+package com.lesliefic.asesoriasfic.adaptador;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.lesliefic.asesoriasfic.R;
+import com.lesliefic.asesoriasfic.modelo.Horario;
+
+import java.util.List;
+
+public class HorarioElegidoAdapter extends RecyclerView.Adapter<HorarioElegidoAdapter.ViewHolder> {
+
+    public interface OnEliminarClickListener {
+        void onEliminar(Horario horario);
+    }
+
+    private List<Horario> lista;
+    private OnEliminarClickListener eliminarListener;
+
+    public HorarioElegidoAdapter(List<Horario> lista, OnEliminarClickListener eliminarListener) {
+        this.lista = lista;
+        this.eliminarListener = eliminarListener;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtHorario, txtEliminar;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtHorario = itemView.findViewById(R.id.txtHorario);
+            txtEliminar = itemView.findViewById(R.id.txtEliminar);
+        }
+
+        public void bind(Horario horario, OnEliminarClickListener eliminarListener) {
+            txtHorario.setText(horario.getHorario());
+
+            txtEliminar.setOnClickListener(v -> {
+                if (eliminarListener != null) eliminarListener.onEliminar(horario);
+            });
+        }
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_horario, parent, false);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.bind(lista.get(position), eliminarListener);
+    }
+
+    @Override
+    public int getItemCount() {
+        return lista == null ? 0 : lista.size();
+    }
+
+    public void setItems(List<Horario> nuevos) {
+        this.lista = nuevos;
+        notifyDataSetChanged();
+    }
+}

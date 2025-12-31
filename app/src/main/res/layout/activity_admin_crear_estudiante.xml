@@ -1,7 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
     android:padding="20dp">
 
     <LinearLayout
@@ -27,35 +26,52 @@
 
         <!-- Nombre -->
         <TextView
-            android:text="Nombre Completo"
+            android:text="Buscar"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/etNombre"
-            android:hint="Escribe el nombre"
+            android:id="@+id/etBuscar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            />
-
-        <!-- Teléfono -->
+            android:layout_height="45dp"
+            android:layout_below="@+id/txtAsesores"
+            android:layout_marginTop="25dp"
+            android:hint="Buscar"
+            android:background="@drawable/bg_buscador"
+            android:padding="12dp"
+            android:drawableStart="@android:drawable/ic_menu_search"/>
+        <!-- Numero cuenta -->
         <TextView
-            android:text="Numero telefónico"
+            android:text="Numero Cuenta"
             android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content"/>
+
 
         <EditText
-            android:id="@+id/etTelefono"
-            android:inputType="phone"
-            android:hint="Teléfono"
+            android:id="@+id/etNumeroCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero de cuenta" />
+
+        <!-- licenciatura -->
+        <TextView
+            android:id="@+id/txGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Licenciatura"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="6dp"
+            />
+
+        <Spinner
+            android:id="@+id/spLicenciatura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+
 
         <!-- Correo -->
         <TextView
@@ -71,6 +87,36 @@
             android:hint="correo@ejemplo.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <!-- Teléfono -->
+        <TextView
+            android:text="Numero telefónico"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:inputType="phone"
+            android:hint="Teléfono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Promedio -->
+        <TextView
+            android:text="Promedio"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etPromedio"
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:hint="Promedio"
+            android:inputType="phone" />
 
         <!-- Materias -->
         <TextView

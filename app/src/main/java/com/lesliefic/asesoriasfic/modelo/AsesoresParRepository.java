@@ -39,7 +39,7 @@ public class AsesoresParRepository {
 
     public static AsesorPar getById(Context context, int id){
         for (AsesorPar e : getListaAsesoresPar(context)){
-            if (e.getId() == id) return e;
+            if (e.getIdAsesor() == id) return e;
         }
         return null;
     }
