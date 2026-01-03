@@ -32,8 +32,11 @@ import com.lesliefic.asesoriasfic.adaptador.MateriaAdapter;
 import com.lesliefic.asesoriasfic.adaptador.MateriaElegidaAdapter;
 import com.lesliefic.asesoriasfic.adaptador.HorarioAdapter;
 import com.lesliefic.asesoriasfic.adaptador.HorarioElegidoAdapter;
+import com.lesliefic.asesoriasfic.modelo.HorarioId;
+import com.lesliefic.asesoriasfic.modelo.MateriaId;
 import com.lesliefic.asesoriasfic.network.ApiService;
 import com.lesliefic.asesoriasfic.network.RetrofitClient;
+import com.lesliefic.asesoriasfic.network.request.CrearAsesorParRequest;
 import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository;
 import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
 import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
@@ -61,6 +64,7 @@ public class crearAsesoresPar extends AppCompatActivity {
     HorarioAdapter adapterHorarios;
     EstudiantesRepository repoEstudiantes;
     CatalogosRepository repoCatalogos;
+    AsesorParRepository repoAsesorPar;
 
     Button btn_agregar_materia, btn_agregar_horario, btn_guardar;
 
@@ -70,6 +74,7 @@ public class crearAsesoresPar extends AppCompatActivity {
     private ArrayList<Horario> listaHorarios = new ArrayList<>();
     private ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
     private ArrayList<Estudiante> listaFiltrada = new ArrayList<>();
+
 
     private int id_estudianteElegido;
 
@@ -83,6 +88,8 @@ public class crearAsesoresPar extends AppCompatActivity {
 
         repoEstudiantes = new EstudiantesRepository();
         repoCatalogos = new CatalogosRepository();
+        repoAsesorPar = new AsesorParRepository();
+
 
         CrearAsesorParAdapter.OnEstudianteClickListener clickListener =
                 estudiante -> {
@@ -162,6 +169,7 @@ public class crearAsesoresPar extends AppCompatActivity {
                 toastNotificacion("Selecciona un estudiante y agrega al menos una materia y un horario");
             }
             else{
+                crearAsesorPar();
                 finish();
             }
 
@@ -361,6 +369,50 @@ public class crearAsesoresPar extends AppCompatActivity {
                 Toast.makeText(
                         crearAsesoresPar.this,
                         "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+    public void crearAsesorPar(){
+        ArrayList<MateriaId> materias = new ArrayList<>();
+        ArrayList<HorarioId> horarios = new ArrayList<>();
+
+        for(Materia m : materiasElegidas){
+            materias.add(new MateriaId(m.getId_materia()));
+        }
+        for(Horario h : horariosElegidos){
+            horarios.add(new HorarioId(h.getId_horario()));
+        }
+
+        CrearAsesorParRequest request = new CrearAsesorParRequest(id_estudianteElegido, materias, horarios);
+
+        repoAsesorPar.crearAsesorPar(request, new AsesorParRepository.ResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                if(data == 1){
+                    Toast.makeText(
+                            crearAsesoresPar.this,
+                            "se creo el asesor par",
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                }
+                else if(data == 0){
+                    Toast.makeText(
+                            crearAsesoresPar.this,
+                            "hubo un error, intente de nuevo",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        crearAsesoresPar.this,
+                        "hubo un error, intente de nuevo",
                         Toast.LENGTH_SHORT
                 ).show();
             }

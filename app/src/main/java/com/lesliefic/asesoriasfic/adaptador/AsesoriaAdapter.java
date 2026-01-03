@@ -65,36 +65,33 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
 
         public void bind(final Asesoria asesoria) {
 
-            nombreAlumno.setText(asesoria.getEstudiante().getNombre());
-            materia.setText(asesoria.getMateria());
-            fecha.setText(asesoria.getFechaInicio());
-            horario.setText(asesoria.getHorario());
-            modalidad.setText(asesoria.getModalidad());
+            if (asesoria != null && asesoria.getEstudiante() != null) {
+                String nombre = asesoria.getEstudiante().getNombre();
+                nombreAlumno.setText(nombre != null ? nombre : "Sin nombre");
+            } else {
+                nombreAlumno.setText("Sin alumno");
+            }
+
+            materia.setText(asesoria.getMateria() != null ? asesoria.getMateria() : "");
+            fecha.setText(asesoria.getFechaInicio() != null ? asesoria.getFechaInicio() : "");
+            horario.setText(asesoria.getHorario() != null ? asesoria.getHorario() : "");
+            modalidad.setText(asesoria.getModalidad() != null ? asesoria.getModalidad() : "");
 
             btn_infoAsesorias.setOnClickListener(v -> {
-                if (listener != null){
-                    listener.onInfoClick(asesoria);
-                }
+                if (listener != null) listener.onInfoClick(asesoria);
             });
 
             btn_completarAsesoria.setOnClickListener(v -> {
-                if (listener != null){
-                    listener.onCompletarAsesoria(asesoria);
-                }
+                if (listener != null) listener.onCompletarAsesoria(asesoria);
             });
 
             btn_materialAdicional.setOnClickListener(v -> {
-                if (listener != null){
-                    listener.onMaterialClick(asesoria);
-                }
+                if (listener != null) listener.onMaterialClick(asesoria);
             });
 
             btn_eliminar.setOnClickListener(v -> {
-                if (listener != null){
-                    listener.onEliminaAsesoria(asesoria);
-                }
+                if (listener != null) listener.onEliminaAsesoria(asesoria);
             });
-
         }
 
     }

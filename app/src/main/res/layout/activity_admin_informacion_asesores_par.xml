@@ -1,190 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".rol_administrador.InformacionAsesoresParActivity"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="30dp"
-    >
+    android:fillViewport="true">
 
-    <LinearLayout
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        tools:context=".rol_administrador.InformacionAsesoresParActivity"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="30dp"
         >
 
-        <ImageButton
-            android:id="@+id/btnRegresar"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageButton
+                android:id="@+id/btnRegresar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flecha_regresar_icon"
+                android:background="@drawable/style_btn_flecha_regresar"
+                />
+
+            <TextView
+                android:id="@+id/textoPagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informacion Asesor"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txAsesorPar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar"
+            android:text="Asesor"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoAsesorPar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text="Jenifer Guadalupe Tizoc Lopez"
             />
 
         <TextView
-            android:id="@+id/textoPagina"
+            android:id="@+id/txNumeroCuenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informacion Asesoria"
+            android:text="Numero Cuenta"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             />
+        <EditText
+            android:id="@+id/campoNumeroCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text="19519958"
+            />
+
+        <TextView
+            android:id="@+id/txLicenciatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Licenciatura"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <Spinner
+            android:id="@+id/spLicenciatura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            />
+
+        <TextView
+            android:id="@+id/txGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupo"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <Spinner
+            android:id="@+id/spGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            />
+
+        <TextView
+            android:id="@+id/txCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo Institucional"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text="jg.tizoc22@info.uas.edu.mx"
+            />
+
+        <TextView
+            android:id="@+id/txNumeroTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero telefonico"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoNumCel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text="6672136911"
+            />
+
+        <TextView
+            android:id="@+id/txPromedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Promedio"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/campoPromedio"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/style_inputs"
+            android:paddingStart="20dp"
+            android:text="9.8" />
+
+        <!-- ENCABEZADO MATERIAS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Materias que asesora"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <Button
+                android:id="@+id/btnAgregarMateria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ Añadir"
+                android:backgroundTint="#51A351"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- LISTA MATERIAS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMateriasAsesor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+        <!-- ENCABEZADO HORARIOS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Horarios que asesora"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <Button
+                android:id="@+id/btnAgregarHorario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ Añadir"
+                android:backgroundTint="#51A351"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!--HORARIOS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHorariosAsesor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+        <Button
+            android:id="@+id/btnFiltro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aplicar Cambios"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/style_btn_filtros"
+            />
+
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txAsesorPar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estudiante"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoAsesorPar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Jenifer Guadalupe Tizoc Lopez"
-        />
-
-    <TextView
-        android:id="@+id/txNumeroCuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estudiante"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoNumeroCuenta"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="19519958"
-        />
-
-    <TextView
-        android:id="@+id/txLicenciatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Licenciatura"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoLicenciatura"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Infromatica"
-        />
-
-    <TextView
-        android:id="@+id/txGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grado y grupo"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <Spinner
-        android:id="@+id/spGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
-
-    <TextView
-        android:id="@+id/txCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correo Institucional"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="jg.tizoc22@info.uas.edu.mx"
-        />
-
-    <TextView
-        android:id="@+id/txNumeroTelefono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correo Institucional"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoNumeroTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="6672136911"
-        />
-
-    <TextView
-        android:id="@+id/txPromedio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Promedio"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-
-    <EditText
-        android:id="@+id/campoPromedio"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/style_inputs"
-        android:paddingStart="20dp"
-        android:text="9.8" />
-
-    <Button
-        android:id="@+id/btnFiltro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aplicar Cambios"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/style_btn_filtros"
-        />
-
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -2,7 +2,9 @@ package com.lesliefic.asesoriasfic.modelo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Horario {
+import java.io.Serializable;
+
+public class Horario implements Serializable {
     @SerializedName("id_horario")
     private int id_horario;
     @SerializedName("horario")

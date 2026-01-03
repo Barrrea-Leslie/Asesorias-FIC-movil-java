@@ -1,9 +1,11 @@
 package com.lesliefic.asesoriasfic.modelo;
 
 import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class AsesorPar {
+public class AsesorPar implements Serializable {
 
     @SerializedName("id_asesor")
     private int id_asesor;
@@ -28,8 +30,14 @@ public class AsesorPar {
     @SerializedName("id_licenciatura")
     private int idLicenciatura;
 
+    @SerializedName("licenciatura")
+    private String licenciatura;
+
     @SerializedName("id_grupo")
     private int idGrupo;
+
+    @SerializedName("grupo")
+    private String grupo;
 
     @SerializedName("correo")
     private String correo;
@@ -41,10 +49,10 @@ public class AsesorPar {
     private double promedio;
 
 
-    @SerializedName("materiasAsesor")
+    @SerializedName("materiasasesor")
     private List<Materia> materiasAsesor;
 
-    @SerializedName("horariosAsesor")
+    @SerializedName("horariosasesor")
     private List<Horario> horariosAsesor;
 
 
@@ -80,8 +88,16 @@ public class AsesorPar {
         return idLicenciatura;
     }
 
+    public String getLicenciatura(){
+        return licenciatura;
+    }
+
     public int getIdGrupo() {
         return idGrupo;
+    }
+
+    public String getGrupo(){
+        return grupo;
     }
 
     public String getCorreo() {

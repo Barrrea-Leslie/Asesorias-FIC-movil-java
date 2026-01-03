@@ -1,5 +1,6 @@
 package com.lesliefic.asesoriasfic.adaptador;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class AsesorParAdapter extends RecyclerView.Adapter<AsesorParAdapter.Ases
     @Override
     public void onBindViewHolder(@NonNull AsesorViewHolder holder, int position) {
         holder.bind(lista.get(position));
+
     }
 
     @Override
