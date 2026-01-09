@@ -5,60 +5,39 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class AsesorPar implements Serializable {
+public class AsesorDisciplinar implements Serializable {
 
-    @SerializedName("id_asesor")
-    private int id_asesor;
-
+    @SerializedName("id_persona")
+    private int id_persona;
     @SerializedName("nombre")
     private String nombre;
-
     @SerializedName("apellido_paterno")
     private String apellidoPaterno;
 
     @SerializedName("apellido_materno")
     private String apellidoMaterno;
-
     @SerializedName("nombre_completo")
-    private String nombre_completo;
+    private  String nombre_completo;
     @SerializedName("numero_cuenta")
     private int numeroCuenta;
 
     @SerializedName("contrasena")
     private String contrasena;
-
-    @SerializedName("id_licenciatura")
-    private int idLicenciatura;
-
-    @SerializedName("licenciatura")
-    private String licenciatura;
-
-    @SerializedName("id_grupo")
-    private int idGrupo;
-
-    @SerializedName("grupo")
-    private String grupo;
-
     @SerializedName("correo")
     private String correo;
-
     @SerializedName("num_cel")
-    private String numeroTelefono;
-
+    private String numCel;
     @SerializedName("promedio")
     private double promedio;
-
-
-    @SerializedName("materiasasesor")
+    @SerializedName("materias")
     private List<Materia> materiasAsesor;
-
-    @SerializedName("horariosasesor")
+    @SerializedName("horarios")
     private List<Horario> horariosAsesor;
 
-
-    public int getIdAsesor() {
-        return id_asesor;
+    public int getId_persona(){
+        return id_persona;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -73,9 +52,8 @@ public class AsesorPar implements Serializable {
     }
 
     public String getNombre_completo(){
-        return nombre_completo;
+        return  nombre_completo;
     }
-
     public int getNumeroCuenta() {
         return numeroCuenta;
     }
@@ -84,28 +62,12 @@ public class AsesorPar implements Serializable {
         return contrasena;
     }
 
-    public int getIdLicenciatura() {
-        return idLicenciatura;
-    }
-
-    public String getLicenciatura(){
-        return licenciatura;
-    }
-
-    public int getIdGrupo() {
-        return idGrupo;
-    }
-
-    public String getGrupo(){
-        return grupo;
-    }
-
     public String getCorreo() {
         return correo;
     }
 
-    public String getNumeroTelefono() {
-        return numeroTelefono;
+    public String getNumCel() {
+        return numCel;
     }
 
     public double getPromedio() {

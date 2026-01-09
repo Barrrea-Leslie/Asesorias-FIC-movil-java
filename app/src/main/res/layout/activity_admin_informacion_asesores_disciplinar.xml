@@ -18,7 +18,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".rol_administrador.InformacionAsesoresParActivity"
+        tools:context=".rol_administrador.InformacionAsesoresDisciplinarActivity"
         android:background="@color/white"
         android:orientation="vertical"
         android:padding="30dp"
@@ -128,7 +128,7 @@
             android:background="@drawable/style_inputs"
             android:layout_marginTop="12dp"
             android:paddingStart="20dp"
-            android:text="19519958"
+            android:text=""
             />
 
         <TextView
@@ -148,7 +148,7 @@
             android:background="@drawable/style_inputs"
             android:layout_marginTop="12dp"
             android:paddingStart="20dp"
-            android:text="19519958"
+            android:text=""
             />
 
         <TextView
@@ -202,7 +202,7 @@
             android:background="@drawable/style_inputs"
             android:layout_marginTop="12dp"
             android:paddingStart="20dp"
-            android:text="jg.tizoc22@info.uas.edu.mx"
+            android:text=""
             />
 
         <TextView
@@ -222,7 +222,7 @@
             android:background="@drawable/style_inputs"
             android:layout_marginTop="12dp"
             android:paddingStart="20dp"
-            android:text="6672136911"
+            android:text=""
             />
 
         <TextView
@@ -243,7 +243,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/style_inputs"
             android:paddingStart="20dp"
-            android:text="9.8" />
+            android:text="" />
 
         <!-- ENCABEZADO MATERIAS -->
         <LinearLayout

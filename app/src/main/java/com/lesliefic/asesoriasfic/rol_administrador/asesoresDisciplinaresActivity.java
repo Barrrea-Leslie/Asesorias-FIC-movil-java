@@ -2,65 +2,234 @@ package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
+import android.widget.Toast;
 
-
-
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.adaptador.AsesorDiciplinarAdapter;
+import com.lesliefic.asesoriasfic.adaptador.AsesorDisciplinarAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoresDisciplinaresBinding;
-import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinar;
-import com.lesliefic.asesoriasfic.modelo.AsesorDiciplinarRepository;
-import com.lesliefic.asesoriasfic.rol_administrador.crearAsesoresDisiplinares;
+import com.lesliefic.asesoriasfic.modelo.AsesorDisciplinar;
+import com.lesliefic.asesoriasfic.modelo.AsesorPar; // <-- Si ya tienes AsesorDisciplinar, cámbialo aquí
+import com.lesliefic.asesoriasfic.modelo.Grupo;
+import com.lesliefic.asesoriasfic.modelo.Horario;
+import com.lesliefic.asesoriasfic.modelo.Licenciatura;
+import com.lesliefic.asesoriasfic.modelo.Materia;
+import com.lesliefic.asesoriasfic.repositorios.AsesorDisciplinarRepository;
+import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository; // <-- Si ya tienes repo disciplinar, cámbialo
+import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
+import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
 
-    private ActivityAdminAsesoresDisciplinaresBinding activityAdminAsesoresDisciplinaresBinding;
+    ActivityAdminAsesoresDisciplinaresBinding activityAdminAsesoresDisciplinaresBinding;
 
-    Button btn_crear_asesor;
+    private final List<AsesorDisciplinar> listaAsesoresDisciplinares = new ArrayList<>();
+
+    private final List<Materia> listaMaterias = new ArrayList<>();
+    private final List<Horario> listaHorarios = new ArrayList<>();
+    private final List<Grupo> listaGrupos = new ArrayList<>();
+    private final List<Licenciatura> listaLicenciaturas = new ArrayList<>();
+
+    EditText et_buscar;
+
+    private AsesorDisciplinarAdapter adapter;
+    private AsesorDisciplinarRepository repoAsesoresDisciplinares;
+    private CatalogosRepository repoCatalogos;
+
+    private Handler searchHandler = new Handler(Looper.getMainLooper());
+    private Runnable searchRunnable;
+    private static final long SEARCH_DELAY = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         activityAdminAsesoresDisciplinaresBinding = activityAdminAsesoresDisciplinaresBinding.inflate(getLayoutInflater());
         setContentView(activityAdminAsesoresDisciplinaresBinding.getRoot());
 
+
+        repoCatalogos = new CatalogosRepository();
+        repoAsesoresDisciplinares = new AsesorDisciplinarRepository();
+
+
+        et_buscar = findViewById(R.id.etBuscar);
+
         RecyclerView rv = findViewById(R.id.rvAsesores);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        List<AsesorDiciplinar> asesoresDiciplinares = AsesorDiciplinarRepository.getListaAsesoresDiciplinar(this);
-        AsesorDiciplinarAdapter adapter = new AsesorDiciplinarAdapter(asesoresDiciplinares, asesorDiciplinar ->
-                Toast.makeText(this, "click" + asesorDiciplinar.getNombre(), Toast.LENGTH_SHORT).show());
-        rv.setAdapter(adapter);
 
-        /*binding = ActivityAdminAsesoresDisciplinaresBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());*/
+        adapter = new AsesorDisciplinarAdapter(listaAsesoresDisciplinares, asesorDisciplinar -> {
+            Intent intent = new Intent(
+                    asesoresDisciplinaresActivity.this,
+                    InformacionAsesoresDisciplinarActivity.class
+            );
 
+            intent.putExtra("ASESOR_DISCIPLINAR_INFO", asesorDisciplinar);
+            intent.putExtra("LISTA_GRUPOS", new ArrayList<>(listaGrupos));
+            intent.putExtra("LISTA_LICENCIATURAS", new ArrayList<>(listaLicenciaturas));
 
-        btn_crear_asesor = findViewById(R.id.btnCrearAsesor);
-
-        btn_crear_asesor.setOnClickListener(v -> {
-            Intent intent = new Intent(asesoresDisciplinaresActivity.this, crearAsesoresDisiplinares.class);
             startActivity(intent);
         });
 
-        /*binding.btnGuardar.setOnClickListener(v -> {
+        rv.setAdapter(adapter);
+
+
+        Button btnCrearAsesorDisciplinar = findViewById(R.id.btnCrearAsesor);
+        btnCrearAsesorDisciplinar.setOnClickListener(v -> {
             Intent intent = new Intent(
                     asesoresDisciplinaresActivity.this,
-                    crearAsesoresDisiplinares.class
+                    crearAsesoresDisciplinares.class //
             );
             startActivity(intent);
-        });*/
+        });
+
+
+        obtenerCatalogos();
+
+        et_buscar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(searchRunnable != null){
+                    searchHandler.removeCallbacks(searchRunnable);
+                }
+                String texto = s.toString().trim();
+
+                searchRunnable = () -> {
+                    if(texto.isEmpty()){
+                        buscarAsesores();
+                        return;
+                    }
+
+                    buscarAsesores();
+                };
+
+
+                searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        buscarAsesores();
+
+    }
+
+    public void toastNotificacion(String message) {
+        Toast.makeText(asesoresDisciplinaresActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void buscarAsesores(){
+        String busqueda = et_buscar.getText().toString().trim();
+
+        repoAsesoresDisciplinares.buscarAsesorDisci(busqueda, new EstudiantesRepository.ResultCallback<List<AsesorDisciplinar>>() {
+            @Override
+            public void onSuccess(List<AsesorDisciplinar> data) {
+                listaAsesoresDisciplinares.clear();
+                listaAsesoresDisciplinares.addAll(data);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        asesoresDisciplinaresActivity.this,
+                        "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+
+
+    public void obtenerCatalogos() {
+        repoCatalogos.obtenerMaterias(new CatalogosRepository.ResultCallback<List<Materia>>() {
+            @Override
+            public void onSuccess(List<Materia> data) {
+                listaMaterias.clear();
+                listaMaterias.addAll(data);
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        asesoresDisciplinaresActivity.this,
+                        "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
+        repoCatalogos.obtenerHorarios(new CatalogosRepository.ResultCallback<List<Horario>>() {
+            @Override
+            public void onSuccess(List<Horario> data) {
+                listaHorarios.clear();
+                listaHorarios.addAll(data);
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        asesoresDisciplinaresActivity.this,
+                        "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
+        repoCatalogos.obtenerGrupos(new CatalogosRepository.ResultCallback<List<Grupo>>() {
+            @Override
+            public void onSuccess(List<Grupo> data) {
+                listaGrupos.clear();
+                listaGrupos.addAll(data);
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        asesoresDisciplinaresActivity.this,
+                        "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+
+        repoCatalogos.obtenerLicenciaturas(new CatalogosRepository.ResultCallback<List<Licenciatura>>() {
+            @Override
+            public void onSuccess(List<Licenciatura> data) {
+                listaLicenciaturas.clear();
+                listaLicenciaturas.addAll(data);
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        asesoresDisciplinaresActivity.this,
+                        "Error: " + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
     }
 }

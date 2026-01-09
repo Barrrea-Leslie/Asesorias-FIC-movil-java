@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:padding="30dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:id="@+id/main"
     tools:context=".rol_administrador.asesoresDisciplinaresActivity">
+
 
 
     <TextView
@@ -27,7 +28,7 @@
     <EditText
         android:id="@+id/etBuscar"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/txtAsesores"
         android:layout_marginTop="25dp"
         android:hint="Buscar"
@@ -38,10 +39,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAsesores"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@+id/etBuscar"
         android:layout_above="@+id/btnCrearAsesor"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/btnCrearAsesor"

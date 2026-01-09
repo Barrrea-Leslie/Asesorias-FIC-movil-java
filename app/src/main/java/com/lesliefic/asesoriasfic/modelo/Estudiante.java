@@ -2,7 +2,9 @@ package com.lesliefic.asesoriasfic.modelo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Estudiante {
+import java.io.Serializable;
+
+public class Estudiante implements Serializable {
 
     @SerializedName("id_persona")
     private int idPersona;

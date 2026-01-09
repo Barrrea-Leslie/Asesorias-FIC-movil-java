@@ -1,182 +1,258 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageButton
-            android:id="@+id/btnRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar" />
-
-        <TextView
-            android:text="Crear Asesor"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:paddingBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <!-- Nombre -->
-        <TextView
-            android:text="Buscar"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etBuscar"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_below="@+id/txtAsesores"
-            android:layout_marginTop="25dp"
-            android:hint="Buscar"
-            android:background="@drawable/bg_buscador"
-            android:padding="12dp"
-            android:drawableStart="@android:drawable/ic_menu_search"/>
-        <!-- Numero cuenta -->
-        <TextView
-            android:text="Numero Cuenta"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <EditText
-            android:id="@+id/etNumeroCuenta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Numero de cuenta" />
-
-        <!-- licenciatura -->
-        <TextView
-            android:id="@+id/txGrupo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Licenciatura"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="6dp"
-            />
-
-        <Spinner
-            android:id="@+id/spLicenciatura"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-
-        <!-- Correo -->
-        <TextView
-            android:text="Correo institucional"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etCorreo"
-            android:inputType="textEmailAddress"
-            android:hint="correo@ejemplo.com"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Teléfono -->
-        <TextView
-            android:text="Numero telefónico"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etTelefono"
-            android:inputType="phone"
-            android:hint="Teléfono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Promedio -->
-        <TextView
-            android:text="Promedio"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etPromedio"
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:hint="Promedio"
-            android:inputType="phone" />
-
-        <!-- Materias -->
-        <TextView
-            android:text="Materias que asesora"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnAñadirMateria"
-            android:text="+ Añadir"
-            android:backgroundTint="#51A351"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollForm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnGuardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/layoutMaterias"
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:padding="30dp"
+            tools:context=".rol_administrador.InformacionAsesoresParActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnRegresar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/style_btn_flecha_regresar"
+                    android:src="@drawable/flecha_regresar_icon" />
+
+                <TextView
+                    android:id="@+id/textoPagina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="30dp"
+                    android:text="Crear Estudiante"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Nombre(s)"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoNombre"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txApePat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Apellido Paterno"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoApePat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txApeMat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Apellido Materno"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoApeMat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txNumeroCuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Numero Cuenta"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoNumeroCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txContrasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Contraseña"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txLicenciatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Licenciatura"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spLicenciatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <TextView
+                android:id="@+id/txGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Grupo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spGrupo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <TextView
+                android:id="@+id/txCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Correo Institucional"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txNumeroTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Numero telefonico"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoNumCel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txPromedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Promedio"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoPromedio"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
 
 
-        <!-- Horarios -->
-        <TextView
-            android:text="Horarios de asesoría"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp" />
 
-        <Button
-            android:id="@+id/btnAñadirHorario"
-            android:text="+ Añadir"
-            android:backgroundTint="#51A351"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutHorarios"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    </androidx.core.widget.NestedScrollView>
 
-        <!-- Botón Guardar -->
-        <Button
-            android:id="@+id/btnGuardar"
-            android:text="Guardar"
-            android:backgroundTint="#002D72"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Aplicar Cambios"
+        app:backgroundTint="@null"
+        android:background="@drawable/style_btn_filtros"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

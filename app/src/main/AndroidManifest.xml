@@ -30,7 +30,7 @@
             android:name=".rol_administrador.FiltrosAsesoriasEnCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".rol_administrador.crearAsesoresDisiplinares"
+            android:name=".rol_administrador.crearAsesoresDisciplinares"
             android:exported="false" />
         <activity
             android:name=".rol_administrador.AsesoriasEnCursoAdminActivity"
@@ -43,6 +43,9 @@
             android:exported="false" />
         <activity
             android:name=".rol_administrador.asesoresParActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rol_administrador.CrearEstudiantes"
             android:exported="false" />
         <activity
             android:name=".acyivity_asesores_diciplinares"

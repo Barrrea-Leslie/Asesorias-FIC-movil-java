@@ -23,23 +23,26 @@ import com.lesliefic.asesoriasfic.adaptador.HorarioElegidoAdapter;
 import com.lesliefic.asesoriasfic.adaptador.LicenciaturaSpinnerAdapter;
 import com.lesliefic.asesoriasfic.adaptador.MateriaAdapter;
 import com.lesliefic.asesoriasfic.adaptador.MateriaElegidaAdapter;
-import com.lesliefic.asesoriasfic.modelo.AsesorPar;
+import com.lesliefic.asesoriasfic.modelo.AsesorDisciplinar;
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.HorarioId;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.MateriaId;
-import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
-import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRequest;
+import com.lesliefic.asesoriasfic.repositorios.AsesorDisciplinarRepository;
 import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InformacionAsesoresParActivity extends AppCompatActivity {
+public class crearAsesoresDisciplinares extends AppCompatActivity {
 
-    private AsesorPar datosAsesor;
+
+
+
     private ArrayList<Grupo> listaGrupos = new ArrayList<>();
     private ArrayList<Licenciatura> listaLicenciaturas = new ArrayList<>();
 
@@ -52,7 +55,7 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
     GrupoSpinnerAdapter adapterGrupo;
     LicenciaturaSpinnerAdapter adapterLicenciatura;
     CatalogosRepository repoCatalogos;
-    AsesorParRepository repoAsesorPar;
+    AsesorDisciplinarRepository repoAsesorDisciplinar;
 
     Button btn_agregar_materia, btn_agregar_horario, btn_guardar;
     Spinner spGrupo, spLicenciatura;
@@ -62,40 +65,18 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
     private List<Horario> horariosElegidos = new ArrayList<>();
     private ArrayList<Horario> listaHorarios = new ArrayList<>();
 
-
-
-
-
     EditText campoNombre, campoApePat, campoApeMat, campoNumeroCuenta, campoCorreo, campoNumCel, campoPromedio, campoContrasena;
-
+    ImageButton btnRegresar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_informacion_asesores_par);
+        setContentView(R.layout.activity_admin_crear_asesor_disciplinar);
 
-        datosAsesor = (AsesorPar) getIntent().getSerializableExtra("ASESOR_INFO");
-        listaGrupos = (ArrayList<Grupo>) getIntent().getSerializableExtra("LISTA_GRUPOS");
-        listaLicenciaturas = (ArrayList<Licenciatura>) getIntent().getSerializableExtra("LISTA_LICENCIATURAS");
 
-        if(datosAsesor == null){
-            finish();
-            return;
-        }
-
-        ImageButton btnRegresar = findViewById(R.id.btnRegresar);
+        btnRegresar = findViewById(R.id.btnRegresar);
         repoCatalogos = new CatalogosRepository();
-        repoAsesorPar = new AsesorParRepository();
-
-        spGrupo = findViewById(R.id.spGrupo);
-        adapterGrupo = new GrupoSpinnerAdapter(this, listaGrupos);
-        spGrupo.setAdapter(adapterGrupo);
-        seleccionarPorIdGrupo(spGrupo, datosAsesor.getIdGrupo());
-
-        spLicenciatura = findViewById(R.id.spLicenciatura);
-        adapterLicenciatura = new LicenciaturaSpinnerAdapter(this, listaLicenciaturas);
-        spLicenciatura.setAdapter(adapterLicenciatura);
-        seleccionarPorIdLicenciatura(spLicenciatura, datosAsesor.getIdLicenciatura());
+        repoAsesorDisciplinar = new AsesorDisciplinarRepository();
 
 
 
@@ -105,27 +86,15 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
         campoNumeroCuenta = findViewById(R.id.campoNumeroCuenta);
         campoCorreo = findViewById(R.id.campoCorreo);
         campoNumCel = findViewById(R.id.campoNumCel);
-        campoPromedio = findViewById(R.id.campoPromedio);
         campoContrasena = findViewById(R.id.campoContrasena);
 
 
-        campoNombre.setText(datosAsesor.getNombre());
-        campoApePat.setText(datosAsesor.getApellidoPaterno());
-        campoApeMat.setText(datosAsesor.getApellidoMaterno());
-        campoNumeroCuenta.setText(String.valueOf(datosAsesor.getNumeroCuenta()));
-        campoCorreo.setText(datosAsesor.getCorreo());
-        campoNumCel.setText(datosAsesor.getNumeroTelefono());
-        campoPromedio.setText(String.valueOf(datosAsesor.getPromedio()));
-        campoContrasena.setText(datosAsesor.getContrasena());
 
-        btnRegresar.setOnClickListener(v -> {
-            finish();
-        });
+        btnRegresar.setOnClickListener(v -> finish());
 
         MateriaElegidaAdapter.OnEliminarClickListener clickListener1 = materia -> {
             int index = materiasElegidas.indexOf(materia);
-
-            if(index != -1){
+            if (index != -1) {
                 materiasElegidas.remove(index);
                 adapterMaterias.notifyItemRemoved(index);
             }
@@ -133,8 +102,7 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
 
         HorarioElegidoAdapter.OnEliminarClickListener clickListener2 = horario -> {
             int index = horariosElegidos.indexOf(horario);
-
-            if(index != -1){
+            if (index != -1) {
                 horariosElegidos.remove(index);
                 adapterHorariosSelect.notifyItemRemoved(index);
             }
@@ -144,20 +112,9 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
         btn_agregar_horario = findViewById(R.id.btnAgregarHorario);
         btn_guardar = findViewById(R.id.btnGuardar);
 
-        btn_agregar_materia.setOnClickListener(v -> {
-            abrirDialogMaterias(listaMaterias);
-        });
-
-        btn_agregar_horario.setOnClickListener(v -> {
-            abrirDialogHorario();
-        });
-
-        btn_guardar.setOnClickListener(v -> {
-            editarAsesorPar();
-        });
-
-
-
+        btn_agregar_materia.setOnClickListener(v -> abrirDialogMaterias(listaMaterias));
+        btn_agregar_horario.setOnClickListener(v -> abrirDialogHorario());
+        btn_guardar.setOnClickListener(v -> crearAsesorDisciplinar());
 
         obtenerCatalagos();
 
@@ -171,31 +128,13 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
         rvHorariosAgregados.setLayoutManager(new LinearLayoutManager(this));
         rvHorariosAgregados.setAdapter(adapterHorariosSelect);
 
-        List<Materia> m = datosAsesor.getMateriasAsesor();
-        if(m != null){
-            materiasElegidas.clear();
-            materiasElegidas.addAll(m);
-            adapterMaterias.notifyDataSetChanged();
-        }
-
-        List<Horario> h = datosAsesor.getHorariosAsesor();
-        if(h != null){
-            horariosElegidos.clear();
-            horariosElegidos.addAll(h);
-            adapterHorariosSelect.notifyDataSetChanged();
-        }
-
-        Log.d("MATERIAS", "MATERIAS: " + m);
-
 
     }
 
-    void abrirDialogMaterias(ArrayList<Materia> listaMaterias){
+    void abrirDialogMaterias(ArrayList<Materia> listaMaterias) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_add_materia);
         ArrayList<Materia> listaMateriasFiltrada = new ArrayList<>();
-
-
 
         RecyclerView rv = dialog.findViewById(R.id.rvMaterias);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -212,52 +151,44 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
         int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.45);
-
         dialog.getWindow().setLayout(width, height);
 
-        EditText et_buscar;
-        et_buscar = dialog.findViewById(R.id.etBuscar);
+        EditText et_buscar = dialog.findViewById(R.id.etBuscar);
 
-        et_buscar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                String texto = s.toString().trim().toLowerCase();
+        if (et_buscar != null) {
+            et_buscar.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void afterTextChanged(Editable s) {
+                    String texto = s.toString().trim().toLowerCase();
 
-                listaMateriasFiltrada.clear();
+                    listaMateriasFiltrada.clear();
 
-                if(!texto.isEmpty()){
-                    for(Materia m : listaMaterias){
-                        if(m.getMateria().trim().toLowerCase().contains(texto)){
-                            listaMateriasFiltrada.add(m);
+                    if (!texto.isEmpty()) {
+                        for (Materia m : listaMaterias) {
+                            if (m.getMateria().trim().toLowerCase().contains(texto)) {
+                                listaMateriasFiltrada.add(m);
+                            }
                         }
                     }
+
+                    adapter.notifyDataSetChanged();
                 }
 
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-        });
-
+                @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            });
+        }
     }
 
-    void abrirDialogHorario(){
+    void abrirDialogHorario() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_add_horario);
 
         RecyclerView rv = dialog.findViewById(R.id.rvHorarios);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        HorarioAdapter.OnHorarioClickListener clickListener = Horario -> {
-            seleccionarHorario(Horario);
+        HorarioAdapter.OnHorarioClickListener clickListener = horario -> {
+            seleccionarHorario(horario);
             dialog.dismiss();
         };
 
@@ -268,22 +199,20 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
         int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.45);
-
         dialog.getWindow().setLayout(width, height);
-
     }
 
-    void seleccionarMateria(Materia materiaElegida){
+    void seleccionarMateria(Materia materiaElegida) {
         materiasElegidas.add(materiaElegida);
         adapterMaterias.notifyDataSetChanged();
     }
 
-    void seleccionarHorario(Horario horarioElegido){
+    void seleccionarHorario(Horario horarioElegido) {
         horariosElegidos.add(horarioElegido);
         adapterHorariosSelect.notifyDataSetChanged();
     }
 
-    public void obtenerCatalagos(){
+    public void obtenerCatalagos() {
         repoCatalogos.obtenerMaterias(new CatalogosRepository.ResultCallback<List<Materia>>() {
             @Override
             public void onSuccess(List<Materia> data) {
@@ -294,7 +223,7 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
             @Override
             public void onError(String error) {
                 Toast.makeText(
-                        InformacionAsesoresParActivity.this,
+                        crearAsesoresDisciplinares.this,
                         "Error: " + error,
                         Toast.LENGTH_SHORT
                 ).show();
@@ -311,7 +240,7 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
             @Override
             public void onError(String error) {
                 Toast.makeText(
-                        InformacionAsesoresParActivity.this,
+                        crearAsesoresDisciplinares.this,
                         "Error: " + error,
                         Toast.LENGTH_SHORT
                 ).show();
@@ -319,98 +248,69 @@ public class InformacionAsesoresParActivity extends AppCompatActivity {
         });
     }
 
-    public void editarAsesorPar(){
+    public void crearAsesorDisciplinar() {
         List<MateriaId> materias = new ArrayList<>();
         List<HorarioId> horarios = new ArrayList<>();
+
         String textoNumeroCuenta = campoNumeroCuenta.getText().toString().trim();
-        String textoPromedio = campoPromedio.getText().toString().trim();
-        Grupo grupo = (Grupo) spGrupo.getSelectedItem();
-        Licenciatura licenciatura = (Licenciatura) spLicenciatura.getSelectedItem();
 
         int numeroCuenta = Integer.parseInt(textoNumeroCuenta);
-        int idGrupo = grupo.getIdGrupo();
-        int idLicenciatura = licenciatura.getId_licenciatura();
-        double promedio = Double.parseDouble(textoPromedio);
 
 
-
-
-
-        if(!materiasElegidas.isEmpty()){
-            for(Materia m : materiasElegidas){
+        if (!materiasElegidas.isEmpty()) {
+            for (Materia m : materiasElegidas) {
                 materias.add(new MateriaId(m.getId_materia()));
             }
         }
 
-        if(!horariosElegidos.isEmpty()){
-            for(Horario h : horariosElegidos){
+        if (!horariosElegidos.isEmpty()) {
+            for (Horario h : horariosElegidos) {
                 horarios.add(new HorarioId(h.getId_horario()));
             }
         }
 
-
-        EditarAsesorParRequest request =
-                new EditarAsesorParRequest(
-                    datosAsesor.getIdAsesor(),
+        CrearAsesorDisciplinarRequest request = new CrearAsesorDisciplinarRequest(
                     campoNombre.getText().toString().trim(),
                     campoApePat.getText().toString().trim(),
                     campoApeMat.getText().toString().trim(),
                     numeroCuenta,
                     campoContrasena.getText().toString().trim(),
-                    idLicenciatura,
-                    idGrupo,
                     campoCorreo.getText().toString().trim(),
                     campoNumCel.getText().toString().trim(),
-                    promedio,
                     materias,
                     horarios
                 );
 
-        repoAsesorPar.editarAsesorPar(request, new AsesorParRepository.ResultCallback<Integer>() {
+        repoAsesorDisciplinar.CrearAsesorDisciplinar(request, new AsesorDisciplinarRepository.ResultCallback<Integer>() {
             @Override
             public void onSuccess(Integer data) {
                 if(data == 1){
                     finish();
                     Toast.makeText(
-                            InformacionAsesoresParActivity.this,
-                            "ASESOR EDITADO EXITOSAMENTE",
+                            crearAsesoresDisciplinares.this,
+                            "ASESOR CREADO EXITOSAMENTE",
                             Toast.LENGTH_SHORT
                     ).show();
+
+
                 }
+
             }
 
             @Override
             public void onError(String error) {
                 Toast.makeText(
-                        InformacionAsesoresParActivity.this,
-                        "Ocurrio un error: " + error,
+                        crearAsesoresDisciplinares.this,
+                        "hubo un error, intente de nuevo",
                         Toast.LENGTH_SHORT
                 ).show();
             }
         });
 
 
+
+
     }
 
-    private void seleccionarPorIdGrupo(Spinner spinner, int idBuscado) {
-        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-            Grupo g = (Grupo) spinner.getAdapter().getItem(i);
 
-            if (g.getIdGrupo() == idBuscado) {
-                spinner.setSelection(i);
-                return;
-            }
-        }
-    }
-
-    private void seleccionarPorIdLicenciatura(Spinner spinner, int idBuscado) {
-        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
-            Licenciatura li = (Licenciatura) spinner.getAdapter().getItem(i);
-
-            if (li.getId_licenciatura() == idBuscado) {
-                spinner.setSelection(i);
-                return;
-            }
-        }
-    }
 }

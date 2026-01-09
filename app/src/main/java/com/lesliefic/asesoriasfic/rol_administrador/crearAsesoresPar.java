@@ -1,22 +1,16 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 
 import com.lesliefic.asesoriasfic.R;
@@ -34,13 +28,10 @@ import com.lesliefic.asesoriasfic.adaptador.HorarioAdapter;
 import com.lesliefic.asesoriasfic.adaptador.HorarioElegidoAdapter;
 import com.lesliefic.asesoriasfic.modelo.HorarioId;
 import com.lesliefic.asesoriasfic.modelo.MateriaId;
-import com.lesliefic.asesoriasfic.network.ApiService;
-import com.lesliefic.asesoriasfic.network.RetrofitClient;
-import com.lesliefic.asesoriasfic.network.request.CrearAsesorParRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorParRequest;
 import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository;
 import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
 import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
-import com.lesliefic.asesoriasfic.rol_administrador.ListaAsesoresActivity;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.Horario;
@@ -48,10 +39,6 @@ import com.lesliefic.asesoriasfic.modelo.Horario;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class crearAsesoresPar extends AppCompatActivity {
 

@@ -31,7 +31,7 @@ public class AsesorParAdapter extends RecyclerView.Adapter<AsesorParAdapter.Ases
             txtNombre = itemView.findViewById(R.id.txtNombreAsesor);
         }
         public void bind(final AsesorPar asesorPar) {
-            txtNombre.setText(asesorPar.getNombre());
+            txtNombre.setText(asesorPar.getNombre_completo());
             itemView.setOnClickListener(v -> listener.onClick(asesorPar));
         }
     }

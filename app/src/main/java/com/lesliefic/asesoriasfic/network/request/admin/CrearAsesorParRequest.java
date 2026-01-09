@@ -1,10 +1,8 @@
 
 
-package com.lesliefic.asesoriasfic.network.request;
+package com.lesliefic.asesoriasfic.network.request.admin;
 
-import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.HorarioId;
-import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.MateriaId;
 
 import java.util.List;

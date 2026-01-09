@@ -33,7 +33,7 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Al
             txtNombre = itemView.findViewById(R.id.txtNombreAsesor);
         }
         public void bind(final Estudiante estudiante) {
-            txtNombre.setText(estudiante.getNombre());
+            txtNombre.setText(estudiante.getNombreCompleto());
             itemView.setOnClickListener(v -> listener.onClick(estudiante));
         }
     }

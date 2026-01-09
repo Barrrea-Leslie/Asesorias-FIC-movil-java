@@ -1,189 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".rol_administrador.InformacionEstudiantesActivity"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="30dp"
-    >
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollForm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnGuardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
-            android:id="@+id/btnRegresar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar"
-            />
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="30dp"
+            tools:context=".rol_administrador.InformacionAsesoresParActivity">
 
-        <TextView
-            android:id="@+id/textoPagina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informacion Estudiante"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btnRegresar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/style_btn_flecha_regresar"
+                    android:src="@drawable/flecha_regresar_icon" />
 
-    <TextView
-        android:id="@+id/txAsesorPar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estudiante"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoAsesorPar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Luis Fernando Velazquez Araujo"
-        />
+                <TextView
+                    android:id="@+id/textoPagina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="30dp"
+                    android:text="Informacion Estudiante"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txNumeroCuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estudiante"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoNumeroCuenta"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="19519958"
-        />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/txLicenciatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Licenciatura"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoLicenciatura"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="Infromatica"
-        />
+            <TextView
+                android:id="@+id/txNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Nombre(s)"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grado y grupo"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <Spinner
-        android:id="@+id/spGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        />
+            <EditText
+                android:id="@+id/campoNombre"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
 
-    <TextView
-        android:id="@+id/txCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correo Institucional"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="lf.velazquez22@info.uas.edu.mx"
-        />
+            <TextView
+                android:id="@+id/txApePat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Apellido Paterno"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txNumeroTelefono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correo Institucional"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoNumeroTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="6672136911"
-        />
+            <EditText
+                android:id="@+id/campoApePat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
 
-    <TextView
-        android:id="@+id/txPromedio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Promedio"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        />
-    <EditText
-        android:id="@+id/campoPromedio"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/style_inputs"
-        android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:text="8"
-        />
+            <TextView
+                android:id="@+id/txApeMat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Apellido Materno"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoApeMat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txNumeroCuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Numero Cuenta"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoNumeroCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txContrasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Contraseña"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txLicenciatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Licenciatura"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spLicenciatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <TextView
+                android:id="@+id/txGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Grupo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spGrupo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <TextView
+                android:id="@+id/txCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Correo Institucional"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txNumeroTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Numero telefonico"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoNumCel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txPromedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:text="Promedio"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/campoPromedio"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/style_inputs"
+                android:paddingStart="20dp"
+                android:text="" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <Button
-        android:id="@+id/btnFiltro"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="Aplicar Cambios"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         app:backgroundTint="@null"
         android:background="@drawable/style_btn_filtros"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

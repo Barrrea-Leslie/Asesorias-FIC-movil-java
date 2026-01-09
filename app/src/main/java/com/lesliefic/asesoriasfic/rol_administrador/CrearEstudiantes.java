@@ -12,17 +12,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.GrupoSpinnerAdapter;
 import com.lesliefic.asesoriasfic.adaptador.LicenciaturaSpinnerAdapter;
-import com.lesliefic.asesoriasfic.databinding.ActivityAdminInformacionEstudiantesBinding;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
-import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
+import com.lesliefic.asesoriasfic.databinding.ActivityAdminCrearEstudianteBinding;
 
 import java.util.ArrayList;
 
-public class InformacionEstudiantesActivity extends AppCompatActivity {
+public class CrearEstudiantes extends AppCompatActivity {
 
     private Estudiante datosEstudiante;
 
@@ -40,19 +39,18 @@ public class InformacionEstudiantesActivity extends AppCompatActivity {
 
     private Button btn_guardar;
 
-    ActivityAdminInformacionEstudiantesBinding ActivityAdminInformacionEstudiantesBinding;
+    ActivityAdminCrearEstudianteBinding activityAdminCrearEstudianteBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityAdminInformacionEstudiantesBinding = ActivityAdminInformacionEstudiantesBinding.inflate(getLayoutInflater());
-        setContentView(ActivityAdminInformacionEstudiantesBinding.getRoot());
+        activityAdminCrearEstudianteBinding = activityAdminCrearEstudianteBinding.inflate(getLayoutInflater());
+        setContentView(activityAdminCrearEstudianteBinding.getRoot());
 
 
 
         listaGrupos = (ArrayList<Grupo>) getIntent().getSerializableExtra("LISTA_GRUPOS");
         listaLicenciaturas = (ArrayList<Licenciatura>) getIntent().getSerializableExtra("LISTA_LICENCIATURAS");
-        datosEstudiante = (Estudiante) getIntent().getSerializableExtra("ESTUDIANTE_DATOS");
 
 
 
@@ -70,47 +68,37 @@ public class InformacionEstudiantesActivity extends AppCompatActivity {
         adapterLicenciatura = new LicenciaturaSpinnerAdapter(this, listaLicenciaturas);
         spLicenciatura.setAdapter(adapterLicenciatura);
 
-        // Seleccionar por ID
+       // Seleccionar por ID
 
-       seleccionarPorIdGrupo(spGrupo, datosEstudiante.getIdGrupo());
-       seleccionarPorIdLicenciatura(spLicenciatura, datosEstudiante.getIdLicenciatura());
+//       seleccionarPorIdGrupo(spGrupo, datosEstudiante.getIdGrupo());
+//       seleccionarPorIdLicenciatura(spLicenciatura, datosEstudiante.getIdLicenciatura());
 
-        // Campos
-        campoNombre = findViewById(R.id.campoNombre);
-        campoApePat = findViewById(R.id.campoApePat);
-        campoApeMat = findViewById(R.id.campoApeMat);
-        campoNumeroCuenta = findViewById(R.id.campoNumeroCuenta);
-        campoCorreo = findViewById(R.id.campoCorreo);
-        campoNumCel = findViewById(R.id.campoNumCel);
-        campoContrasena = findViewById(R.id.campoContrasena);
-        campoPromedio = findViewById(R.id.campoPromedio);
-
-        campoNombre.setText(datosEstudiante.getNombre());
-        campoApePat.setText(datosEstudiante.getApellidoPaterno());
-        campoApeMat.setText(datosEstudiante.getApellidoMaterno());
-        campoNumeroCuenta.setText(String.valueOf(datosEstudiante.getNumeroCuenta()));
-        campoCorreo.setText(datosEstudiante.getCorreo());
-        campoNumCel.setText(datosEstudiante.getNumCel());
-        campoPromedio.setText(String.valueOf(datosEstudiante.getPromedio()));
-        campoContrasena.setText(datosEstudiante.getContrasena());
+       // Campos
+       campoNombre = findViewById(R.id.campoNombre);
+       campoApePat = findViewById(R.id.campoApePat);
+       campoApeMat = findViewById(R.id.campoApeMat);
+       campoNumeroCuenta = findViewById(R.id.campoNumeroCuenta);
+       campoCorreo = findViewById(R.id.campoCorreo);
+       campoNumCel = findViewById(R.id.campoNumCel);
+       campoContrasena = findViewById(R.id.campoContrasena);
+       campoPromedio = findViewById(R.id.campoPromedio);
 
 
 
-        btn_guardar = findViewById(R.id.btnGuardar);
-        btn_guardar.setOnClickListener(v -> editarEstudiante());
-    }
+       btn_guardar = findViewById(R.id.btnGuardar);
+        btn_guardar.setOnClickListener(v -> CrearEstudiante());
+   }
 
     public void editarEstudiante() {
         String textoNumeroCuenta = campoNumeroCuenta.getText().toString().trim();
-        String textoPromedio = campoPromedio.getText().toString().trim();
-        int numeroCuenta = Integer.parseInt(textoNumeroCuenta);
 
         Grupo grupo = (Grupo) spGrupo.getSelectedItem();
         Licenciatura licenciatura = (Licenciatura) spLicenciatura.getSelectedItem();
-        int idGrupo = grupo.getIdGrupo();
-        int idLicenciatura = licenciatura.getId_licenciatura();
-        double promedio = Double.parseDouble(textoPromedio);
 
+        if (grupo == null || licenciatura == null) {
+            Toast.makeText(this, "Selecciona grupo y licenciatura", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (campoNombre.getText().toString().trim().isEmpty()
                 || campoApePat.getText().toString().trim().isEmpty()
@@ -118,55 +106,22 @@ public class InformacionEstudiantesActivity extends AppCompatActivity {
                 || textoNumeroCuenta.isEmpty()
                 || campoCorreo.getText().toString().trim().isEmpty()
                 || campoNumCel.getText().toString().trim().isEmpty()
-                || campoContrasena.getText().toString().trim().isEmpty()
-                || grupo == null
-                || licenciatura == null) {
+                || campoContrasena.getText().toString().trim().isEmpty()) {
 
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        EditarEstudianteRequest request = new EditarEstudianteRequest(
-                datosEstudiante.getIdPersona(),
-                campoNombre.getText().toString().trim(),
-                campoApePat.getText().toString().trim(),
-                campoApeMat.getText().toString().trim(),
-                numeroCuenta,
-                campoContrasena.getText().toString().trim(),
-                idLicenciatura,
-                idGrupo,
-                campoCorreo.getText().toString().trim(),
-                campoNumCel.getText().toString().trim(),
-                promedio
-                );
+        int numeroCuenta;
+        try {
+            numeroCuenta = Integer.parseInt(textoNumeroCuenta);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Número de cuenta inválido", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        repoEstudiantes.editarEstudiante(request, new EstudiantesRepository.ResultCallback<Integer>() {
-            @Override
-            public void onSuccess(Integer data) {
-                if(data == 1){
-                    finish();
-                    Toast.makeText(
-                            InformacionEstudiantesActivity.this,
-                            "ESTUDIANTE EDITADO EXITOSAMENTE",
-                            Toast.LENGTH_SHORT
-                    ).show();
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                Toast.makeText(
-                        InformacionEstudiantesActivity.this,
-                        "error:" + error,
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
-
-
-
-
-
+        int idGrupo = grupo.getIdGrupo();
+        int idLicenciatura = licenciatura.getId_licenciatura();
 
 
 
@@ -191,17 +146,17 @@ public class InformacionEstudiantesActivity extends AppCompatActivity {
 
         CrearEstudianteRequest request = new CrearEstudianteRequest
                 (
-                        campoNombre.getText().toString().trim(),
-                        campoApePat.getText().toString().trim(),
-                        campoApeMat.getText().toString().trim(),
-                        numeroCuenta,
-                        campoContrasena.getText().toString().trim(),
-                        idLicenciatura,
-                        idGrupo,
-                        campoCorreo.getText().toString().trim(),
-                        campoNumCel.getText().toString().trim(),
-                        promedio,
-                        3
+                    campoNombre.getText().toString().trim(),
+                    campoApePat.getText().toString().trim(),
+                    campoApeMat.getText().toString().trim(),
+                    numeroCuenta,
+                    campoContrasena.getText().toString().trim(),
+                    idLicenciatura,
+                    idGrupo,
+                    campoCorreo.getText().toString().trim(),
+                    campoNumCel.getText().toString().trim(),
+                    promedio,
+                    3
                 );
 
         repoEstudiantes.CrearEstudiante(request, new EstudiantesRepository.ResultCallback<Integer>() {
@@ -210,7 +165,7 @@ public class InformacionEstudiantesActivity extends AppCompatActivity {
                 if(data == 1){
                     finish();
                     Toast.makeText(
-                            InformacionEstudiantesActivity.this,
+                            CrearEstudiantes.this,
                             "ESTUDIANTE CREADO EXITOSAMENTE",
                             Toast.LENGTH_SHORT
                     ).show();
