@@ -6,10 +6,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,15 +19,16 @@ import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesorDisciplinarAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminAsesoresDisciplinaresBinding;
 import com.lesliefic.asesoriasfic.modelo.AsesorDisciplinar;
-import com.lesliefic.asesoriasfic.modelo.AsesorPar; // <-- Si ya tienes AsesorDisciplinar, cámbialo aquí
+import com.lesliefic.asesoriasfic.modelo.AsesorPar;
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.repositorios.AsesorDisciplinarRepository;
-import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository; // <-- Si ya tienes repo disciplinar, cámbialo
+import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository;
 import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
 import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
+import com.lesliefic.asesoriasfic.repositorios.UsuariosRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +49,7 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
     private AsesorDisciplinarAdapter adapter;
     private AsesorDisciplinarRepository repoAsesoresDisciplinares;
     private CatalogosRepository repoCatalogos;
+    private UsuariosRepository repoUsuarios;
 
     private Handler searchHandler = new Handler(Looper.getMainLooper());
     private Runnable searchRunnable;
@@ -60,6 +64,7 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
 
         repoCatalogos = new CatalogosRepository();
         repoAsesoresDisciplinares = new AsesorDisciplinarRepository();
+        repoUsuarios = new UsuariosRepository();
 
 
         et_buscar = findViewById(R.id.etBuscar);
@@ -67,18 +72,21 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
         RecyclerView rv = findViewById(R.id.rvAsesores);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new AsesorDisciplinarAdapter(listaAsesoresDisciplinares, asesorDisciplinar -> {
+        adapter = new AsesorDisciplinarAdapter(listaAsesoresDisciplinares,
+                asesorDisciplinar -> {
             Intent intent = new Intent(
                     asesoresDisciplinaresActivity.this,
                     InformacionAsesoresDisciplinarActivity.class
             );
 
-            intent.putExtra("ASESOR_DISCIPLINAR_INFO", asesorDisciplinar);
-            intent.putExtra("LISTA_GRUPOS", new ArrayList<>(listaGrupos));
-            intent.putExtra("LISTA_LICENCIATURAS", new ArrayList<>(listaLicenciaturas));
+            intent.putExtra("ASESOR_INFO", asesorDisciplinar);
 
             startActivity(intent);
-        });
+        },
+            (asesorDisciplinar, position) -> {
+                mostrarDialogoEliminar(asesorDisciplinar.getId_persona());
+            }
+            );
 
         rv.setAdapter(adapter);
 
@@ -229,6 +237,52 @@ public class asesoresDisciplinaresActivity extends DrawerBaseActivity {
                         "Error: " + error,
                         Toast.LENGTH_SHORT
                 ).show();
+            }
+        });
+
+
+    }
+    private void mostrarDialogoEliminar(int id_persona){
+
+        View dialogView = getLayoutInflater().inflate(R.layout.admin_ventana_confirmacion_eliminar_usuario, null);
+
+        AlertDialog dialog = new AlertDialog.Builder(asesoresDisciplinaresActivity.this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create();
+
+        dialog.getWindow().setBackgroundDrawableResource(
+                android.R.color.transparent
+        );
+
+        Button btnCancelar = dialogView.findViewById(R.id.btnCancelar);
+        Button btnAceptar = dialogView.findViewById(R.id.btnAceptar);
+
+        btnCancelar.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+
+        btnAceptar.setOnClickListener(v -> {
+            eliminarUsuario(id_persona);
+            dialog.dismiss();
+            onResume();
+        });
+
+        dialog.show();
+    }
+
+    public void eliminarUsuario(int id_persona){
+        repoUsuarios.eliminarUsuario(id_persona, new UsuariosRepository.ResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                if(data == 1){
+                    Toast.makeText(getApplicationContext(), "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(getApplicationContext(), "error:" + error, Toast.LENGTH_SHORT).show();
             }
         });
     }

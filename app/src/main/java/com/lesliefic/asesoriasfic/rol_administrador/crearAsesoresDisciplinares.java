@@ -301,7 +301,7 @@ public class crearAsesoresDisciplinares extends AppCompatActivity {
             public void onError(String error) {
                 Toast.makeText(
                         crearAsesoresDisciplinares.this,
-                        "hubo un error, intente de nuevo",
+                        "hubo un error, intente de nuevo" + error,
                         Toast.LENGTH_SHORT
                 ).show();
             }

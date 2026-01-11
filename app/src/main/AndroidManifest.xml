@@ -60,6 +60,9 @@
             android:name=".rol_administrador.solicitudesPendientesActivity"
             android:exported="false" />
         <activity
+            android:name=".rol_administrador.InformacionAsesoresDisciplinarActivity"
+            android:exported="false" />
+        <activity
             android:name=".asesoriasCursoActivity"
             android:exported="false" />
         <activity

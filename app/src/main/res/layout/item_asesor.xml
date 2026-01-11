@@ -20,9 +20,21 @@
         android:id="@+id/txtNombreAsesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Nombre Asesor"
         android:textColor="@color/white"
         android:textStyle="bold"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eliminar_icon_usuario"
+        android:layout_margin="15dp"
+        android:padding="6dp"
+        android:backgroundTint="#00FFFFFF"
+        android:background="@drawable/style_btn_eliminar"
         />
 
 

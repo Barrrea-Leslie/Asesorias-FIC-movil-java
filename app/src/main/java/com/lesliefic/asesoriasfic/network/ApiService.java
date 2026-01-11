@@ -10,6 +10,7 @@ import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -61,4 +63,10 @@ public interface ApiService {
 
     @POST("/asesores-disciplinar")
     Call<Integer> crearAsesorDisciplinar(@Body CrearAsesorDisciplinarRequest request);
+
+    @POST("/asesores-disciplinar/editar")
+    Call<Integer> editarAsesorDisciplinar(@Body EditarAsesorDisciplinarRequest request);
+
+    @DELETE("/usuarios")
+    Call<Integer> eliminarUsuario(@Query("id_persona") int id_persona);
 }

@@ -6,6 +6,7 @@ import com.lesliefic.asesoriasfic.network.ApiService;
 import com.lesliefic.asesoriasfic.network.RetrofitClient;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 
 import java.util.List;
@@ -111,8 +112,8 @@ public class AsesorDisciplinarRepository {
         });
     }
 
-    public void editarEstudiante(EditarEstudianteRequest request, EstudiantesRepository.ResultCallback<Integer> cb){
-        api.editarEstudiante(request).enqueue(new Callback<Integer>() {
+    public void editarAsesorDisciplinar(EditarAsesorDisciplinarRequest request, AsesorDisciplinarRepository.ResultCallback<Integer> cb){
+        api.editarAsesorDisciplinar(request).enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 if(!response.isSuccessful()){

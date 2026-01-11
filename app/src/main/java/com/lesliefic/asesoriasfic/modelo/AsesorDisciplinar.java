@@ -29,9 +29,9 @@ public class AsesorDisciplinar implements Serializable {
     private String numCel;
     @SerializedName("promedio")
     private double promedio;
-    @SerializedName("materias")
+    @SerializedName("materiasasesor")
     private List<Materia> materiasAsesor;
-    @SerializedName("horarios")
+    @SerializedName("horariosasesor")
     private List<Horario> horariosAsesor;
 
     public int getId_persona(){
