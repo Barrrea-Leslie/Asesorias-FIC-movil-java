@@ -1,5 +1,6 @@
 package com.lesliefic.asesoriasfic.rol_estudiante;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -18,5 +19,10 @@ public class historialAsesoriasEstudianteActivity extends DrawerBaseActivity {
 
         binding = ActivityEstudianteHistorialAsesoriasBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.opFiltros.setOnClickListener(v -> {
+            startActivity(new Intent(historialAsesoriasEstudianteActivity.this, EstudianteFiltroHistorialAsesoriasActivity.class));
+        });
+
     }
 }

@@ -34,8 +34,6 @@ public class inicioEstudianteActivity extends DrawerBaseActivity {
             startActivity(new Intent(this, estudiante_filtros_solicitar_asesorias.class));
         });
 
-        binding.btnMaterial.setOnClickListener(v -> {
-            startActivity(new Intent(this, EstudianteMaterialAdicionalActivity.class));
-        });
+
     }
 }

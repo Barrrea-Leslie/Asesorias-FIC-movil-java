@@ -15,6 +15,12 @@
         android:theme="@style/Theme.AsesoriasFIC"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".rol_estudiante.EstudianteFiltroHistorialAsesoriasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rol_estudiante.EstudianteChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".rol_estudiante.EstudianteMaterialAdicionalActivity"
             android:exported="false" />
         <activity

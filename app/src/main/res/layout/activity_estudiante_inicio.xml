@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
     android:background="@color/white"
+    android:padding="30dp"
     tools:context=".rol_administrador.AsesoriasEnCursoAdminActivity">
 
     <TextView
@@ -16,56 +16,44 @@
         android:layout_alignParentEnd="false"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Solicitar Asesorias"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:gravity="center"
         android:padding="12dp"
-        />
-
+        android:text="Solicitar Asesorias"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/opFiltros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Filtros"
         android:layout_below="@id/tvTextPrincipal"
+        android:drawableEnd="@drawable/filtro_icon"
         android:padding="10dp"
+        android:text="Filtros"
         android:textColor="#9B9B9B"
         android:textSize="16dp"
-        android:textStyle="bold"
-        android:drawableEnd="@drawable/filtro_icon"
-        />
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAsesoriasEnCurso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/opFiltros"
         android:layout_above="@id/btn_crearSolicitud"
-        app:layout_constraintBottom_toTopOf="@+id/btn_crearSolicitud"
+        android:layout_below="@+id/opFiltros"
         android:layout_marginTop="20dp"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/btn_crearSolicitud" />
 
-    <Button
-        android:id="@+id/btnMaterial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Material"
-        android:layout_below="@+id/rvAsesoriasEnCurso"
-        />
 
     <Button
         android:id="@+id/btn_crearSolicitud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear Solicitud"
-        app:backgroundTint="@color/botonVerder"
-        android:background="@drawable/style_botones_assurso"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="30dp"
-        />
+        android:background="@drawable/style_botones_assurso"
+        android:text="Crear Solicitud"
+        app:backgroundTint="@color/botonVerder" />
 
 </RelativeLayout>
