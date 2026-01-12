@@ -48,7 +48,6 @@ public class loginActivity extends AppCompatActivity {
         Personas.add(new Persona(12347, 1236, 3));
 
 
-
         btnIngresar.setOnClickListener(v -> {
 
             String cuenta = inputCuenta.getText().toString();
