@@ -13,11 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.modelo.Grupo;
-import com.lesliefic.asesoriasfic.modelo.Horario;
-import com.lesliefic.asesoriasfic.modelo.Licenciatura;
-import com.lesliefic.asesoriasfic.modelo.Materia;
-import com.lesliefic.asesoriasfic.repositorios.CatalogosRepository;
 import com.lesliefic.asesoriasfic.rol_administrador.AsesoriasEnCursoAdminActivity;
 import com.lesliefic.asesoriasfic.rol_asesor.inicioAsesorActivity;
 import com.lesliefic.asesoriasfic.rol_estudiante.inicioEstudianteActivity;
@@ -25,17 +20,8 @@ import com.lesliefic.asesoriasfic.rol_estudiante.inicioEstudianteActivity;
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class loginActivity extends AppCompatActivity {
-
-    private CatalogosRepository repoCatalogos;
-
-    private List<Licenciatura> listaLicenciaturas = new ArrayList<>();
-    private List<Grupo> listaGrupos = new ArrayList<>();
-    private List<Horario> listaHorarios = new ArrayList<>();
-    private List<Materia> listaMaterias = new ArrayList<>();
-
 
 
 
@@ -62,9 +48,6 @@ public class loginActivity extends AppCompatActivity {
         Personas.add(new Persona(12347, 1236, 3));
 
 
-
-
-
         btnIngresar.setOnClickListener(v -> {
 
             String cuenta = inputCuenta.getText().toString();
@@ -87,7 +70,6 @@ public class loginActivity extends AppCompatActivity {
                     case 1:
                         guardarRol(rol);
                         Intent ingresarInicioAdmin = new Intent(loginActivity.this, AsesoriasEnCursoAdminActivity.class);
-
                         startActivity(ingresarInicioAdmin);
                         break;
 
@@ -137,72 +119,6 @@ public class loginActivity extends AppCompatActivity {
 
         editor.putInt("ROL", rol);
         editor.apply();
-    }
-
-    public void obtenerCatalogos(){
-        repoCatalogos.obtenerLicenciaturas(new CatalogosRepository.ResultCallback<List<Licenciatura>>() {
-            @Override
-            public void onSuccess(List<Licenciatura> data) {
-                listaLicenciaturas.clear();
-                listaLicenciaturas.addAll(data);
-            }
-
-            @Override
-            public void onError(String error) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        "error:" + error,
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
-
-        repoCatalogos.obtenerGrupos(new CatalogosRepository.ResultCallback<List<Grupo>>() {
-            @Override
-            public void onSuccess(List<Grupo> data) {
-                listaGrupos.clear();
-                listaGrupos.addAll(data);
-            }
-
-            @Override
-            public void onError(String error) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        "error:" + error,
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
-
-        repoCatalogos.obtenerHorarios(new CatalogosRepository.ResultCallback<List<Horario>>() {
-            @Override
-            public void onSuccess(List<Horario> data) {
-                listaHorarios.clear();
-                listaHorarios.addAll(data);
-            }
-
-            @Override
-            public void onError(String error) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        "error:" + error,
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
-
-        repoCatalogos.obtenerMaterias(new CatalogosRepository.ResultCallback<List<Materia>>() {
-            @Override
-            public void onSuccess(List<Materia> data) {
-                listaMaterias.clear();
-                listaMaterias.addAll(data);
-            }
-
-            @Override
-            public void onError(String error) {
-
-            }
-        });
     }
 
 }

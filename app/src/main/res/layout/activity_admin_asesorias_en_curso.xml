@@ -32,6 +32,7 @@
         android:textColor="#9B9B9B"
         android:textSize="16dp"
         android:textStyle="bold"
+        android:drawableEnd="@drawable/filtro_icon"
         />
 
     <androidx.recyclerview.widget.RecyclerView

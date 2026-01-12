@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="25dp"
         android:gravity="center"
         android:background="@drawable/style_tarjeta_diciplinares"
 
@@ -26,37 +26,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
 
             <TextView
-                android:id="@+id/nombreAlumno"
+                android:id="@+id/campoMateria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alumno: Jose Angel Asstorga Mejia"
+                android:text="Materia: Programacion"
                 android:textColor="@color/white"
                 android:layout_marginBottom="5dp"
                 />
 
             <TextView
-                android:id="@+id/materia"
+                android:id="@+id/campoNombreAsesor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Materia: Programación"
+                android:text="Asesor: Alfredo Rojo Hernandez"
                 android:textColor="@color/white"
                 android:layout_marginBottom="5dp"
                 />
 
             <TextView
-                android:id="@+id/fecha"
+                android:id="@+id/campoFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de Inicio: 25/SEP/2025"
+                android:text="Fecha: 25/SEP/2025"
                 android:textColor="@color/white"
                 android:layout_marginBottom="5dp"
                 />
 
             <TextView
-                android:id="@+id/horario"
+                android:id="@+id/campoHorario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Horario: 18:00-19:00"
@@ -64,14 +65,35 @@
                 android:layout_marginBottom="5dp"
                 />
 
-            <TextView
-                android:id="@+id/modalidad"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modalidad: Virtual"
-                android:textColor="@color/white"
+                android:orientation="horizontal"
                 android:layout_marginBottom="10dp"
-                />
+                >
+
+                <TextView
+                    android:id="@+id/txEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="Estado:"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    android:id="@+id/campoEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="RECHAZADA"
+                    android:textColor="#FF0000"
+                    />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -104,25 +126,14 @@
                 android:layout_height="35dp"
                 android:textSize="13sp"
                 android:padding="0dp"
-                android:text="@string/texto_btn_completarAsesoria"
-                app:backgroundTint="@color/botonVerder"
+                android:text="Notas Asesor"
+                app:backgroundTint="#de3b38"
                 android:background="@drawable/style_botones_assurso"
                 />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_materialAdicional"
-            android:layout_width="170dp"
-            android:layout_height="35dp"
-            android:textSize="13sp"
-            android:padding="0dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/tecto_btn_material_adicional"
-            app:backgroundTint="@color/amarilloUAS"
-            android:background="@drawable/style_botones_assurso"
 
-            />
 
     </LinearLayout>
 
