@@ -19,7 +19,7 @@ import java.util.Calendar;
 
 public class estudiante_solicitar_nueva_asesoria extends AppCompatActivity {
 
-    private Spinner spnMateria, spnHorarios, spnModalidad, spnRazon;
+    private Spinner spMateria, spHorarios, spModalidad, spRazon;
     private TextView tvFecha;
 
 
@@ -31,10 +31,10 @@ public class estudiante_solicitar_nueva_asesoria extends AppCompatActivity {
         ImageButton btnRegresar = findViewById(R.id.btnRegresar);
         Button btnConfirmar = findViewById(R.id.btnConfirmar);
 
-        spnMateria = findViewById(R.id.spMateria);
-        spnHorarios = findViewById(R.id.spHorarios);
-        spnModalidad = findViewById(R.id.spModalidad);
-        spnRazon = findViewById(R.id.spRazon);
+        spMateria = findViewById(R.id.spMateria);
+        spHorarios = findViewById(R.id.spHorarios);
+        spModalidad = findViewById(R.id.spModalidad);
+        spRazon = findViewById(R.id.spRazon);
         tvFecha = findViewById(R.id.tvFecha);
 
         btnRegresar.setOnClickListener(v -> finish());
@@ -43,10 +43,10 @@ public class estudiante_solicitar_nueva_asesoria extends AppCompatActivity {
             Toast.makeText(estudiante_solicitar_nueva_asesoria.this, "Se creo la solicitud correctamente", Toast.LENGTH_SHORT).show();
         });
 
-        configurarSpinner(spnMateria, new String[]{"Materia", "Matemáticas", "Programación", "Base de Datos"});
-        configurarSpinner(spnHorarios, new String[]{"Horarios", "08:00 - 09:00", "10:00 - 11:00"});
-        configurarSpinner(spnModalidad, new String[]{"Modalidad", "Presencial", "Virtual"});
-        configurarSpinner(spnRazon, new String[]{"Razon", "Parcial", "Bajo promedio", "Materia Reprobada"});
+        configurarSpinner(spMateria, new String[]{"Materia", "Matemáticas", "Programación", "Base de Datos"});
+        configurarSpinner(spHorarios, new String[]{"Horarios", "08:00 - 09:00", "10:00 - 11:00"});
+        configurarSpinner(spModalidad, new String[]{"Modalidad", "Presencial", "Virtual"});
+        configurarSpinner(spRazon, new String[]{"Razon", "Parcial", "Bajo promedio", "Materia Reprobada"});
 
         tvFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,6 @@ public class estudiante_solicitar_nueva_asesoria extends AppCompatActivity {
         });
 
     }
-
     private void configurarSpinner(Spinner spinner, String[] datos) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, datos);

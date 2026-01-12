@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -26,12 +27,15 @@ public class inicioEstudianteActivity extends DrawerBaseActivity {
         binding = ActivityEstudianteInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Button btnCrearSolicitud = findViewById(R.id.btn_crearSolicitud);
+        TextView opFiltros = findViewById(R.id.opFiltros);
 
-
-        Button btn_crearSolicitud = findViewById(R.id.btn_crearSolicitud);
-
-        btn_crearSolicitud.setOnClickListener(v -> {
+        btnCrearSolicitud.setOnClickListener(v -> {
             startActivity(new Intent(inicioEstudianteActivity.this, estudiante_solicitar_nueva_asesoria.class));
+        });
+
+        opFiltros.setOnClickListener(v -> {
+            startActivity(new Intent(inicioEstudianteActivity.this, estudiante_filtros_solicitar_asesorias.class));
         });
 
     }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="@color/white"
+    tools:context=".rol_estudiante.estudiante_filtros_solicitar_asesorias">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        >
+
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flecha_regresar_icon"
+            android:background="@drawable/style_btn_flecha_regresar"
+            />
+
+        <TextView
+            android:id="@+id/textoPagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solicitar Asesoria"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="#000000"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:text="Dia de la semana"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_input"
+        android:layout_marginBottom="16dp"
+        >
+        <Spinner
+            android:id="@+id/spDiaSemana"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="0dp"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:text="Materia"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_input"
+        android:layout_marginBottom="16dp"
+        >
+        <Spinner
+            android:id="@+id/spMateria"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="0dp"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:text="Horario"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_input"
+        android:layout_marginBottom="16dp"
+        >
+        <Spinner
+            android:id="@+id/spHorario"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="0dp"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:text="Modalidad"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_input"
+        android:layout_marginBottom="16dp"
+        >
+        <Spinner
+            android:id="@+id/spModalidad"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="0dp"
+            android:spinnerMode="dropdown"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnFiltro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar filtro"
+        android:layout_gravity="center"
+        app:backgroundTint="@null"
+        android:background="@drawable/style_btn_filtros"
+        />
+
+</LinearLayout>

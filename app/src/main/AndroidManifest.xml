@@ -15,6 +15,12 @@
         android:theme="@style/Theme.AsesoriasFIC"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EstudiantesInformacionSolicitarAsesoriasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".rol_estudiante.estudiante_filtros_solicitar_asesorias"
+            android:exported="false" />
+        <activity
             android:name=".rol_estudiante.estudiante_solicitar_nueva_asesoria"
             android:exported="false" />
         <activity
