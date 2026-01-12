@@ -1,12 +1,11 @@
-package com.lesliefic.asesoriasfic;
+package com.lesliefic.asesoriasfic.rol_estudiante;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.lesliefic.asesoriasfic.R;
 
 public class EstudiantesInformacionSolicitarAsesoriasActivity extends AppCompatActivity {
 
@@ -15,7 +14,8 @@ public class EstudiantesInformacionSolicitarAsesoriasActivity extends AppCompatA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estudiantes_informacion_solicitar_asesorias);
 
-
+        ImageButton btnRegresar = findViewById(R.id.btnRegresar);
+        btnRegresar.setOnClickListener(v -> finish());
 
     }
 }

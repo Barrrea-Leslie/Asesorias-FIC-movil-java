@@ -22,23 +22,20 @@ public class inicioEstudianteActivity extends DrawerBaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_estudiante_solicitar_asesorias);
 
         binding = ActivityEstudianteInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Button btnCrearSolicitud = findViewById(R.id.btn_crearSolicitud);
-        TextView opFiltros = findViewById(R.id.opFiltros);
-
-        btnCrearSolicitud.setOnClickListener(v -> {
-            startActivity(new Intent(inicioEstudianteActivity.this, estudiante_solicitar_nueva_asesoria.class));
+        binding.btnCrearSolicitud.setOnClickListener(v -> {
+            startActivity(new Intent(this, estudiante_solicitar_nueva_asesoria.class));
         });
 
-        opFiltros.setOnClickListener(v -> {
-            startActivity(new Intent(inicioEstudianteActivity.this, estudiante_filtros_solicitar_asesorias.class));
+        binding.opFiltros.setOnClickListener(v -> {
+            startActivity(new Intent(this, estudiante_filtros_solicitar_asesorias.class));
         });
 
+        binding.btnMaterial.setOnClickListener(v -> {
+            startActivity(new Intent(this, EstudianteMaterialAdicionalActivity.class));
+        });
     }
-
-
 }
