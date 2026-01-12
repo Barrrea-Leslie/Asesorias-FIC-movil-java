@@ -39,8 +39,8 @@ public class SolicitudPendiente implements Serializable {
     private String asesor;
 
     @SerializedName("fecha_inicio")
-    private String fecha_inicio_bd;
-    private String fecha_inicio = fecha_inicio_bd.substring(0, 10);
+    private String fecha_inicio;
+
 
     @SerializedName("id_razon")
     private int id_razon;
@@ -105,7 +105,7 @@ public class SolicitudPendiente implements Serializable {
     }
 
     public String getFecha_inicio() {
-        return fecha_inicio;
+        return fecha_inicio.substring(0, 10);
     }
 
     public int getId_razon() {

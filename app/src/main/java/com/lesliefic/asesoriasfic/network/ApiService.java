@@ -2,17 +2,21 @@ package com.lesliefic.asesoriasfic.network;
 
 import com.lesliefic.asesoriasfic.modelo.AsesorDisciplinar;
 import com.lesliefic.asesoriasfic.modelo.AsesorPar;
+import com.lesliefic.asesoriasfic.modelo.Asesores;
+import com.lesliefic.asesoriasfic.modelo.Asesoria;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
+import com.lesliefic.asesoriasfic.modelo.SolicitudPendiente;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.EliminarSolicitudRequest;
 
 import java.util.List;
 
@@ -69,4 +73,20 @@ public interface ApiService {
 
     @DELETE("/usuarios")
     Call<Integer> eliminarUsuario(@Query("id_persona") int id_persona);
+
+    @GET("/solicitudes")
+    Call<List<SolicitudPendiente>> obtenerSolicitudes();
+
+    @POST("/solicitudes/eliminar")
+    Call<Integer> eliminarSolicitud(@Body EliminarSolicitudRequest request);
+
+    @POST("/solicitudes/aceptar")
+    Call<Integer> aceptarSolicitud(@Query("id_solicitud") int id_solicitud);
+
+    @GET("/asesorias")
+    Call<List<Asesoria>> obtenerAsesorias();
+
+    @GET("/asesorias/asesores")
+    Call<List<Asesores>> obtenerTodosAsesores();
+
 }
