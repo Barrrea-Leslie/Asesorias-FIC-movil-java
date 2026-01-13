@@ -1,14 +1,19 @@
 package com.lesliefic.asesoriasfic.rol_administrador;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,15 +23,27 @@ import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.adaptador.AsesoresElegirAdapter;
 import com.lesliefic.asesoriasfic.adaptador.EstudianteAutoCompleteAdapter;
 import com.lesliefic.asesoriasfic.adaptador.EstudianteElegirAdapter;
+import com.lesliefic.asesoriasfic.adaptador.HorarioSpinnerAdapter;
 import com.lesliefic.asesoriasfic.adaptador.MateriaAdapter;
+import com.lesliefic.asesoriasfic.adaptador.MateriaSpinnerAdapter;
+import com.lesliefic.asesoriasfic.adaptador.ModalidadSpinnerAdapter;
+import com.lesliefic.asesoriasfic.adaptador.RazonSpinnerAdapter;
 import com.lesliefic.asesoriasfic.databinding.ActivityAdminCrearAsesoriaBinding;
 import com.lesliefic.asesoriasfic.modelo.Asesores;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
+import com.lesliefic.asesoriasfic.modelo.Grupo;
+import com.lesliefic.asesoriasfic.modelo.Horario;
+import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
+import com.lesliefic.asesoriasfic.modelo.Modalidad;
+import com.lesliefic.asesoriasfic.modelo.Razon;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesoriaRequest;
+import com.lesliefic.asesoriasfic.repositorios.AsesorParRepository;
 import com.lesliefic.asesoriasfic.repositorios.AsesoriasCursoRepository;
 import com.lesliefic.asesoriasfic.repositorios.EstudiantesRepository;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class CrearAsesoria extends DrawerBaseActivity {
@@ -36,19 +53,40 @@ public class CrearAsesoria extends DrawerBaseActivity {
     private List<Asesores> listaAsesores = new ArrayList<>();
     private EstudiantesRepository repoEstudiantes;
     private AsesoriasCursoRepository repoAsesorias;
-    private ActivityAdminCrearAsesoriaBinding binding;
+    private ActivityAdminCrearAsesoriaBinding activityAdminCrearAsesoriaBinding;
+
+    private List<Grupo> listaGrupos = new ArrayList<>();
+    private List<Licenciatura> listaLicenciaturas = new ArrayList<>();
+    private List<Modalidad> listaModalidades = new ArrayList<>();
+    private List<Razon> listaRazones = new ArrayList<>();
+    private List<Horario> listaHorarios = new ArrayList<>();
+    private List<Materia> listaMaterias = new ArrayList<>();
 
     EstudianteAutoCompleteAdapter adapterEstudiantes;
 
     EstudianteElegirAdapter adapterElegirEst;
     AsesoresElegirAdapter adapterElegirAse;
 
+    private TextView tvFecha;
+
+    Spinner spMateria, spHorario, spModalidad, spRazon, spGrupo, spLicenciatura;
+
+
+    private MateriaSpinnerAdapter AdapSpMateria;
+    private HorarioSpinnerAdapter AdapSpHorario;
+    private ModalidadSpinnerAdapter AdapSpModalidad;
+    private RazonSpinnerAdapter AdapSpRazon;
+
     EditText campoEstudiante, campoAsesor;
-    Button btn_agregar_estudiante, btn_agregar_asesor;
+    Button btn_agregar_estudiante, btn_agregar_asesor, btn_crear;
+
+
 
 
     private int id_estudiante_elegido;
+    private int id_licenciatura_estudiante;
     private int id_asesor_elegido;
+    private String fechaBackend;
 
 
 
@@ -56,17 +94,58 @@ public class CrearAsesoria extends DrawerBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_admin_crear_asesoria);
+
+
+
+
         repoEstudiantes = new EstudiantesRepository();
         repoAsesorias = new AsesoriasCursoRepository();
         btn_regresar = findViewById(R.id.btnRegresar);
         btn_agregar_asesor = findViewById(R.id.btnAgregarAsesor);
         btn_agregar_estudiante = findViewById(R.id.btnAgregarEstudiante);
+        btn_crear = findViewById(R.id.btnGuardar);
+
+        if (listaMaterias == null) listaMaterias = new ArrayList<>();
+        if (listaRazones == null) listaRazones = new ArrayList<>();
+        if (listaModalidades == null) listaModalidades = new ArrayList<>();
+        if (listaHorarios == null) listaHorarios = new ArrayList<>();
+
+        listaMaterias = (ArrayList<Materia>) getIntent().getSerializableExtra("LISTA_MATERIAS");
+        listaRazones = (ArrayList<Razon>) getIntent().getSerializableExtra("LISTA_RAZONES");
+        listaModalidades = (ArrayList<Modalidad>) getIntent().getSerializableExtra("LISTA_MODALIDADES");
+        listaHorarios = (ArrayList<Horario>) getIntent().getSerializableExtra("LISTA_HORARIOS");
 
 
         campoEstudiante = findViewById(R.id.campoEstudiante);
         campoAsesor = findViewById(R.id.campoAsesor);
+
+        tvFecha = findViewById(R.id.tvFecha);
+
+        spMateria = findViewById(R.id.spMateria);
+        spHorario = findViewById(R.id.spHorario);
+        spModalidad = findViewById(R.id.spModalidad);
+        spRazon = findViewById(R.id.spRazon);
+
+
+        AdapSpMateria = new MateriaSpinnerAdapter(this, listaMaterias);
+        spMateria.setAdapter(AdapSpMateria);
+
+        AdapSpHorario = new HorarioSpinnerAdapter(this, listaHorarios);
+        spHorario.setAdapter(AdapSpHorario);
+
+        AdapSpModalidad = new ModalidadSpinnerAdapter(this, listaModalidades);
+        spModalidad.setAdapter(AdapSpModalidad);
+
+        AdapSpRazon = new RazonSpinnerAdapter(this, listaRazones);
+        spRazon.setAdapter(AdapSpRazon);
+
+        AdapSpMateria.notifyDataSetChanged();
+        AdapSpRazon.notifyDataSetChanged();
+        AdapSpModalidad.notifyDataSetChanged();
+        AdapSpHorario.notifyDataSetChanged();
+
+
 
 
 
@@ -80,6 +159,17 @@ public class CrearAsesoria extends DrawerBaseActivity {
 
         btn_agregar_asesor.setOnClickListener(view -> {
             abrirDialogAsesor();
+        });
+
+        btn_crear.setOnClickListener(v -> {
+            crearAsesoria();
+        });
+
+        tvFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarCalendario();
+            }
         });
 
         obtenerEstudiantes();
@@ -129,6 +219,48 @@ public class CrearAsesoria extends DrawerBaseActivity {
         });
     }
 
+    public void crearAsesoria(){
+        Materia materia = (Materia) spMateria.getSelectedItem();
+        Razon razon = (Razon) spRazon.getSelectedItem();
+        Modalidad modalidad = (Modalidad) spModalidad.getSelectedItem();
+        Horario horario = (Horario) spHorario.getSelectedItem();
+
+        int idMateria = materia.getId_materia();
+        int idRazon = razon.getId_razon();
+        int idModalidad = modalidad.getId_modalidad();
+        int idHorario = horario.getId_horario();
+
+
+        CrearAsesoriaRequest request = new CrearAsesoriaRequest(
+                        id_estudiante_elegido,
+                        id_asesor_elegido,
+                        idMateria,
+                        idModalidad,
+                        fechaBackend,
+                        idRazon,
+                        idHorario
+                    );
+
+        repoAsesorias.crearAsesoria(request, new AsesorParRepository.ResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                if(data == 1){
+                    finish();
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "ASESORIA CREADA",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+    }
+
     void abrirDialogEstudiante(){
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_add_estudiante);
@@ -144,6 +276,7 @@ public class CrearAsesoria extends DrawerBaseActivity {
         adapterElegirEst = new EstudianteElegirAdapter(listaEstudianteFiltrada, estudiante -> {
             campoEstudiante.setText(estudiante.getNombreCompleto());
             id_estudiante_elegido = estudiante.getIdPersona();
+            id_licenciatura_estudiante = estudiante.getIdLicenciatura();
             dialog.dismiss();
         });
         rv.setAdapter(adapterElegirEst);
@@ -191,6 +324,32 @@ public class CrearAsesoria extends DrawerBaseActivity {
 
 
 
+    }
+
+    private void mostrarCalendario() {
+        // Obtener la fecha actual para mostrarla por defecto en el selector
+        final Calendar c = Calendar.getInstance();
+        int año = c.get(Calendar.YEAR);
+        int mes = c.get(Calendar.MONTH);
+        int dia = c.get(Calendar.DAY_OF_MONTH);
+
+        // Crear el DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        int mes = monthOfYear + 1;
+
+                        // UI: dd/MM/yyyy
+                        String fechaUI = String.format("%02d/%02d/%04d", dayOfMonth, mes, year);
+                        tvFecha.setText(fechaUI);
+
+                        // BACKEND: yyyy-MM-dd
+                        fechaBackend = String.format("%04d-%02d-%02d", year, mes, dayOfMonth);
+                    }
+                }, año, mes, dia);
+
+        datePickerDialog.show();
     }
 
     void abrirDialogAsesor(){
@@ -255,6 +414,54 @@ public class CrearAsesoria extends DrawerBaseActivity {
 
 
 
+    }
+
+    private void seleccionarPorIdMateria(Spinner spinner, int idBuscado) {
+        if (spinner.getAdapter() == null) return;
+
+        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+            Materia m = (Materia) spinner.getAdapter().getItem(i);
+            if (m != null && m.getId_materia() == idBuscado) {
+                spinner.setSelection(i);
+                return;
+            }
+        }
+    }
+
+    private void seleccionarPorIdRazon(Spinner spinner, int idBuscado) {
+        if (spinner.getAdapter() == null) return;
+
+        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+            Razon r = (Razon) spinner.getAdapter().getItem(i);
+            if (r != null && r.getId_razon() == idBuscado) {
+                spinner.setSelection(i);
+                return;
+            }
+        }
+    }
+
+    private void seleccionarPorIdModalidad(Spinner spinner, int idBuscado) {
+        if (spinner.getAdapter() == null) return;
+
+        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+            Modalidad m = (Modalidad) spinner.getAdapter().getItem(i);
+            if (m != null && m.getId_modalidad() == idBuscado) {
+                spinner.setSelection(i);
+                return;
+            }
+        }
+    }
+
+    private void seleccionarPorIdHorario(Spinner spinner, int idBuscado) {
+        if (spinner.getAdapter() == null) return;
+
+        for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+            Horario h = (Horario) spinner.getAdapter().getItem(i);
+            if (h != null && h.getId_horario() == idBuscado) {
+                spinner.setSelection(i);
+                return;
+            }
+        }
     }
 
 

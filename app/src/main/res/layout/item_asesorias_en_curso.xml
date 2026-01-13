@@ -4,139 +4,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="16dp">
 
-    >
-
+    <!-- Card -->
     <LinearLayout
+        android:id="@+id/cardContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:padding="20dp"
-        android:gravity="center"
         android:background="@drawable/style_tarjeta_diciplinares"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- DATOS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nombreAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alumno: Jose Angel Asstorga Mejia"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
+                android:text="Alumno"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/materia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Materia: Programación"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
+                android:text="Materia"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de Inicio: 25/SEP/2025"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
+                android:text="Fecha"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/horario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Horario: 18:00-19:00"
-                android:textColor="@color/white"
-                android:layout_marginBottom="5dp"
-                />
+                android:text="Horario"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/modalidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modalidad: Virtual"
-                android:textColor="@color/white"
-                android:layout_marginBottom="10dp"
-                />
-
+                android:text="Modalidad"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
-
-
+        <!-- BOTONES -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="10dp"
-
-            >
+            android:layout_marginTop="16dp">
 
             <Button
-                android:id="@+id/btn_infoAsesorias"
+                android:id="@+id/btn_materialAdicional"
                 android:layout_width="130dp"
                 android:layout_height="35dp"
                 android:textSize="13sp"
-                android:padding="0dp"
-                android:text="@string/texto_btn_infoAsesorias"
-                app:backgroundTint="@color/botonAzulClaro"
+                android:text="@string/tecto_btn_material_adicional"
                 android:background="@drawable/style_botones_assurso"
-                android:layout_marginEnd="20dp"
-                />
+                app:backgroundTint="@color/amarilloUAS"/>
 
             <Button
                 android:id="@+id/btn_completarAsesoria"
                 android:layout_width="130dp"
                 android:layout_height="35dp"
+                android:layout_marginStart="15dp"
                 android:textSize="13sp"
-                android:padding="0dp"
                 android:text="@string/texto_btn_completarAsesoria"
-                app:backgroundTint="@color/botonVerder"
                 android:background="@drawable/style_botones_assurso"
-                />
-
+                app:backgroundTint="@color/botonVerder"/>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_materialAdicional"
-            android:layout_width="170dp"
-            android:layout_height="35dp"
-            android:textSize="13sp"
-            android:padding="0dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/tecto_btn_material_adicional"
-            app:backgroundTint="@color/amarilloUAS"
-            android:background="@drawable/style_botones_assurso"
-
-            />
 
     </LinearLayout>
 
+    <!-- BOTÓN ELIMINAR -->
     <ImageButton
         android:id="@+id/btn_eliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/eliminar_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="15dp"
-        android:backgroundTint="#00FFFFFF"
         android:background="@drawable/style_btn_eliminar"
-        />
+        android:backgroundTint="@android:color/transparent"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -1,0 +1,44 @@
+package com.lesliefic.asesoriasfic.adaptador;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+
+import com.lesliefic.asesoriasfic.modelo.Razon;
+
+import java.util.List;
+
+public class RazonSpinnerAdapter extends ArrayAdapter<Razon> {
+
+    public RazonSpinnerAdapter(@NonNull Context context, @NonNull List<Razon> razones) {
+        super(context, android.R.layout.simple_spinner_item, razones);
+        setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        TextView tv = (TextView) super.getView(position, convertView, parent);
+        Razon razon = getItem(position);
+
+        if (razon != null) {
+            tv.setText(razon.getRazon());
+        }
+        return tv;
+    }
+
+    @Override
+    public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+        TextView tv = (TextView) super.getDropDownView(position, convertView, parent);
+        Razon razon = getItem(position);
+
+        if (razon != null) {
+            tv.setText(razon.getRazon());
+        }
+        return tv;
+    }
+}

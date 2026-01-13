@@ -9,12 +9,16 @@ import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
+import com.lesliefic.asesoriasfic.modelo.Modalidad;
+import com.lesliefic.asesoriasfic.modelo.Razon;
 import com.lesliefic.asesoriasfic.modelo.SolicitudPendiente;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorParRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesoriaRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesoriaRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EliminarSolicitudRequest;
 
@@ -56,6 +60,12 @@ public interface ApiService {
     @GET("/catalogos/licenciaturas")
     Call<List<Licenciatura>> obtenerLicenciaturas();
 
+    @GET("/catalogos/modalidades")
+    Call<List<Modalidad>> obtenerModalidades();
+
+    @GET("/catalogos/razones")
+    Call<List<Razon>> obtenerRazones();
+
     @POST("/asesores-par")
     Call<Integer> crearAsesorPar(@Body CrearAsesorParRequest request);
 
@@ -88,5 +98,14 @@ public interface ApiService {
 
     @GET("/asesorias/asesores")
     Call<List<Asesores>> obtenerTodosAsesores();
+
+    @POST("/asesorias")
+    Call<Integer> crearAsesoria(@Body CrearAsesoriaRequest request);
+
+    @POST("/asesorias/editar")
+    Call<Integer> editarAsesoria(@Body EditarAsesoriaRequest request);
+
+    @DELETE("/asesorias")
+    Call<Integer> eliminarAsesoria(@Query("id_asesoria") int id_persona);
 
 }

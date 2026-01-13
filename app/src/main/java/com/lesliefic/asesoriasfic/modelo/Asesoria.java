@@ -60,6 +60,14 @@ public class Asesoria implements Serializable {
     @SerializedName("estatus")
     private String estatus;
 
+    @SerializedName("id_horario")
+    private int id_horario;
+
+    @SerializedName("horario")
+    private String horario;
+
+
+
 
 
     public int getIdAsesoria() { return idAsesoria; }
@@ -99,4 +107,8 @@ public class Asesoria implements Serializable {
     public String getObservaciones() { return observaciones; }
 
     public String getEstatus() { return estatus; }
+
+    public int getId_horario(){ return id_horario;}
+
+    public String getHorario() {return horario;}
 }
