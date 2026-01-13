@@ -153,12 +153,10 @@ public class crearAsesoresPar extends AppCompatActivity {
             String estudianteElegido = et_estudianteElegido.getText().toString();
 
             if(estudianteElegido.isEmpty() || horariosElegidos.isEmpty() || materiasElegidas.isEmpty()){
-                toastNotificacion("Selecciona un estudiante y agrega al menos una materia y un horario");
-            }
-            else{
                 crearAsesorPar();
                 finish();
             }
+
 
 
         });
@@ -205,6 +203,22 @@ public class crearAsesoresPar extends AppCompatActivity {
         obtenerCatalagos();
 
 
+    }
+
+    private boolean validarCampos() {
+        if (id_estudianteElegido == 0 || et_estudianteElegido.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Seleccione un estudiante", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (materiasElegidas.isEmpty()) {
+            Toast.makeText(this, "Debe agregar al menos una materia", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (horariosElegidos.isEmpty()) {
+            Toast.makeText(this, "Debe agregar al menos un horario", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     void abrirDialogMaterias(ArrayList<Materia> listaMaterias){
@@ -363,6 +377,11 @@ public class crearAsesoresPar extends AppCompatActivity {
     }
 
     public void crearAsesorPar(){
+
+        if (!validarCampos()) {
+            return;
+        }
+
         ArrayList<MateriaId> materias = new ArrayList<>();
         ArrayList<HorarioId> horarios = new ArrayList<>();
 

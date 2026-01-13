@@ -55,7 +55,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            app:backgroundTint="@null"
+            app:backgroundTint="@color/botonVerder"
             android:background="@drawable/style_btn_filtros" />
     </LinearLayout>
 
