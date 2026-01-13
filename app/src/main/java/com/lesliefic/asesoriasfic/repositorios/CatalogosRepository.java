@@ -4,6 +4,8 @@ import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.Horario;
+import com.lesliefic.asesoriasfic.modelo.Modalidad;
+import com.lesliefic.asesoriasfic.modelo.Razon;
 import com.lesliefic.asesoriasfic.network.ApiService;
 import com.lesliefic.asesoriasfic.network.RetrofitClient;
 
@@ -53,18 +55,18 @@ public class CatalogosRepository {
         });
     }
 
-    public void obtenerHorarios(ResultCallback<List<Horario>> cb) {
+    public void obtenerModalidades(ResultCallback<List<Modalidad>> cb) {
 
-        api.obtenerHorarios().enqueue(new Callback<List<Horario>>() {
+        api.obtenerModalidades().enqueue(new Callback<List<Modalidad>>() {
             @Override
-            public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
+            public void onResponse(Call<List<Modalidad>> call, Response<List<Modalidad>> response) {
 
                 if (!response.isSuccessful()) {
                     cb.onError("HTTP ERROR: " + response.code());
                     return;
                 }
 
-                List<Horario> lista = response.body();
+                List<Modalidad> lista = response.body();
                 if (lista == null) {
                     cb.onError("Body null");
                     return;
@@ -74,7 +76,34 @@ public class CatalogosRepository {
             }
 
             @Override
-            public void onFailure(Call<List<Horario>> call, Throwable t) {
+            public void onFailure(Call<List<Modalidad>> call, Throwable t) {
+                cb.onError(t.getMessage());
+            }
+        });
+    }
+
+    public void obtenerRazones(ResultCallback<List<Razon>> cb) {
+
+        api.obtenerRazones().enqueue(new Callback<List<Razon>>() {
+            @Override
+            public void onResponse(Call<List<Razon>> call, Response<List<Razon>> response) {
+
+                if (!response.isSuccessful()) {
+                    cb.onError("HTTP ERROR: " + response.code());
+                    return;
+                }
+
+                List<Razon> lista = response.body();
+                if (lista == null) {
+                    cb.onError("Body null");
+                    return;
+                }
+
+                cb.onSuccess(lista);
+            }
+
+            @Override
+            public void onFailure(Call<List<Razon>> call, Throwable t) {
                 cb.onError(t.getMessage());
             }
         });
@@ -129,6 +158,33 @@ public class CatalogosRepository {
 
             @Override
             public void onFailure(Call<List<Licenciatura>> call, Throwable t) {
+                cb.onError(t.getMessage());
+            }
+        });
+    }
+
+    public void obtenerHorarios(ResultCallback<List<Horario>> cb) {
+
+        api.obtenerHorarios().enqueue(new Callback<List<Horario>>() {
+            @Override
+            public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
+
+                if (!response.isSuccessful()) {
+                    cb.onError("HTTP ERROR: " + response.code());
+                    return;
+                }
+
+                List<Horario> lista = response.body();
+                if (lista == null) {
+                    cb.onError("Body null");
+                    return;
+                }
+
+                cb.onSuccess(lista);
+            }
+
+            @Override
+            public void onFailure(Call<List<Horario>> call, Throwable t) {
                 cb.onError(t.getMessage());
             }
         });

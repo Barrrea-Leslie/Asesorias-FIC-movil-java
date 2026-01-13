@@ -48,15 +48,14 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
-            android:id="@+id/btnCambios"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnConfirmar"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:text="Aplicar Cambios"
+            android:text="Confirma cambios"
+            app:backgroundTint="#4CAF50"
+            android:background="@drawable/style_btn_filtros"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            app:backgroundTint="@null"
-            android:background="@drawable/style_btn_filtros" />
+            android:textColor="#FFFFFF" /> />
     </LinearLayout>
 
     <!-- SCROLL -->
@@ -97,6 +96,8 @@
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
+                android:focusable="false"
+                android:clickable="false"
                 android:text="" />
 
             <TextView
@@ -117,169 +118,140 @@
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
+                android:focusable="false"
+                android:clickable="false"
                 android:text="" />
 
-            <TextView
-                android:id="@+id/txLicenciatura"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Licenciatura"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp" />
 
-            <EditText
-                android:id="@+id/campoLicenciatura"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/style_inputs"
-                android:layout_marginTop="12dp"
-                android:paddingStart="20dp"
-                android:text="Informática" />
 
             <TextView
-                android:id="@+id/txGrupo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grupo"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp" />
-
-            <Spinner
-                android:id="@+id/spGrupo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
-
-            <TextView
-                android:id="@+id/txMateria"
+                android:id="@+id/txtMateria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Materia"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_gravity="center_vertical"
                 android:layout_marginTop="30dp" />
 
-            <Spinner
-                android:id="@+id/spMateria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
-
-            <TextView
-                android:id="@+id/txModalidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Modalidad"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="30dp" />
-
-            <Spinner
-                android:id="@+id/spModalidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
-
-            <TextView
-                android:id="@+id/txHorario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Horario"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="30dp" />
-
-            <Spinner
-                android:id="@+id/spHorario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
-
-            <!-- FECHAS -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/fechaInicio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fecha Inicio"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:layout_marginTop="30dp" />
-
-                    <EditText
-                        android:id="@+id/txFechaInicio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:focusable="false"
-                        android:hint="FECHA"
-                        android:textSize="15sp"
-                        android:layout_marginTop="20dp"
-                        android:drawableStart="@drawable/calendario_icon"
-                        android:background="@drawable/style_input_calendario"
-                        android:drawablePadding="7dp"
-                        android:paddingHorizontal="20dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="15dp">
-
-                    <TextView
-                        android:id="@+id/fechaFinal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fecha final"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:layout_marginTop="30dp" />
-
-                    <EditText
-                        android:id="@+id/txFechaFinal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:focusable="false"
-                        android:hint="FECHA"
-                        android:textSize="15sp"
-                        android:layout_marginTop="20dp"
-                        android:drawableStart="@drawable/calendario_icon"
-                        android:background="@drawable/style_input_calendario"
-                        android:drawablePadding="7dp"
-                        android:paddingHorizontal="20dp" />
-                </LinearLayout>
-
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spMateria"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txRazon"
+                android:id="@+id/txtRazon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Razon"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_marginTop="25dp" />
+                />
 
-            <Spinner
-                android:id="@+id/spRazon"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spRazon"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtModalidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp" />
+                android:text="Modalidad"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spModalidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:text="Fecha Inicio"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/tvFecha"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Elige una fecha"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:drawableEnd="@drawable/calendario_icon"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:id="@+id/txtHorario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horario"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spHorario"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+
+
+
+
+
 
             <TextView
                 android:id="@+id/txNoAsesorias"
@@ -288,7 +260,7 @@
                 android:text="Numero de sesiones tomadas"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="10dp" />
 
             <EditText
                 android:id="@+id/campoNoAsesorias"
@@ -298,29 +270,28 @@
                 android:background="@drawable/style_inputs"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
-                android:text="3" />
+                android:text="" />
+
+
 
             <TextView
-                android:id="@+id/txObservaciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Observaciones"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:boxBackgroundMode="outline">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:gravity="top"
-                    android:scrollbars="vertical" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                />
+            <EditText
+                android:id="@+id/etNota"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"/>
 
             <TextView
                 android:id="@+id/txEvidencias"
@@ -329,7 +300,7 @@
                 android:text="Evidencia"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="10dp" />
 
             <TextView
                 android:id="@+id/btnSubirEvidencias"
