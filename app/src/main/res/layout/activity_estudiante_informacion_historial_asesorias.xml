@@ -7,7 +7,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".rol_estudiante.EstudianteInformacionHistorialAsesoriasActivity">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -40,7 +41,7 @@
                 android:id="@+id/textoPagina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Informacion Asesor"
+                android:text="Informacion Asesoria"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:layout_gravity="center_vertical"
@@ -53,14 +54,14 @@
             android:id="@+id/txNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre(s)"
+            android:text="Nombre del estudiante"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoNombre"
+            android:id="@+id/campoNombreEstudiante"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -70,17 +71,17 @@
             />
 
         <TextView
-            android:id="@+id/txApePat"
+            android:id="@+id/txLicenciatura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apellido Paterno"
+            android:text="Licenciatura"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoApePat"
+            android:id="@+id/campoLicenciatura"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -90,17 +91,17 @@
             />
 
         <TextView
-            android:id="@+id/txApeMat"
+            android:id="@+id/txGradoGrupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Apellido Materno"
+            android:text="Grado y Grupo"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoApeMat"
+            android:id="@+id/campoGradoGrupo"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -110,17 +111,17 @@
             />
 
         <TextView
-            android:id="@+id/txNumeroCuenta"
+            android:id="@+id/txMateria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero Cuenta"
+            android:text="Materia"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoNumeroCuenta"
+            android:id="@+id/campoMateria"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -130,39 +131,17 @@
             />
 
         <TextView
-            android:id="@+id/txContrasena"
+            android:id="@+id/txModalidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contraseña"
+            android:text="Modalidad"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoContrasena"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/style_inputs"
-            android:layout_marginTop="12dp"
-            android:paddingStart="20dp"
-            android:text=""
-            />
-
-
-
-        <TextView
-            android:id="@+id/txCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correo Institucional"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="30dp"
-            />
-        <EditText
-            android:id="@+id/campoCorreo"
+            android:id="@+id/campoModalidad"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -172,17 +151,17 @@
             />
 
         <TextView
-            android:id="@+id/txNumeroTelefono"
+            android:id="@+id/txHorario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero telefonico"
+            android:text="Horario"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="30dp"
             />
         <EditText
-            android:id="@+id/campoNumCel"
+            android:id="@+id/campoHorario"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/style_inputs"
@@ -191,81 +170,45 @@
             android:text=""
             />
 
-
-
-        <!-- ENCABEZADO MATERIAS -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Materias que asesora"
-                android:textStyle="bold"
-                android:textSize="15sp"/>
-
-            <Button
-                android:id="@+id/btnAgregarMateria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Añadir"
-                android:backgroundTint="#51A351"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- LISTA MATERIAS -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMateriasAsesor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"/>
-
-        <!-- ENCABEZADO HORARIOS -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Horarios que asesora"
-                android:textStyle="bold"
-                android:textSize="15sp"/>
-
-            <Button
-                android:id="@+id/btnAgregarHorario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Añadir"
-                android:backgroundTint="#51A351"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!--HORARIOS -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHorariosAsesor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"/>
-
-        <Button
-            android:id="@+id/btnGuardar"
+        <TextView
+            android:id="@+id/txRazon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aplicar Cambios"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            app:backgroundTint="@null"
-            android:background="@drawable/style_btn_filtros"
+            android:text="Razon de la Asesoria"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoRazon"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text=""
+            />
+
+        <TextView
+            android:id="@+id/txNoSesiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sesiones Tomadas"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoNoSesiones"
+            android:layout_width="match_parent"
+            android:inputType="number"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:text=""
             />
 
 
