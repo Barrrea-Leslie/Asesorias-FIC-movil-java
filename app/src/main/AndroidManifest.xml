@@ -92,6 +92,10 @@
         <activity
             android:name=".asesoriasCursoActivity"
             android:exported="false" />
+        <activity android:name=".rol_administrador.CrearAsesoria" />
+        <activity
+            android:name=".rol_administrador.InformacionSolicitudesActivity"
+            android:exported="false" />
         <activity
             android:name=".rol_administrador.DrawerBaseActivity"
             android:exported="false" />

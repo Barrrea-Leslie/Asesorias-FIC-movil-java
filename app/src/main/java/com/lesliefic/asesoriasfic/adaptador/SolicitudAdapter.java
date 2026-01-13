@@ -3,72 +3,143 @@ package com.lesliefic.asesoriasfic.adaptador;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.R;
-import com.lesliefic.asesoriasfic.modelo.Solicitud;
+import com.lesliefic.asesoriasfic.modelo.SolicitudPendiente;
 
 import java.util.List;
 
-public class SolicitudAdapter extends RecyclerView.Adapter<SolicitudAdapter.SolicitudViewHolder> {
+public class SolicitudAdapter
+        extends RecyclerView.Adapter<SolicitudAdapter.SolicitudViewHolder> {
 
+    private final List<SolicitudPendiente> lista;
 
-    private List<Solicitud> lista;
-
-    public SolicitudAdapter(List<Solicitud> lista){
-        this.lista = lista;
+    public interface OnItemClickListener {
+        void onClick(SolicitudPendiente solicitud);
     }
 
-    public class SolicitudViewHolder extends RecyclerView.ViewHolder{
+    public interface OnAceptarClickListener {
+        void onAceptar(SolicitudPendiente solicitud, int position);
+    }
 
-        TextView nombreAlumno;
-        TextView materia;
-        TextView fecha;
-        TextView horario;
-        TextView modalidad;
+    public interface OnRechazarClickListener {
+        void onRechazar(SolicitudPendiente solicitud, int position);
+    }
 
-        public SolicitudViewHolder (@NonNull View itemView) {
+    private final OnItemClickListener itemListener;
+    private final OnAceptarClickListener aceptarListener;
+    private final OnRechazarClickListener rechazarListener;
 
+    public SolicitudAdapter(
+            List<SolicitudPendiente> lista,
+            OnItemClickListener itemListener,
+            OnAceptarClickListener aceptarListener,
+            OnRechazarClickListener rechazarListener
+    ) {
+        this.lista = lista;
+        this.itemListener = itemListener;
+        this.aceptarListener = aceptarListener;
+        this.rechazarListener = rechazarListener;
+    }
+
+    // ===================== VIEW HOLDER =====================
+    public class SolicitudViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtAlumno;
+        TextView txtMateria;
+        TextView txtFecha;
+        TextView txtHorario;
+        TextView txtModalidad;
+
+        Button btnRechazar;
+        Button btnAceptar;
+
+        public SolicitudViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nombreAlumno = itemView.findViewById(R.id.nombreAlumno);
-            materia = itemView.findViewById(R.id.materia);
-            fecha = itemView.findViewById(R.id.fecha);
-            horario = itemView.findViewById(R.id.horario);
-            modalidad = itemView.findViewById(R.id.modalidad);
 
+            txtAlumno = itemView.findViewById(R.id.campoNombre);
+            txtMateria = itemView.findViewById(R.id.campoMateria);
+            txtFecha = itemView.findViewById(R.id.campoFecha);
+            txtHorario = itemView.findViewById(R.id.campoHorario);
+            txtModalidad = itemView.findViewById(R.id.campoModalidad);
+
+            btnRechazar = itemView.findViewById(R.id.btn_rechazar);
+            btnAceptar = itemView.findViewById(R.id.btn_aceptar);
         }
 
-        public void bind(final Solicitud solicitud) {
+        public void bind(SolicitudPendiente s) {
 
-            nombreAlumno.setText(solicitud.getAlumno().getNombre());
-            materia.setText(solicitud.getMateria());
-            fecha.setText(solicitud.getFecha());
-            horario.setText(solicitud.getHorario());
-            modalidad.setText(solicitud.getModalidad());
+            // 🛡️ Protección contra null (evita crashes)
+            if (txtAlumno != null) {
+                txtAlumno.setText(s.getEstudiante());
+            }
 
+            if (txtMateria != null) {
+                txtMateria.setText(s.getMateria());
+            }
+
+            if (txtFecha != null) {
+                txtFecha.setText(s.getFecha_inicio());
+            }
+
+            if (txtHorario != null) {
+                txtHorario.setText(s.getHorario());
+            }
+
+            if (txtModalidad != null) {
+                txtModalidad.setText(s.getModalidad());
+            }
+
+            itemView.setOnClickListener(v -> {
+                if (itemListener != null) {
+                    itemListener.onClick(s);
+                }
+            });
+
+            btnAceptar.setOnClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && aceptarListener != null) {
+                    aceptarListener.onAceptar(s, pos);
+                }
+            });
+
+            btnRechazar.setOnClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && rechazarListener != null) {
+                    rechazarListener.onRechazar(s, pos);
+                }
+            });
         }
-
     }
 
+    // ===================== ADAPTER =====================
     @NonNull
     @Override
-    public SolicitudAdapter.SolicitudViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SolicitudViewHolder onCreateViewHolder(
+            @NonNull ViewGroup parent,
+            int viewType
+    ) {
         View vista = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_solicitudes_pendientes, parent, false);
-        return new SolicitudAdapter.SolicitudViewHolder(vista);
+        return new SolicitudViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SolicitudAdapter.SolicitudViewHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull SolicitudViewHolder holder,
+            int position
+    ) {
         holder.bind(lista.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return (lista != null) ? lista.size() : 0;
     }
 }

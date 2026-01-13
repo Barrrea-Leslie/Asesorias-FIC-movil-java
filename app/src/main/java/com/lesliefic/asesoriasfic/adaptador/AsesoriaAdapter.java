@@ -12,43 +12,57 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lesliefic.asesoriasfic.R;
 import com.lesliefic.asesoriasfic.modelo.Asesoria;
-import com.lesliefic.asesoriasfic.modelo.Solicitud;
 
 import java.util.List;
 
 public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.AsesoriaViewHolder> {
 
-    private List<Asesoria> lista;
-    private OnItemButtonClickListener listener;
+    private final List<Asesoria> lista;
 
-    public interface OnItemButtonClickListener {
-        void onInfoClick(Asesoria asesoria);
-        void onCompletarAsesoria(Asesoria asesoria);
 
-        void onMaterialClick(Asesoria asesoria);
-
-        void onEliminaAsesoria(Asesoria asesoria);
+    public interface OnItemClickListener {
+        void onClick(Asesoria asesoria);
     }
 
-    public AsesoriaAdapter(List<Asesoria> lista, OnItemButtonClickListener listener) {
+    public interface OnCompletarClickListener {
+        void onCompletar(Asesoria asesoria, int position);
+    }
+
+    public interface OnMaterialClickListener {
+        void onMaterial(Asesoria asesoria, int position);
+    }
+
+    public interface OnEliminarClickListener {
+        void onEliminar(Asesoria asesoria, int position);
+    }
+
+    private final OnItemClickListener itemListener;
+    private final OnCompletarClickListener completarListener;
+    private final OnMaterialClickListener materialListener;
+    private final OnEliminarClickListener eliminarListener;
+
+    public AsesoriaAdapter(
+            List<Asesoria> lista,
+            OnItemClickListener itemListener,
+            OnCompletarClickListener completarListener,
+            OnMaterialClickListener materialListener,
+            OnEliminarClickListener eliminarListener
+    ) {
         this.lista = lista;
-        this.listener = listener;
+        this.itemListener = itemListener;
+        this.completarListener = completarListener;
+        this.materialListener = materialListener;
+        this.eliminarListener = eliminarListener;
     }
 
-    public class AsesoriaViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nombreAlumno;
-        TextView materia;
-        TextView fecha;
-        TextView horario;
-        TextView modalidad;
+    public class AsesoriaViewHolder extends RecyclerView.ViewHolder {
 
-        Button btn_infoAsesorias;
-        Button btn_completarAsesoria;
-        Button btn_materialAdicional;
-        ImageButton btn_eliminar;
-        public AsesoriaViewHolder (@NonNull View itemView) {
+        TextView nombreAlumno, materia, fecha, horario, modalidad;
+        Button btnCompletar, btnMaterial;
+        ImageButton btnEliminar;
 
+        public AsesoriaViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nombreAlumno = itemView.findViewById(R.id.nombreAlumno);
@@ -57,60 +71,65 @@ public class AsesoriaAdapter extends RecyclerView.Adapter<AsesoriaAdapter.Asesor
             horario = itemView.findViewById(R.id.horario);
             modalidad = itemView.findViewById(R.id.modalidad);
 
-            btn_infoAsesorias = itemView.findViewById(R.id.btn_infoAsesorias);
-            btn_completarAsesoria = itemView.findViewById(R.id.btn_completarAsesoria);
-            btn_materialAdicional = itemView.findViewById(R.id.btn_materialAdicional);
-            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
+            btnMaterial = itemView.findViewById(R.id.btn_materialAdicional);
+            btnCompletar = itemView.findViewById(R.id.btn_completarAsesoria);
+            btnEliminar = itemView.findViewById(R.id.btn_eliminar);
         }
 
-        public void bind(final Asesoria asesoria) {
+        public void bind(Asesoria a) {
 
-            if (asesoria != null && asesoria.getEstudiante() != null) {
-                String nombre = asesoria.getEstudiante().getNombre();
-                nombreAlumno.setText(nombre != null ? nombre : "Sin nombre");
-            } else {
-                nombreAlumno.setText("Sin alumno");
+            if (a != null) {
+                nombreAlumno.setText(a.getEstudiante() != null ? a.getEstudiante() : "Sin alumno");
+                materia.setText(a.getMateria() != null ? a.getMateria() : "");
+                fecha.setText(a.getFechaInicio() != null ? a.getFechaInicio() : "");
+                modalidad.setText(a.getModalidad() != null ? a.getModalidad() : "");
             }
 
-            materia.setText(asesoria.getMateria() != null ? asesoria.getMateria() : "");
-            fecha.setText(asesoria.getFechaInicio() != null ? asesoria.getFechaInicio() : "");
-            horario.setText(asesoria.getHorario() != null ? asesoria.getHorario() : "");
-            modalidad.setText(asesoria.getModalidad() != null ? asesoria.getModalidad() : "");
-
-            btn_infoAsesorias.setOnClickListener(v -> {
-                if (listener != null) listener.onInfoClick(asesoria);
+            itemView.setOnClickListener(v -> {
+                if (itemListener != null && a != null) {
+                    itemListener.onClick(a);
+                }
             });
 
-            btn_completarAsesoria.setOnClickListener(v -> {
-                if (listener != null) listener.onCompletarAsesoria(asesoria);
+            btnCompletar.setOnClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && completarListener != null && a != null) {
+                    completarListener.onCompletar(a, pos);
+                }
             });
 
-            btn_materialAdicional.setOnClickListener(v -> {
-                if (listener != null) listener.onMaterialClick(asesoria);
+            btnMaterial.setOnClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && materialListener != null && a != null) {
+                    materialListener.onMaterial(a, pos);
+                }
             });
 
-            btn_eliminar.setOnClickListener(v -> {
-                if (listener != null) listener.onEliminaAsesoria(asesoria);
+            btnEliminar.setOnClickListener(v -> {
+                int pos = getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && eliminarListener != null && a != null) {
+                    eliminarListener.onEliminar(a, pos);
+                }
             });
         }
-
     }
+
 
     @NonNull
     @Override
-    public AsesoriaAdapter.AsesoriaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AsesoriaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_asesorias_en_curso, parent, false);
-        return new AsesoriaAdapter.AsesoriaViewHolder(vista);
+        return new AsesoriaViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AsesoriaAdapter.AsesoriaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AsesoriaViewHolder holder, int position) {
         holder.bind(lista.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return lista != null ? lista.size() : 0;
     }
 }

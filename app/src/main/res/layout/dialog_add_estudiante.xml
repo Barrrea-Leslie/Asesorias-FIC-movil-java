@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="Añadir Estudiante"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"/>
+
+
+
+    <EditText
+        android:id="@+id/etBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_below="@+id/txtMaterias"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_buscador"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:hint="Buscar"
+        android:padding="12dp"
+        android:layout_marginBottom="15dp"
+        />
+
+    <!-- Texto  -->
+    <TextView
+        android:text="Estudiantes disponibles:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- recycler -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEstudiantes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
