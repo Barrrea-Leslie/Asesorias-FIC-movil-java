@@ -89,6 +89,53 @@ public class CrearEstudiantes extends AppCompatActivity {
         btn_guardar.setOnClickListener(v -> CrearEstudiante());
    }
 
+    private boolean validarCampos() {
+
+        if (campoNombre.getText().toString().trim().isEmpty()) {
+            campoNombre.setError("Nombre obligatorio");
+            return false;
+        }
+        if (campoApePat.getText().toString().trim().isEmpty()) {
+            campoApePat.setError("Apellido paterno obligatorio");
+            return false;
+        }
+        if (campoApeMat.getText().toString().trim().isEmpty()) {
+            campoApeMat.setError("Apellido materno obligatorio");
+            return false;
+        }
+        if (campoNumeroCuenta.getText().toString().trim().isEmpty()) {
+            campoNumeroCuenta.setError("Número de cuenta obligatorio");
+            return false;
+        }
+        if (campoCorreo.getText().toString().trim().isEmpty()) {
+            campoCorreo.setError("Correo obligatorio");
+            return false;
+        }
+        if (campoNumCel.getText().toString().trim().isEmpty()) {
+            campoNumCel.setError("Número celular obligatorio");
+            return false;
+        }
+        if (campoContrasena.getText().toString().trim().isEmpty()) {
+            campoContrasena.setError("Contraseña obligatoria");
+            return false;
+        }
+        if (campoPromedio.getText().toString().trim().isEmpty()) {
+            campoPromedio.setError("Promedio obligatorio");
+            return false;
+        }
+
+        if (spGrupo.getSelectedItem() == null) {
+            Toast.makeText(this, "Debe seleccionar un grupo", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (spLicenciatura.getSelectedItem() == null) {
+            Toast.makeText(this, "Debe seleccionar una licenciatura", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
     public void editarEstudiante() {
         String textoNumeroCuenta = campoNumeroCuenta.getText().toString().trim();
 
@@ -130,6 +177,11 @@ public class CrearEstudiantes extends AppCompatActivity {
     }
 
     public void CrearEstudiante(){
+
+        if (!validarCampos()) {
+            return;
+        }
+
         String textoNumeroCuenta = campoNumeroCuenta.getText().toString().trim();
         Grupo grupo = (Grupo) spGrupo.getSelectedItem();
         Licenciatura licenciatura = (Licenciatura) spLicenciatura.getSelectedItem();

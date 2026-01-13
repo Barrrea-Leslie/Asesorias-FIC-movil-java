@@ -131,6 +131,48 @@ public class crearAsesoresDisciplinares extends AppCompatActivity {
 
     }
 
+    private boolean validarCampos(){
+        if (campoNombre.getText().toString().trim().isEmpty()) {
+            campoNombre.setError("El nombre es obligatorio");
+            return false;
+        }
+        if (campoApePat.getText().toString().trim().isEmpty()) {
+            campoApePat.setError("El apellido paterno es obligatorio");
+            return false;
+        }
+        if (campoApeMat.getText().toString().trim().isEmpty()) {
+            campoApeMat.setError("El apellido materno es obligatorio");
+            return false;
+        }
+        if (campoNumeroCuenta.getText().toString().trim().isEmpty()) {
+            campoNumeroCuenta.setError("El número de cuenta es obligatorio");
+            return false;
+        }
+        if (campoCorreo.getText().toString().trim().isEmpty()) {
+            campoCorreo.setError("El correo es obligatorio");
+            return false;
+        }
+        if (campoNumCel.getText().toString().trim().isEmpty()) {
+            campoNumCel.setError("El número de celular es obligatorio");
+            return false;
+        }
+        if (campoContrasena.getText().toString().trim().isEmpty()) {
+            campoContrasena.setError("La contraseña es obligatoria");
+            return false;
+        }
+
+        if (materiasElegidas.isEmpty()) {
+            Toast.makeText(this, "Debe agregar al menos una materia", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (horariosElegidos.isEmpty()) {
+            Toast.makeText(this, "Debe agregar al menos un horario", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
     void abrirDialogMaterias(ArrayList<Materia> listaMaterias) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_add_materia);
@@ -249,6 +291,11 @@ public class crearAsesoresDisciplinares extends AppCompatActivity {
     }
 
     public void crearAsesorDisciplinar() {
+
+        if (!validarCampos()) {
+            return;
+        }
+
         List<MateriaId> materias = new ArrayList<>();
         List<HorarioId> horarios = new ArrayList<>();
 
