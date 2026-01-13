@@ -1,138 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dp"
-    android:background="@color/white"
-    tools:context=".rol_estudiante.EstudiantesInformacionSolicitarAsesoriasActivity">
+    android:fillViewport="true">
 
-    <LinearLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
+        android:layout_height="match_parent"
+        tools:context=".rol_administrador.InformacionAsesoresParActivity"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="30dp"
         >
 
-        <ImageButton
-            android:id="@+id/btnRegresar"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageButton
+                android:id="@+id/btnRegresar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flecha_regresar_icon"
+                android:background="@drawable/style_btn_flecha_regresar"
+                />
+
+            <TextView
+                android:id="@+id/textoPagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informacion Asesor"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/flecha_regresar_icon"
-            android:background="@drawable/style_btn_flecha_regresar"
+            android:text="Nombre(s)"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoNombre"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:paddingStart="20dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:text=""
             />
 
         <TextView
-            android:id="@+id/textoPagina"
+            android:id="@+id/txApePat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informacion del Asesor"
+            android:text="Apellido Paterno"
             android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#000000"
+            android:textSize="18sp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             />
+        <EditText
+            android:id="@+id/campoApePat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:paddingStart="20dp"
+            android:text=""
+            />
+
+        <TextView
+            android:id="@+id/txApeMat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apellido Materno"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            />
+        <EditText
+            android:id="@+id/campoApeMat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/style_inputs"
+            android:layout_marginTop="12dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:paddingStart="20dp"
+            android:text=""
+            />
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ENCABEZADO MATERIAS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Materias que asesora"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+
+        </LinearLayout>
+
+        <!-- LISTA MATERIAS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMateriasAsesor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+        <!-- ENCABEZADO HORARIOS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Horarios que asesora"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+
+        </LinearLayout>
+
+        <!--HORARIOS -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHorariosAsesor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+
+
 
     </LinearLayout>
 
-    <TextView
-        android:text="Nombre Completo"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        />
-
-    <EditText
-        android:id="@+id/campoNombreAsesor"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/bg_input"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:paddingHorizontal="10dp"
-        />
-
-    <TextView
-        android:text="Materias que Asesora"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:text="Materias"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
-        android:text="Dias de la semana disponibles"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:text="Dias"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
-        android:text="Horarios de atencion"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:text="Horarios"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
-        android:text="Modalidades de asesoria"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:text="Modalidades"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        />
-
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

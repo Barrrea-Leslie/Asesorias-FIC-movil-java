@@ -1,6 +1,7 @@
 package com.lesliefic.asesoriasfic.repositorios;
 
 import com.lesliefic.asesoriasfic.modelo.Asesores;
+import com.lesliefic.asesoriasfic.modelo.AsesoresEstudiante;
 import com.lesliefic.asesoriasfic.modelo.Asesoria;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.SolicitudPendiente;
@@ -12,6 +13,7 @@ import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesoriaRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EliminarSolicitudRequest;
+import com.lesliefic.asesoriasfic.network.request.estudiante.FiltrarSolicitarRequest;
 
 import java.util.List;
 
@@ -19,11 +21,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AsesoriasCursoRepository {
+public class SolicitarAsesoriaRepository {
 
     private final ApiService api;
 
-    public AsesoriasCursoRepository(){
+    public SolicitarAsesoriaRepository(){
         api = RetrofitClient.getClient().create(ApiService.class);
     }
 
@@ -32,18 +34,23 @@ public class AsesoriasCursoRepository {
         void onError(String error);
     }
 
-    public void obtenerAsesorias(AsesoriasCursoRepository.ResultCallback<List<Asesoria>> cb) {
+    public void obtenerAsesoresEstudiante(
+            SolicitarAsesoriaRepository.ResultCallback<List<AsesoresEstudiante>> cb
+    ) {
 
-        api.obtenerAsesorias().enqueue(new Callback<List<Asesoria>>() {
+        api.obtenerAsesoresEstudiante().enqueue(new Callback<List<AsesoresEstudiante>>() {
             @Override
-            public void onResponse(Call<List<Asesoria>> call, Response<List<Asesoria>> response) {
+            public void onResponse(
+                    Call<List<AsesoresEstudiante>> call,
+                    Response<List<AsesoresEstudiante>> response
+            ) {
 
                 if (!response.isSuccessful()) {
                     cb.onError("HTTP ERROR: " + response.code());
                     return;
                 }
 
-                List<Asesoria> lista = response.body();
+                List<AsesoresEstudiante> lista = response.body();
                 if (lista == null) {
                     cb.onError("Body null");
                     return;
@@ -53,7 +60,39 @@ public class AsesoriasCursoRepository {
             }
 
             @Override
-            public void onFailure(Call<List<Asesoria>> call, Throwable t) {
+            public void onFailure(Call<List<AsesoresEstudiante>> call, Throwable t) {
+                cb.onError(t.getMessage());
+            }
+        });
+    }
+
+    public void obtenerAsesoresFiltros(FiltrarSolicitarRequest request,
+            SolicitarAsesoriaRepository.ResultCallback<List<AsesoresEstudiante>> cb
+    ) {
+
+        api.obtenerAsesoresFiltros(request).enqueue(new Callback<List<AsesoresEstudiante>>() {
+            @Override
+            public void onResponse(
+                    Call<List<AsesoresEstudiante>> call,
+                    Response<List<AsesoresEstudiante>> response
+            ) {
+
+                if (!response.isSuccessful()) {
+                    cb.onError("HTTP ERROR: " + response.code());
+                    return;
+                }
+
+                List<AsesoresEstudiante> lista = response.body();
+                if (lista == null) {
+                    cb.onError("Body null");
+                    return;
+                }
+
+                cb.onSuccess(lista);
+            }
+
+            @Override
+            public void onFailure(Call<List<AsesoresEstudiante>> call, Throwable t) {
                 cb.onError(t.getMessage());
             }
         });

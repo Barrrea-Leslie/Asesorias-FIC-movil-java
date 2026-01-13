@@ -29,7 +29,7 @@
             android:id="@+id/textoPagina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Solicitar Asesoria"
+            android:text="Filtros"
             android:textStyle="bold"
             android:textSize="22sp"
             android:textColor="#000000"
@@ -39,30 +39,7 @@
 
     </LinearLayout>
 
-    <TextView
-        android:text="Dia de la semana"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_input"
-        android:layout_marginBottom="16dp"
-        >
-        <Spinner
-            android:id="@+id/spDiaSemana"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:padding="0dp"
-            android:spinnerMode="dropdown"
-            />
-    </LinearLayout>
 
     <TextView
         android:text="Materia"
@@ -114,30 +91,7 @@
             />
     </LinearLayout>
 
-    <TextView
-        android:text="Modalidad"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_input"
-        android:layout_marginBottom="16dp"
-        >
-        <Spinner
-            android:id="@+id/spModalidad"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:padding="0dp"
-            android:spinnerMode="dropdown"
-            />
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

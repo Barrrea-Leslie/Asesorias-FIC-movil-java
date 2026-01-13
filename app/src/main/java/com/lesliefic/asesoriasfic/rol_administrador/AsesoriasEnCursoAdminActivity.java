@@ -2,6 +2,7 @@ package com.lesliefic.asesoriasfic.rol_administrador;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -93,11 +94,7 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
 
 
                 (asesoria, position) -> {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "completar",
-                            Toast.LENGTH_SHORT
-                    ).show();
+
                 },
 
 
@@ -109,11 +106,7 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
                     ).show();
                 },
                 (asesoria, position) -> {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "eliminar",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    eliminarAsesorias(asesoria.getIdAsesoria());
                 }
         );
 
@@ -165,6 +158,32 @@ public class AsesoriasEnCursoAdminActivity extends DrawerBaseActivity {
                 Toast.makeText(
                         getApplicationContext(),
                         "error:" + error,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+    public void eliminarAsesorias(int id_asesoria){
+        Log.d("DELETE", "id_asesoria=" + id_asesoria);
+        repoAsesorias.eliminarAsesoria(id_asesoria, new AsesoriasCursoRepository.ResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                if(data == 1){
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "ASESORIA ELIMINADA",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    obtenerAsesorias();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "error" + error,
                         Toast.LENGTH_SHORT
                 ).show();
             }

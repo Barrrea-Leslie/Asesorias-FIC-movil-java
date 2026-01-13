@@ -3,11 +3,13 @@ package com.lesliefic.asesoriasfic.network;
 import com.lesliefic.asesoriasfic.modelo.AsesorDisciplinar;
 import com.lesliefic.asesoriasfic.modelo.AsesorPar;
 import com.lesliefic.asesoriasfic.modelo.Asesores;
+import com.lesliefic.asesoriasfic.modelo.AsesoresEstudiante;
 import com.lesliefic.asesoriasfic.modelo.Asesoria;
 import com.lesliefic.asesoriasfic.modelo.Estudiante;
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
+import com.lesliefic.asesoriasfic.modelo.LoginResponse;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.Modalidad;
 import com.lesliefic.asesoriasfic.modelo.Razon;
@@ -16,11 +18,14 @@ import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorDisciplinarRe
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearAsesoriaRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearSolicitudPendienteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorDisciplinarRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesoriaRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EliminarSolicitudRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.IniciarSesionRequest;
+import com.lesliefic.asesoriasfic.network.request.estudiante.FiltrarSolicitarRequest;
 
 import java.util.List;
 
@@ -106,6 +111,21 @@ public interface ApiService {
     Call<Integer> editarAsesoria(@Body EditarAsesoriaRequest request);
 
     @DELETE("/asesorias")
-    Call<Integer> eliminarAsesoria(@Query("id_asesoria") int id_persona);
+    Call<Integer> eliminarAsesoria(@Query("id_asesoria") int id_asesoria);
+
+    @POST("/usuarios")
+    Call<LoginResponse> iniciarSesion(@Body IniciarSesionRequest request);
+
+    @POST("/solicitudes")
+    Call<Integer> crearSolicitud(@Body CrearSolicitudPendienteRequest request);
+
+    @GET("/solicitar")
+    Call<List<AsesoresEstudiante>> obtenerAsesoresEstudiante();
+
+    @POST("/solicitar/filtros")
+    Call<List<AsesoresEstudiante>> obtenerAsesoresFiltros(@Body FiltrarSolicitarRequest request);
+
+
+
 
 }

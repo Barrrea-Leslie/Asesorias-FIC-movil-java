@@ -2,11 +2,13 @@ package com.lesliefic.asesoriasfic.repositorios;
 
 import com.lesliefic.asesoriasfic.modelo.Grupo;
 import com.lesliefic.asesoriasfic.modelo.Licenciatura;
+import com.lesliefic.asesoriasfic.modelo.LoginResponse;
 import com.lesliefic.asesoriasfic.modelo.Materia;
 import com.lesliefic.asesoriasfic.modelo.Horario;
 import com.lesliefic.asesoriasfic.network.ApiService;
 import com.lesliefic.asesoriasfic.network.RetrofitClient;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarAsesorParRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.IniciarSesionRequest;
 
 import java.util.List;
 
@@ -59,6 +61,43 @@ public class UsuariosRepository {
         });
     }
 
+    public void iniciarSesion(
+            IniciarSesionRequest request,
+            UsuariosRepository.ResultCallback<LoginResponse> cb
+    ) {
+        api.iniciarSesion(request).enqueue(new Callback<LoginResponse>() {
 
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+
+                if (!response.isSuccessful()) {
+                    String msg = "HTTP " + response.code();
+                    try {
+                        if (response.errorBody() != null) {
+                            msg = response.errorBody().string();
+                        }
+                    } catch (Exception ignored) {
+                    }
+                    cb.onError(msg);
+                    return;
+                }
+
+                LoginResponse r = response.body();
+                if (r == null) {
+                    cb.onError("Body null");
+                    return;
+                }
+
+                cb.onSuccess(r);
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable throwable) {
+                cb.onError(throwable.getMessage());
+            }
+        });
+
+
+    }
 
 }

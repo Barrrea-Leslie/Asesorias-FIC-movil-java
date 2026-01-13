@@ -34,7 +34,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         if (rol == 1) {
             drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base, null);
-        } else if (rol == 2) {
+        } else if (rol == 2 || rol == 4) {
             drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_asesor_drawer_base, null);
         } else if (rol == 3) {
             drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_estudiante_drawer_base, null);

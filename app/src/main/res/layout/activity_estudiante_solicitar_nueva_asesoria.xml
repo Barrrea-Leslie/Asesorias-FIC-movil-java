@@ -1,176 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".rol_estudiante.estudiante_solicitar_nueva_asesoria">
+    tools:context=".rol_administrador.InformacionAsesoriaActivity"
+    android:padding="30dp"
+    android:background="@color/white">
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/contenedorTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flecha_regresar_icon"
+            android:background="@drawable/style_btn_flecha_regresar" />
+
+        <TextView
+            android:id="@+id/textoPagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solicitar Asesoría"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/contnedorBoton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="30dp"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Asesoria"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/style_btn_filtros" />
+    </LinearLayout>
+
+    <!-- SCROLL -->
+    <ScrollView
+        android:id="@+id/contenedorFormulario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintTop_toBottomOf="@id/contenedorTitulo"
+        app:layout_constraintBottom_toTopOf="@id/contnedorBoton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="30dp"
-            >
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/btnRegresar"
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txtTitulo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Asesor"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <Button
+                    android:id="@+id/btnAgregarAsesor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Añadir"
+                    android:backgroundTint="#51A351"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/campoAsesor"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_buscador"
+                android:padding="12dp"
+                android:hint="añada un asesor"
+                android:focusable="false"
+                android:clickable="false"/>
+
+
+
+            <TextView
+                android:id="@+id/txtMateria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/flecha_regresar_icon"
-                android:background="@drawable/style_btn_flecha_regresar"
+                android:text="Materia"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spMateria"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtRazon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Razon"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spRazon"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtModalidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modalidad"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spModalidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:text="Fecha"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 />
 
             <TextView
-                android:id="@+id/textoPagina"
+                android:id="@+id/tvFecha"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Elige una fecha"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:drawableEnd="@drawable/calendario_icon"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:id="@+id/txtHorario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Solicitar Asesoria"
+                android:text="Horario"
                 android:textStyle="bold"
-                android:textSize="22sp"
+                android:textSize="18sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="12dp"
+                >
+                <Spinner
+                    android:id="@+id/spHorario"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:padding="0dp"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:text="Nota para el asesor (OPCIONAL)"
+                android:textStyle="bold"
                 android:textColor="#000000"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
                 />
-
-
-        </LinearLayout>
-
-
-
-        <TextView
-            android:text="Asesor"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            />
-
-        <EditText
-            android:id="@+id/campoNombreAsesor"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/bg_input"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:paddingHorizontal="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input"
-            android:layout_marginBottom="16dp"
-            >
-            <Spinner
-                android:id="@+id/spMateria"
+            <EditText
+                android:id="@+id/etNota"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:padding="0dp"
-                android:spinnerMode="dropdown"
-                />
+                android:layout_height="70dp"
+                android:gravity="top"
+                android:padding="10dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"/>
+
+
         </LinearLayout>
+    </ScrollView>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <TextView
-            android:text="Fecha"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            />
-
-        <TextView
-            android:id="@+id/tvFecha"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="Elige una fecha"
-            android:gravity="center_vertical"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:drawableEnd="@drawable/calendario_icon"
-            android:background="@drawable/bg_input"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input"
-            android:layout_marginBottom="16dp"
-            >
-            <Spinner
-                android:id="@+id/spHorarios"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input"
-            android:layout_marginBottom="16dp">
-            <Spinner android:id="@+id/spModalidad"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input"
-            android:layout_marginBottom="16dp"
-            >
-            <Spinner
-                android:id="@+id/spRazon"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                />
-        </LinearLayout>
-
-        <TextView
-            android:text="Nota para el asesor (opcional)"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            />
-        <EditText
-            android:id="@+id/etNota"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:gravity="top"
-            android:padding="10dp"
-            android:background="@drawable/bg_input"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"/>
-
-
-        <Button
-            android:id="@+id/btnConfirmar"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Confirmar"
-            app:backgroundTint="#4CAF50"
-            android:background="@drawable/style_btn_filtros"
-            android:layout_gravity="center"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-</ScrollView>

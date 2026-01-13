@@ -3,6 +3,7 @@ package com.lesliefic.asesoriasfic.modelo;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Asesores implements Serializable {
     @SerializedName("id_persona")
@@ -10,6 +11,12 @@ public class Asesores implements Serializable {
 
     @SerializedName("asesor")
     private String asesor;
+
+    @SerializedName("materiasasesor")
+    private List<Materia> materiasAsesor;
+
+    @SerializedName("horariosasesor")
+    private List<Horario> horariosAsesor;
 
 
     public int getId_persona(){

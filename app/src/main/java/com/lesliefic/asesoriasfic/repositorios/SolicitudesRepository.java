@@ -5,6 +5,7 @@ import com.lesliefic.asesoriasfic.modelo.SolicitudPendiente;
 import com.lesliefic.asesoriasfic.network.ApiService;
 import com.lesliefic.asesoriasfic.network.RetrofitClient;
 import com.lesliefic.asesoriasfic.network.request.admin.CrearEstudianteRequest;
+import com.lesliefic.asesoriasfic.network.request.admin.CrearSolicitudPendienteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EditarEstudianteRequest;
 import com.lesliefic.asesoriasfic.network.request.admin.EliminarSolicitudRequest;
 
@@ -115,23 +116,27 @@ public class SolicitudesRepository {
         });
     }
 
-    public void editarEstudiante(EditarEstudianteRequest request, EstudiantesRepository.ResultCallback<Integer> cb){
-        api.editarEstudiante(request).enqueue(new Callback<Integer>() {
+    public void crearSolicitud(CrearSolicitudPendienteRequest request,
+                               SolicitudesRepository.ResultCallback<Integer> cb) {
+
+        api.crearSolicitud(request).enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
-                if(!response.isSuccessful()){
+
+                if (!response.isSuccessful()) {
                     String msg = "HTTP " + response.code();
-                    try{
-                        if (response.errorBody() != null){
+                    try {
+                        if (response.errorBody() != null) {
                             msg = response.errorBody().string();
                         }
-                    } catch (Exception ignored) {
-                        cb.onError(msg);
-                        return;
-                    }
+                    } catch (Exception ignored) {}
+
+                    cb.onError(msg);
+                    return;
                 }
+
                 Integer r = response.body();
-                if(r == null){
+                if (r == null) {
                     cb.onError("Body null");
                     return;
                 }
